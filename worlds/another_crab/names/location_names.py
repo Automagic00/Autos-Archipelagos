@@ -564,6 +564,7 @@ rustynail_flotsamvale_brokenbutane = "Rusty Nail (Flotsam Vale - In Gunk Under B
 sinker_flotsamvale_woodplatform = "Sinker (Flotsam Vale - Wooden Platform Above Sludge Steamroller)"
 mussel_flotsamvale_woodplatform = "Mussel (Flotsam Vale - Wooden Platform Above Sludge Steamroller)"
 rustynail_flotsamvale_steamroller = "Rusty Nail (Flotsam Vale - In Gunk Near Sludge Steamroller)"
+barnacle_flotsamvale_steamroller =  "Barnacle (Flotsam Vale - On Roof Above Sludge Steamroller)"
 limpet_flotsamvale_trashpile = "Limpet (Flotsam Vale - Trash Pile Near Sludge Steamroller)"
 fruitsticker_flotsamvale_westbutane = "Fruit Sticker (Flotsam Vale - Butane Tanks West of Sludge Steamroller)"
 seacucumber_flotsamvale_westbutane = "Sea Cucumber (Flotsam Vale - Butane Tanks West of Sludge Steamroller)"

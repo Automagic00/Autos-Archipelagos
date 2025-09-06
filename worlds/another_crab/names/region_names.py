@@ -22,11 +22,19 @@ carcinia_ruins = "New Carcinia Ruins" # adding this because it will probably nee
 
 # sub regions
 slacktide_before = "Fort Slacktide - Before Destruction" # slacktide before the player gets the pearl and slacktide goes crazy
+central_shallows_grapple = "Central Shallows - Items Behind Grapple" # a selection of items in slacktide which can be obtained without the grapple using parkour
 slacktide_after = "Fort Slacktide - After Destruction" # slacktide after the player gets the pearl and slacktide goes crazy
+reefs_edge_grapple = "Reef's Edge - Items Behind Grapple" # a selection of items in reef's edge which can be obtained without grapple using parkour
 post_pag = "The Sands Between - Post Pagurus" # after the pagurus map piece is returned
-secluded_ridge = "Secluded Ridge & Trashbin Plateau" # area in sands that requires mantis punch to access
+southern_town_ridge = "Southern Town Ridge" # area in sands by company town which usually requires eelectrocute to access
+secluded_ridge = "Secluded Ridge" # area in sands that usually requires mantis punch to access
+secluded_ridge_eel = "Secluded Ridge - Past Eelectrocute" # sub-region of secluded ridge that usually requires eelectrocute to access
+trashbin_plateau = "Trashbin Plateau" 
 grove_main = "Expired Grove - Main" # grove up to heikea
+grove_raised_platforms = "Expired Grove - Raised Platforms"
 grove_village = "Expired Grove - Village" # grove path to topoda
-vale_main = "Flotsam Vale - Main" # flotsam vale before getting all map pieces
+#vale_main = "Flotsam Vale - Main" # flotsam vale before getting all map pieces 
+post_ceviche = "Flotsam Vale - Post Ceviche Sisters" # items in flotsam vale only available after killing ceviche sisters in vanilla
+consortium_arena = "Flotsam Vale - Consortium Arena" # linked to grove_village and flotsam vale
 scuttleport = "Scuttleport" # part of the flotsam vale region, but specifically the area where the player finds voltai
 plains = "Abyssal Plains" # the last big area in the unfathom just before the inkerton fight
