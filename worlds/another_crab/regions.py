@@ -16,11 +16,14 @@ ACT_regions: Dict[str, Set[str]] = {
         rname.central_shallows
     },
     rname.central_shallows: {
+        rname.central_shallows_grapple,
         rname.slacktide_before,
         sname.soda_can
     },
+    rname.central_shallows_grapple: set(),
     rname.slacktide_before: {
         rname.snail_cave,
+        rname.reefs_edge,
         sname.soda_can,
         sname.coconut,
         sname.banana_peel,
@@ -34,16 +37,17 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.party_hat
     },
     rname.slacktide_after: {
-        rname.reefs_edge,
         sname.teacup
     },
     rname.reefs_edge: {
+        rname.reefs_edge_grapple,
         rname.new_carcinia,
         sname.salt_shaker,
         sname.thimble,
         sname.tennis_ball,
         sname.sauce_nozzle
     },
+    rname.reefs_edge_grapple: set(),
     rname.new_carcinia: {
         rname.sands_between,
         sname.f_key,
@@ -61,6 +65,8 @@ ACT_regions: Dict[str, Set[str]] = {
     rname.sands_between: {
         rname.post_pag,
         rname.secluded_ridge,
+        rname.trashbin_plateau,
+        rname.southern_town_ridge,
         rname.grove_main,
         rname.flotsam_vale,
         sname.coffee_pod,
@@ -78,18 +84,27 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.lil_red_cup
     },
     rname.post_pag: set(),
-    rname.secluded_ridge: set(),
+    rname.secluded_ridge: {
+        rname.secluded_ridge_eel
+    },
+    rname.secluded_ridge_eel: set(), 
+    rname.trashbin_plateau: set(),
+    rname.southern_town_ridge: set(),
     rname.grove_main: {
         rname.grove_village,
+        rname.grove_raised_platforms,
+        rname.consortium_arena,
         sname.coffee_mug
     },
+    rname.grove_raised_platforms: set(),
     rname.grove_village: {
         sname.skull,
         sname.ham_tin,
         sname.crab_husk
     },
     rname.flotsam_vale: {
-        rname.grove_village,
+        rname.post_ceviche,
+        rname.consortium_arena,
         rname.scuttleport,
         sname.boxing_glove,
         sname.spring,
@@ -97,6 +112,8 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.tissue_box,
         sname.cardboard_box
     },
+    rname.post_ceviche: set(),
+    rname.consortium_arena: set(),
     rname.scuttleport: {
         rname.pinbarge,
         sname.dumptruck,

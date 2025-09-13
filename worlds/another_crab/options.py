@@ -38,16 +38,18 @@ class AllowForkless(Choice):
     option_forkless_hard = 2
     default = 0
 
-# class LogicRules(Choice):
-#    """Set the preferred logic rules for your game
-#    - Restricted: Standard logic, no skips/glitches required to complete goal.
-#    - No Major Glitches: Allows for {list of easy logic rules here} to be needed to complete goal.
-#    - Unrestricted: In addition to the list under No Major Glitches allows for {list of more advanced rules here} to be needed to complete goal."""
-#    display_name:str = "Logic Rules"
-#    option_restricted = 0
-#    option_no_major_glitches = 1
-#    option_unrestricted = 2
-#    default = 0
+class LogicRules(Choice):
+    """Set the preferred logic rules for your game
+    - Vanilla: Standard logic, no skips/glitches required to complete the goal.
+    - Glitchless: Allows for the following parkour-based skips (list of glitchless rules here) to be required to complete the goal.
+    - Restricted: In addition to the list under glitchless, allows for (list of easy glitches/skips here) to be required to complete the goal.
+    - Unrestricted: In addition to the lists under both glitchless and restricted, allows for (list of hard glitches/skips here) to be required to complete the goal."""
+    display_name:str = "Logic Rules"
+    option_vanilla = 0
+    option_glitchless = 1
+    option_restricted = 2
+    option_unrestricted = 3
+    default = 0
  
 class ShelleportLocation(Choice):
     """Choose where the Shelleport (fast travel) skill location is set
@@ -108,7 +110,7 @@ class ACTGameOptions(PerGameCommonOptions):
     goal: Goal
     fork_location: ForkLocation
     allow_forkless: AllowForkless
-    #logic_rules: LogicRules
+    logic_rules: LogicRules
     shelleport_location: ShelleportLocation
     fishing_line_location: FishingLineLocation
     randomshells: RandomShells
