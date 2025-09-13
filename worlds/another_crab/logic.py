@@ -28,19 +28,21 @@ if TYPE_CHECKING:
 
 
 #Check if regions are accessible based on current glitch category and items (try to only invoke options in rules)
+def can_skip_some_grapples(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return state.has(iname.fishing_line, player) or are_skips_allowed(options)
 
 def is_slacktide_before_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.can_reach_location(lname.nephro, player) or are_skips_allowed(options)
-    
-def is_reefs_edge_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return is_reefs_edge_accessible_vanilla(state, player) or can_magista_skip(options, state, player)
 
 def is_reefs_edge_accessible_vanilla(state: CollectionState, player: int) -> bool:
     return state.has_all({iname.fishing_line, iname.pristine_pearl}, player) and state.can_reach_location(lname.magista, player)
  
 # This allows I-beam/decoy (skips), or CAL (glitch) to enter cave
 def is_moonsnail_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return (state.has(iname.fishing_line, player) or are_skips_allowed(options)) and can_pink_crab(options, state, player)
+    return can_reach_moonsnail(options, state, player) and can_pink_crab(options, state, player)
+    
+def can_reach_moonsnail(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return state.has(iname.fishing_line, player) or are_skips_allowed(options)
     
 def is_post_ceviche_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player)

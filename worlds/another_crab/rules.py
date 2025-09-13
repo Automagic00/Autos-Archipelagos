@@ -29,7 +29,7 @@ def set_region_rules(world: "ACTWorld") -> None:
   #logic.set_options(world.options)
 
   multiworld.get_entrance("Central Shallows -> Central Shallows - Items Behind Grapple", player).access_rule = \
-    lambda state: (state.has(iname.fishing_line,player) or logic.are_skips_allowed(options))
+    lambda state: logic.can_skip_some_grapples(options, state, player)
     
   multiworld.get_entrance("Central Shallows -> Fort Slacktide - Before Destruction", player).access_rule = \
     lambda state: logic.is_slacktide_before_accessible(options, state, player)
@@ -41,10 +41,13 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: state.has(iname.pristine_pearl, player)  
     
   multiworld.get_entrance("Fort Slacktide - Before Destruction -> Reef's Edge", player).access_rule = \
-    lambda state: logic.is_reefs_edge_accessible(options, state, player)
+    lambda state: logic.can_magista_skip(options, state, player)
+    
+  multiworld.get_entrance("Fort Slacktide - After Destruction -> Reef's Edge", player).access_rule = \
+    lambda state: logic.is_reefs_edge_accessible_vanilla(state, player)
     
   multiworld.get_entrance("Reef's Edge -> Reef's Edge - Items Behind Grapple", player).access_rule = \
-  lambda state: (state.has(iname.fishing_line,player) or logic.are_skips_allowed(options))
+    lambda state: logic.can_skip_some_grapples(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Secluded Ridge", player).access_rule = \
     lambda state: logic.is_secluded_ridge_accessible(options, state, player)

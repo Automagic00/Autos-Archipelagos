@@ -37,6 +37,7 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.party_hat
     },
     rname.slacktide_after: {
+        rname.reefs_edge,
         sname.teacup
     },
     rname.reefs_edge: {
