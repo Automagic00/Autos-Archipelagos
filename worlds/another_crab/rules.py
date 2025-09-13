@@ -803,6 +803,10 @@ def set_location_rules(world: "ACTWorld") -> None:
         # grapple + eelectrocute (will add metal shell later)
         set_rule(multiworld.get_location(lname.oldworldwhorl_scuttleport_eelectrocute, player),
                 lambda state: state.has_all({iname.fishing_line, iname.eelectrocute}, player))
+                
+        # grapple and spearfishing
+        set_rule(multiworld.get_location(lname.mussel_scuttleport_magnetfish,player),
+                lambda state: state.has_all({iname.fishing_line, iname.spearfishing}, player))
         
         if options.goal != "voltai" and options.goal != "roland":
         
@@ -830,4 +834,8 @@ def set_location_rules(world: "ACTWorld") -> None:
                 # mantis punch
                 set_rule(multiworld.get_location(lname.whelkplusplus_oldocean_mantis, player),
                         lambda state: state.has(iname.mantis_punch, player))
+                        
+                # grapple
+                set_rule(multiworld.get_location(lname.fruitstickerplus_oldocean_island, player),
+                        lambda state: state.has(iname.fishing_line,player))
                         

@@ -106,7 +106,6 @@ clothesclaw_grovemain_choccymilk = "Clothesclaw (Expired Grove Main - Chocolate 
 breadclaw_grovemain_insidetire = "Breadclaw (Expired Grove Main - Inside Tire Archway)"
 chipclaw_grovemain_sniper = "Chipclaw (Expired Grove Main - East Sniper Ledge)"
 hairclaw_grovemain_milkurchins = "Hairclaw (Expired Grove Main - Milk Carton Urchins)"
-breadclaw_grovemain_smallhall = "Breadclaw (Expired Grove Main - Small Connecting Hallway)"
 chipclaw_grovemain_apples = "Chipclaw (Expired Grove Main - Rotten Apple Cores)"
 chipclaw_grovemain_sodacans = "Chipclaw (Expired Grove Main - Shopping Cart Soda Cans)"
 hairclaw_grovemain_moonshine = "Hairclaw (Expired Grove Main - Shopping Cart Moonshine)"
@@ -119,6 +118,8 @@ breadclaw_grovemain_oilgrapple = "Breadclaw (Expired Grove Main - Grapple Near T
 clothesclaw_grovemain_mantisfish = "Clothesclaw (Expired Grove Main - Fishing Near Mantis Block)"
 hairclaw_grovemain_fishing = "Hairclaw (Expired Grove Main - Hidden Fishing Near Milk Carton)"
 clothesclaw_grovemain_riverfish = "Clothesclaw (Expired Grove Main - River Fishing Near Carbonara Waterfall)"
+clothesclaw_grovemain_waterfall = "Clothesclaw (Expired Grove Main - Behind Waterfall Near Lycanthrope)"
+hairclaw_grovemain_afternets = "Hairclaw (Expired Grove Main - Ledge After Grapple Nets)"
 
 breadclaw_grovevillage_oildrum = "Breadclaw (Expired Grove Village - After Oil Drum)"
 breadclaw_grovevillage_bottle1 = "Breadclaw (Expired Grove Village - In Bottle Near Cart Mantis Block 1)"
@@ -263,6 +264,7 @@ stapleclaw_oldocean_eastbuilding = "Stapleclaw (The Old Ocean - Ledge Outside Ea
 carclaw_oldocean_camtschapath = "Carclaw (The Old Ocean - Pathway to Camtscha's Arena)"
 stapleclaw_oldocean_camtschastairs = "Stapleclaw (The Old Ocean - Large Staircase in Front of Camtscha Arena)"
 carclaw_oldocean_middlebuilding = "Carclaw (The Old Ocean - Clam in Middle Building)"
+paperclaw_oldocean_upperhouse = "Paperclaw (The Old Ocean - Upper Floor of House Near Cork)"
 
 # upgrade item locations
 bloodstar_shallows_help = "Bloodstar Limb (Central Shallows - Help a Crab)" # the bloodstar limb acquired from helping the surrounded crab in the shallows
@@ -367,6 +369,7 @@ sharkegg_ridge_broomspire = "Shark Egg (Secluded Ridge - Broom Spire Peak)"
 
 barbedhook_trashbin_eelgrapple = "Barbed Hook (Trashbin Plateau - Eelectrocute Grapple Path)"
 
+barbedhook_grovemain_entranceparkour = "Barbed Hook (Expired Grove Main - Parkour at Grove Entrance"
 barbedhook_grovemain_sniper = "Barbed Hook (Expired Grove Main - Next to Sniper Crab)"
 barbedhook_grovemain_riverledge = "Barbed Hook (Expired Grove Main - Ledge Near Gunk River)"
 barbedhook_grovemain_riversand = "Barbed Hook (Expired Grove Main - In Sand Near Gunk River)"
@@ -374,7 +377,6 @@ barbedhook_grovemain_lichenthrope = "Barbed Hook (Expired Grove Main - Behind Di
 barbedhook_grovemain_lichenthropeeast = "Barbed Hook (Expired Grove Main - Ledge East of Lichenthrope)"
 barbedhook_grovemain_sodacans = "Barbed Hook (Expired Grove Main - Crushed Soda Cans)"
 barbedhook_grovemain_acrossriver = "Barbed Hook (Expired Grove Main - Ledge Across Gunk River)"
-barbedhook_grovemain_afternets = "Barbed Hook (Expired Grove Main - Ledge After Grapple Nets)"
 barbedhook_grovemain_cartledge = "Barbed Hook (Expired Grove Main - Ledge After Shopping Cart)"
 barbedhook_grovemain_cartledgebottle = "Barbed Hook (Expired Grove Main - Bottles on Ledge After Shopping Cart)"
 barbedhook_grovemain_paperplate = "Barbed Hook (Expired Grove Main - Paper Plate Near River)"
@@ -382,7 +384,10 @@ barbedhook_grovemain_oildrum = "Barbed Hook (Expired Grove Main - Main Pathway A
 barbedhook_grovemain_canopy = "Barbed Hook  (Expired Grove Main - Carton Canopy)"
 barbedhook_grovemain_drumtop = "Barbed Hook (Expired Grove Main - Near Top of Oil Drum)"
 barbedhook_grovemain_carts = "Barbed Hook (Expired Grove Main - Shopping Cart Buildings)"
+barbedhook_grovemain_platebottle = "Barbed Hook (Expired Grove Main - Bottle Near Paper Plate)"
+barbedhook_grovemain_cartledgebottle2 = "Barbed Hook (Expired Grove Main - Bottles Over River From Shopping Cart)"
 sharkegg_grovemain_mantis = "Shark Egg (Expired Grove Main - Mantis Block on Left Path)"
+barbedhook_grovemain_smallhall = "Barbed Hook (Expired Grove Main - Small Connecting Hallway)"
 
 barbedhook_grovevillage_heikea = "Barbed Hook (Expired Grove Village - In Cave After Heikea)"
 barbedhook_grovevillage_cartfish = "Barbed Hook (Expired Grove Village - Hidden Fishing Near Shopping Cart Mantis Block)"
@@ -628,6 +633,7 @@ salpplus_plains_entrance = "Salp+ (Abyssal Plains - Above Entrance)"
 anothercrab_plains_shortcutclam = "Another Crab (Abyssal Plains - Clam On Ledge East of Shortcut)"
 seacucumber_plains_entrance = "Sea Cucumber (Abyssal Plains - North of Entrance)"
 fruitsticker_plains_entrance = "Fruit Sticker (Abyssal Plains - North of Entrance)"
+stapleclaw_unfathom_centreclam = "Stapleclaw (Abyssal Plains - North of Second CD)"
 
 sanddollar_oldocean_ledge = "Sand Dollar (The Old Ocean - Ledge North of Second Island)"
 barnacleplusplus_oldocean_styrofoam = "Barnacle++ (The Old Ocean - Across Styrofoam Block Hooks)"
@@ -641,6 +647,7 @@ sanddollar_oldocean_easternbuilding = "Sand Dollar (The Old Ocean - Inside Easte
 phytoplanktonplus_oldocean_clam = "Phytoplankton+ (The Old Ocean - Clam Inside Eastern Building)"
 musselplusplus_oldocean_woodplank = "Mussel++ (The Old Ocean - Clam in Secret Area Under Wooden Planks)"
 whelkplusplus_oldocean_mantis = "Whelk++ (The Old Ocean - Behind Mantis Punch Wall)"
+fruitstickerplus_oldocean_island = "Fruit Sticker+ (The Old Ocean - Beyond Lone House on Floating Island)"
 
 # costume locations
 captain_costume_pickup = "Captain Costume (Central Shallows - Near Nephro Spawn)"
