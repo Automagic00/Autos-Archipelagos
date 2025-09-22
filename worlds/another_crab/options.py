@@ -79,6 +79,11 @@ class RandomShells(Toggle):
     """Choose whether or not shells will be randomized. Only randomizes shells within other shell locations."""
     display_name: str = "Random Shells"
     default: bool = True
+    
+class RandomFuse(Toggle):
+    """Choose if the location of the Plug Fuse is randomized when using the shell randomizer. Does nothing if [RandomShells] is set to false"""
+    display_name: str = "Random Fuse"
+    default: bool = True
 
 class RemoveCostumes(Toggle):
     """Set to true to remove costumes from the item pool."""
@@ -114,6 +119,7 @@ class ACTGameOptions(PerGameCommonOptions):
     shelleport_location: ShelleportLocation
     fishing_line_location: FishingLineLocation
     randomshells: RandomShells
+    randomfuse: RandomFuse
     remove_costumes: RemoveCostumes
     microplasticMultiplier: MicroplasticMultiplier
     trapamount: TrapAmount

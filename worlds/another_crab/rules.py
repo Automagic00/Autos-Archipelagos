@@ -44,43 +44,47 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: logic.can_magista_skip(options, state, player)
     
   multiworld.get_entrance("Fort Slacktide - After Destruction -> Reef's Edge", player).access_rule = \
-    lambda state: logic.is_reefs_edge_accessible_vanilla(state, player)
+    lambda state: (options.goal == "magista") or logic.is_reefs_edge_accessible_vanilla(state, player)
     
   multiworld.get_entrance("Reef's Edge -> Reef's Edge - Items Behind Grapple", player).access_rule = \
-    lambda state: logic.can_skip_some_grapples(options, state, player)
+    lambda state: (options.goal == "magista") or logic.can_skip_some_grapples(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Secluded Ridge", player).access_rule = \
-    lambda state: logic.is_secluded_ridge_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_secluded_ridge_accessible(options, state, player)
     
   multiworld.get_entrance("Secluded Ridge -> Secluded Ridge - Past Eelectrocute", player).access_rule = \
-    lambda state: logic.is_secluded_ridge_eel_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_secluded_ridge_eel_accessible(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Trashbin Plateau", player).access_rule = \
-    lambda state: state.has(iname.mantis_punch, player)
+    lambda state: (options.goal == "magista") or state.has(iname.mantis_punch, player)
     
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
-    lambda state: logic.is_southern_town_ridge_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
     
   multiworld.get_entrance("Expired Grove - Main -> Flotsam Vale - Consortium Arena",player).access_rule = \
-    lambda state: logic.is_consortium_accessible_grove(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
     
   multiworld.get_entrance("Expired Grove - Main -> Expired Grove - Raised Platforms",player).access_rule = \
-    lambda state: logic.is_consortium_accessible_grove(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
   
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Post Ceviche Sisters", player).access_rule = \
-    lambda state: logic.is_post_ceviche_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_post_ceviche_accessible(options, state, player)
     
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Consortium Arena", player).access_rule = \
-    lambda state: logic.is_consortium_accessible_vale(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_vale(options, state, player)
     
-  multiworld.get_entrance("Flotsam Vale -> Scuttleport", player).access_rule = \
-    lambda state: state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus}, player)
+  multiworld.get_entrance("Flotsam Vale -> Scuttleport",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
     
-  if options.randomshells and options.goal != "magista" :
-    add_rule(multiworld.get_entrance("Flotsam Vale -> Scuttleport",player),lambda state: state.has(sname.plug_fuse, player))
+  multiworld.get_entrance("Flotsam Vale -> Plug Fuse Pipes",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
+     
+  # map pieces are required to access shell pipes
+  #set_rule(multiworld.get_location(sname.plug_fuse, player),
+  #         lambda state: state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus},player))
     
-  multiworld.get_entrance("Scuttleport -> Pinbarge", player).access_rule = \
-    lambda state: state.has(iname.eelectrocute, player)
+  multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
+    lambda state: logic.has_all_maps(state,player) and state.has(iname.eelectrocute, player)
   
 
   

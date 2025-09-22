@@ -41,6 +41,10 @@ class TestBase(unittest.TestCase):
             "Gauntlet Top",
             "Mama Turtle"
         }
+        # This region requires the fuse shell to access - shells are not in the default item pool (not randomised cross-game) and are populated at pre-fill time.
+        "Another Crab's Treasure": {
+            "Scuttleport"
+        }
     }
 
     def test_default_all_state_can_reach_everything(self):

@@ -45,7 +45,7 @@ def can_reach_moonsnail(options: ACTGameOptions, state: CollectionState, player:
     return state.has(iname.fishing_line, player) or are_skips_allowed(options)
     
 def is_post_ceviche_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player)
+    return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player) 
     
 def is_consortium_accessible_vale(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return can_big_boost_jump(options, state, player) and state.can_reach_region(rname.flotsam_vale, player)
@@ -70,6 +70,12 @@ def is_secluded_ridge_accessible(options: ACTGameOptions, state: CollectionState
     
 def is_secluded_ridge_eel_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has(iname.eelectrocute, player) or can_CAL(options, state, player)
+    
+def can_access_scuttleport(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return state.has(sname.plug_fuse,player) 
+    
+def has_all_maps(state: CollectionState, player: int) -> bool:
+    return state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus}, player)
 
 
 #Check if specific skips are executable
