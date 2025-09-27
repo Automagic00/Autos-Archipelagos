@@ -97,7 +97,6 @@ class ACTWorld(World):
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
                     
-                # may need to replace entrances with just plug_region, not sure
                 elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != rname.plug_fuse):
                     #swap plug_fuse and shell in plug_fuse location
                     plug_fuse_item_index = shell_items.index(sname.plug_fuse)

@@ -78,10 +78,9 @@ def set_region_rules(world: "ACTWorld") -> None:
     
   multiworld.get_entrance("Flotsam Vale -> Plug Fuse Pipes",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
-     
-  # map pieces are required to access shell pipes
-  #set_rule(multiworld.get_location(sname.plug_fuse, player),
-  #         lambda state: state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus},player))
+    
+  multiworld.get_entrance("Scuttleport -> Plug Fuse Pipes",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
     lambda state: logic.has_all_maps(state,player) and state.has(iname.eelectrocute, player)

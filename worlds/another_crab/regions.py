@@ -121,7 +121,8 @@ ACT_regions: Dict[str, Set[str]] = {
     rname.post_ceviche: set(),
     rname.consortium_arena: set(),
     rname.scuttleport: {
-        sname.dumptruck
+        sname.dumptruck,
+        rname.plug_fuse
     },
     rname.pinbarge: {
         rname.unfathom,
