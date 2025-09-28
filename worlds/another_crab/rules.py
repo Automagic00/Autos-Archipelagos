@@ -362,13 +362,8 @@ def set_location_rules(world: "ACTWorld") -> None:
 
 # ---- Fort Slacktide ----
  # grapple
-  #                 ______________________ needed only until i find a better solution to early slacktide
   set_rule(multiworld.get_location(lname.limpet_slacktide_stairs, player),
             lambda state: state.has(iname.fishing_line, player))
-   
-  #set_rule(multiworld.get_location(lname.fishing_line, player),
-            #lambda state: state.has(iname.fishing_line, player))
-  #                 ______________________
    
   set_rule(multiworld.get_location(lname.seastar_slacktide_grappleroom, player),
             lambda state: state.has(iname.fishing_line, player))
@@ -377,16 +372,13 @@ def set_location_rules(world: "ACTWorld") -> None:
             lambda state: (state.has(iname.fishing_line, player) or logic.can_boost_jump(options, state, player)))
     
   set_rule(multiworld.get_location(lname.rustynail_slacktide_bigurchin, player),
-            lambda state: state.has(iname.fishing_line, player) or (logic.can_big_boost_jump(options, state, player) and state.can_reach_region(rname.slacktide_after,player)))
+            lambda state: state.has(iname.fishing_line, player) or ((logic.can_big_boost_jump(options, state, player) and state.can_reach_region(rname.slacktide_after,player))))
     
   set_rule(multiworld.get_location(lname.chipclaw_slacktide_brokenwall, player),
             lambda state: state.has(iname.fishing_line, player))
     
   set_rule(multiworld.get_location(lname.bloodstar_slacktide_clam, player),
             lambda state: state.has(iname.fishing_line, player))
-    
-   #set_rule(multiworld.get_location(lname.royal_wave_reward, player),
-   #         lambda state: state.has(iname.fishing_line, player))
     
  # spearfishing
   set_rule(multiworld.get_location(lname.breadclaw_slacktide_roofhiddenfish, player),

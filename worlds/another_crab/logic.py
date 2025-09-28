@@ -11,22 +11,6 @@ from .names import shell_names as sname
 if TYPE_CHECKING:
     from . import ACTWorld
 
-
-#world: ACTWorld  #= ACTWorld()
-# regions_to_exclude = []
-
-# def set_options (options: ACTGameOptions):
-#     if options.goal == "roland":
-#         regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-#     if options.goal == "voltai":
-#         regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-#     if options.goal == "magista":
-#         regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-
-
 #Check if regions are accessible based on current glitch category and items (try to only invoke options in rules)
 def can_skip_some_grapples(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has(iname.fishing_line, player) or are_skips_allowed(options)
