@@ -8,18 +8,9 @@ from .names import item_names as iname
 from .names import region_names as rname
 from .names import shell_names as sname
 from . import logic
-#import logic
 
 if TYPE_CHECKING:
     from . import ACTWorld
-
-#forkless_easy_skills: List[str] = {
-
-#}
-
-#forkless_hard_skills: List[str] = {
-  
-#}
 
 
 def set_region_rules(world: "ACTWorld") -> None:
@@ -109,8 +100,6 @@ def set_location_rules(world: "ACTWorld") -> None:
   options = world.options
 
 # ---- Forkless Logic ----
-
-  # not really sure if this will work in this state even, have had trouble with trying to use if/else statements here
 
   #Forkless Disabled, ensures player has fork for bosses
   if options.allow_forkless == "disabled":
@@ -362,6 +351,10 @@ def set_location_rules(world: "ACTWorld") -> None:
 
 # ---- Fort Slacktide ----
  # grapple
+
+  set_rule(multiworld.get_location(lname.magista,player),
+            lambda state: state.has(iname.fishing_line, player))
+ 
   set_rule(multiworld.get_location(lname.limpet_slacktide_stairs, player),
             lambda state: state.has(iname.fishing_line, player))
    
