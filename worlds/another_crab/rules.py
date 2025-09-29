@@ -8,18 +8,9 @@ from .names import item_names as iname
 from .names import region_names as rname
 from .names import shell_names as sname
 from . import logic
-#import logic
 
 if TYPE_CHECKING:
     from . import ACTWorld
-
-#forkless_easy_skills: List[str] = {
-
-#}
-
-#forkless_hard_skills: List[str] = {
-  
-#}
 
 
 def set_region_rules(world: "ACTWorld") -> None:
@@ -44,43 +35,46 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: logic.can_magista_skip(options, state, player)
     
   multiworld.get_entrance("Fort Slacktide - After Destruction -> Reef's Edge", player).access_rule = \
-    lambda state: logic.is_reefs_edge_accessible_vanilla(state, player)
+    lambda state: (options.goal == "magista") or logic.is_reefs_edge_accessible_vanilla(state, player)
     
   multiworld.get_entrance("Reef's Edge -> Reef's Edge - Items Behind Grapple", player).access_rule = \
-    lambda state: logic.can_skip_some_grapples(options, state, player)
+    lambda state: (options.goal == "magista") or logic.can_skip_some_grapples(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Secluded Ridge", player).access_rule = \
-    lambda state: logic.is_secluded_ridge_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_secluded_ridge_accessible(options, state, player)
     
   multiworld.get_entrance("Secluded Ridge -> Secluded Ridge - Past Eelectrocute", player).access_rule = \
-    lambda state: logic.is_secluded_ridge_eel_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_secluded_ridge_eel_accessible(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Trashbin Plateau", player).access_rule = \
-    lambda state: state.has(iname.mantis_punch, player)
+    lambda state: (options.goal == "magista") or state.has(iname.mantis_punch, player)
     
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
-    lambda state: logic.is_southern_town_ridge_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
     
   multiworld.get_entrance("Expired Grove - Main -> Flotsam Vale - Consortium Arena",player).access_rule = \
-    lambda state: logic.is_consortium_accessible_grove(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
     
   multiworld.get_entrance("Expired Grove - Main -> Expired Grove - Raised Platforms",player).access_rule = \
-    lambda state: logic.is_consortium_accessible_grove(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
   
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Post Ceviche Sisters", player).access_rule = \
-    lambda state: logic.is_post_ceviche_accessible(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_post_ceviche_accessible(options, state, player)
     
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Consortium Arena", player).access_rule = \
-    lambda state: logic.is_consortium_accessible_vale(options, state, player)
+    lambda state: (options.goal == "magista") or logic.is_consortium_accessible_vale(options, state, player)
     
-  multiworld.get_entrance("Flotsam Vale -> Scuttleport", player).access_rule = \
-    lambda state: state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus}, player)
+  multiworld.get_entrance("Flotsam Vale -> Scuttleport",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
     
-  if options.randomshells and options.goal != "magista" :
-    add_rule(multiworld.get_entrance("Flotsam Vale -> Scuttleport",player),lambda state: state.has(sname.plug_fuse, player))
+  multiworld.get_entrance("Flotsam Vale -> Plug Fuse Pipes",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
     
-  multiworld.get_entrance("Scuttleport -> Pinbarge", player).access_rule = \
-    lambda state: state.has(iname.eelectrocute, player)
+  multiworld.get_entrance("Scuttleport -> Plug Fuse Pipes",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
+    
+  multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
+    lambda state: logic.has_all_maps(state,player) and state.has(iname.eelectrocute, player)
   
 
   
@@ -106,8 +100,6 @@ def set_location_rules(world: "ACTWorld") -> None:
   options = world.options
 
 # ---- Forkless Logic ----
-
-  # not really sure if this will work in this state even, have had trouble with trying to use if/else statements here
 
   #Forkless Disabled, ensures player has fork for bosses
   if options.allow_forkless == "disabled":
@@ -359,13 +351,12 @@ def set_location_rules(world: "ACTWorld") -> None:
 
 # ---- Fort Slacktide ----
  # grapple
-  #                 ______________________ needed only until i find a better solution to early slacktide
+
+  set_rule(multiworld.get_location(lname.magista,player),
+            lambda state: state.has(iname.fishing_line, player))
+ 
   set_rule(multiworld.get_location(lname.limpet_slacktide_stairs, player),
             lambda state: state.has(iname.fishing_line, player))
-   
-  #set_rule(multiworld.get_location(lname.fishing_line, player),
-            #lambda state: state.has(iname.fishing_line, player))
-  #                 ______________________
    
   set_rule(multiworld.get_location(lname.seastar_slacktide_grappleroom, player),
             lambda state: state.has(iname.fishing_line, player))
@@ -374,16 +365,13 @@ def set_location_rules(world: "ACTWorld") -> None:
             lambda state: (state.has(iname.fishing_line, player) or logic.can_boost_jump(options, state, player)))
     
   set_rule(multiworld.get_location(lname.rustynail_slacktide_bigurchin, player),
-            lambda state: state.has(iname.fishing_line, player) or (logic.can_big_boost_jump(options, state, player) and state.can_reach_region(rname.slacktide_after,player)))
+            lambda state: state.has(iname.fishing_line, player) or ((logic.can_big_boost_jump(options, state, player) and state.can_reach_region(rname.slacktide_after,player))))
     
   set_rule(multiworld.get_location(lname.chipclaw_slacktide_brokenwall, player),
             lambda state: state.has(iname.fishing_line, player))
     
   set_rule(multiworld.get_location(lname.bloodstar_slacktide_clam, player),
             lambda state: state.has(iname.fishing_line, player))
-    
-   #set_rule(multiworld.get_location(lname.royal_wave_reward, player),
-   #         lambda state: state.has(iname.fishing_line, player))
     
  # spearfishing
   set_rule(multiworld.get_location(lname.breadclaw_slacktide_roofhiddenfish, player),

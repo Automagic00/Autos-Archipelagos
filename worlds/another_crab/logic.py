@@ -11,22 +11,6 @@ from .names import shell_names as sname
 if TYPE_CHECKING:
     from . import ACTWorld
 
-
-#world: ACTWorld  #= ACTWorld()
-# regions_to_exclude = []
-
-# def set_options (options: ACTGameOptions):
-#     if options.goal == "roland":
-#         regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-#     if options.goal == "voltai":
-#         regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-#     if options.goal == "magista":
-#         regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
-
-
-
 #Check if regions are accessible based on current glitch category and items (try to only invoke options in rules)
 def can_skip_some_grapples(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has(iname.fishing_line, player) or are_skips_allowed(options)
@@ -45,7 +29,7 @@ def can_reach_moonsnail(options: ACTGameOptions, state: CollectionState, player:
     return state.has(iname.fishing_line, player) or are_skips_allowed(options)
     
 def is_post_ceviche_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player)
+    return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player) 
     
 def is_consortium_accessible_vale(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return can_big_boost_jump(options, state, player) and state.can_reach_region(rname.flotsam_vale, player)
@@ -70,6 +54,12 @@ def is_secluded_ridge_accessible(options: ACTGameOptions, state: CollectionState
     
 def is_secluded_ridge_eel_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has(iname.eelectrocute, player) or can_CAL(options, state, player)
+    
+def can_access_scuttleport(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return state.has(sname.plug_fuse,player) 
+    
+def has_all_maps(state: CollectionState, player: int) -> bool:
+    return state.has_all({iname.map_piece_fv, iname.map_piece_heikea, iname.map_piece_pagurus}, player)
 
 
 #Check if specific skips are executable

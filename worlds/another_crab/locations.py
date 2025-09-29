@@ -528,7 +528,6 @@ location_table: Dict[str, ACTLocationData] = {
     lname.razorblade_shallows_slacktidebottlefishing: ACTLocationData(rname.central_shallows, 128, "Central Shallows"), #728b3da1-5b4b-4a7f-885c-b5ed9abfadbc-2_B-ShallowsBigSand
     lname.anemone_shallows_umbrellafishing: ACTLocationData(rname.central_shallows, 129, "Central Shallows"), #b29c140a-08c2-44c6-81c3-5f91e5621e47-2_B-ShallowsBigSand
 
-    lname.limpet_slacktide_stairs: ACTLocationData(rname.slacktide_before, 36, "Fort Slacktide - Before Destruction"), #b5e751fb-8ff5-440e-aa9c-9d9c75977be7-2_B-ShallowsBigSand
     lname.seastar_slacktide_grappleroom: ACTLocationData(rname.slacktide_before, 37, "Fort Slacktide - Before Destruction"), #35603032-802e-4811-ae95-8e8eb11c1dfa-2_B-ShallowsBigSand
     lname.barnacle_slacktide_bigurchin: ACTLocationData(rname.slacktide_before, 38, "Fort Slacktide - Before Destruction"), #98329dde-9889-4cbb-a656-61f83dca2eca-2_B-ShallowsBigSand
     lname.rustynail_slacktide_bigurchin: ACTLocationData(rname.slacktide_before, 317, "Fort Slacktide - Before Destruction"), #87e60901-5489-437e-82c2-d70ca2390364-2_B-ShallowsBigSand
@@ -538,6 +537,7 @@ location_table: Dict[str, ACTLocationData] = {
     lname.mussel_slacktide_fortentrance: ACTLocationData(rname.slacktide_after, 40, "Fort Slacktide - After Destruction"), #694c4c66-fefc-4539-962f-a343e13b044b-2_C-Slacktide2
     lname.anemone_slacktide_fortwall: ACTLocationData(rname.slacktide_after, 41, "Fort Slacktide - After Destruction"), #557546a8-096b-49cd-b63b-452fb751a8bf-2_C-Slacktide2
     lname.whelk_slacktide_turrettop: ACTLocationData(rname.slacktide_after, 42, "Fort Slacktide - After Destruction"), #e1848736-945b-406d-853e-d213f7c80f14-2_C-Slacktide2
+    lname.limpet_slacktide_stairs: ACTLocationData(rname.slacktide_after, 36, "Fort Slacktide - After Destruction"), #b5e751fb-8ff5-440e-aa9c-9d9c75977be7-2_B-ShallowsBigSand
 
     lname.seastar_reefsedge_crabs: ACTLocationData(rname.reefs_edge_grapple, 68, "Reef's Edge - Items Behind Grapple"), #d93f0715-7c15-4f74-b376-34468705093c-2_A-NCTradeRoute
     lname.seastarplus_reefsedge_pole: ACTLocationData(rname.reefs_edge, 70, "Reef's Edge"), #3473ed8f-db06-4bb7-9932-862f92258542-2_A-NCTradeRoute

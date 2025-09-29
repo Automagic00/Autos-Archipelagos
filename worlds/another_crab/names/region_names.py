@@ -36,5 +36,6 @@ grove_village = "Expired Grove - Village" # grove path to topoda
 #vale_main = "Flotsam Vale - Main" # flotsam vale before getting all map pieces 
 post_ceviche = "Flotsam Vale - Post Ceviche Sisters" # items in flotsam vale only available after killing ceviche sisters in vanilla
 consortium_arena = "Flotsam Vale - Consortium Arena" # linked to grove_village and flotsam vale
+plug_fuse = "Plug Fuse Pipes" # region containing the shells which spawn from the pipes in and before Scuttleport
 scuttleport = "Scuttleport" # part of the flotsam vale region, but specifically the area where the player finds voltai
 plains = "Abyssal Plains" # the last big area in the unfathom just before the inkerton fight

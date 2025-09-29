@@ -104,21 +104,25 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.crab_husk
     },
     rname.flotsam_vale: {
+        rname.pinbarge,
         rname.post_ceviche,
         rname.consortium_arena,
         rname.scuttleport,
+        rname.plug_fuse,
         sname.boxing_glove,
         sname.spring,
         sname.rubber_duck,
         sname.tissue_box,
-        sname.cardboard_box
+        sname.cardboard_box,
+    },
+    rname.plug_fuse: {
+        sname.plug_fuse
     },
     rname.post_ceviche: set(),
     rname.consortium_arena: set(),
     rname.scuttleport: {
-        rname.pinbarge,
         sname.dumptruck,
-        sname.plug_fuse
+        rname.plug_fuse
     },
     rname.pinbarge: {
         rname.unfathom,

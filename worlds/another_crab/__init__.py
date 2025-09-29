@@ -67,11 +67,12 @@ class ACTWorld(World):
             regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
 
         if self.options.goal == "magista":
-            regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = [rname.reefs_edge,rname.reefs_edge_grapple,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.southern_town_ridge,rname.secluded_ridge_eel,rname.secluded_ridge,rname.trashbin_plateau,rname.expired_grove,rname.grove_main,rname.grove_village,rname.grove_raised_platforms,rname.flotsam_vale,rname.post_ceviche,rname.consortium_arena,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
 
         
         #Shuffle Shell Event Locations
         if self.options.randomshells == True:
+                              
             self.random.shuffle(shell_items)
             randoVerified: bool = False
             shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index(sname.soda_can)]]
@@ -90,11 +91,21 @@ class ACTWorld(World):
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
                     print(shell_at_soda)
                 #elif plug_region.entrances
-                elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions):
+                elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions) and (self.options.randomfuse == True):
                     self.random.shuffle(shell_items)
                     shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
+                    
+                elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != rname.plug_fuse):
+                    #swap plug_fuse and shell in plug_fuse location
+                    plug_fuse_item_index = shell_items.index(sname.plug_fuse)
+                    plug_fuse_location_index = shell_locations.index(sname.plug_fuse)
+                    shell_items[plug_fuse_item_index], shell_items[plug_fuse_location_index] = shell_items[plug_fuse_location_index], shell_items[plug_fuse_item_index]
+                
+                    shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
+                    print("Returning fuse to vanilla location")
                 else:
                     randoVerified = True
 

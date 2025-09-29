@@ -79,14 +79,19 @@ class RandomShells(Toggle):
     """Choose whether or not shells will be randomized. Only randomizes shells within other shell locations."""
     display_name: str = "Random Shells"
     default: bool = True
+    
+class RandomFuse(Toggle):
+    """Choose if the location of the Plug Fuse shell is randomized when using the shell randomizer. Does nothing if [RandomShells] is set to false"""
+    display_name: str = "Random Fuse"
+    default: bool = True
 
 class RemoveCostumes(Toggle):
-    """Set to true to remove costumes from the item pool."""
+    """Choose whether or not to include Costumes in the item pool. Set to true to remove them."""
     display_name: str = "Remove Costumes"
     default: bool = False
 
 class MicroplasticMultiplier(Range):
-    """Multiplies the ammount of microplastics you recieve. Decimal values currently not supported."""
+    """Multiplies the amount of microplastics received from all sources. Only supports integer values."""
     display_name: str = "Microplastic Multiplier"
     range_start: float = 1
     range_end: float = 100
@@ -132,6 +137,7 @@ class ACTGameOptions(PerGameCommonOptions):
     shelleport_location: ShelleportLocation
     fishing_line_location: FishingLineLocation
     randomshells: RandomShells
+    randomfuse: RandomFuse
     remove_costumes: RemoveCostumes
     microplasticMultiplier: MicroplasticMultiplier
     trapamount: TrapAmount

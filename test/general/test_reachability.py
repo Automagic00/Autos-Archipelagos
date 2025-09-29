@@ -39,7 +39,11 @@ class TestBase(unittest.TestCase):
         "Super Metroid": {
             "Ceres",
             "Gauntlet Top",
-            "Mama Turtle"
+            "Mama Turtle",
+        },
+        # This region requires the fuse shell to access - shells are not in the default item pool (not randomised cross-game) and are populated at pre-fill time.
+        "Another Crab's Treasure": {
+            "Scuttleport"
         }
     }
 
