@@ -44,7 +44,7 @@ stun_grenade = "Stun Grenade Unlock"
 human_grenade = "Human Grenade Unlock"
 duct_taped_grenade = "Duct Taped Grenade Unlock"
 shockwave_mine = "Shockwave Mine Unlock"
-stun_mine = "Stun Mine Unlock"
+stun_mine = "Trapzap Unlock"
 explosive_mine = "Explosive Mine Unlock"
 rubber_duck = "Rubber Duck Unlock"
 
