@@ -12,6 +12,8 @@ double_jump_up = "Double Jump Upgrade"
 tumble_up = "Tumble Launch Upgrade"
 tumble_wings = "Tumble Wings Upgrade"
 crouch_rest = "Crouch Rest Upgrade"
+tumble_climb = "Tumble Climb Upgrade"
+death_head_battery = "Death Head Battery Upgrade"
 
 # Health
 progressive_health = "Progressive Health Pack Unlock"
