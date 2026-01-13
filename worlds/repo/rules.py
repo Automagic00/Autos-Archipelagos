@@ -138,7 +138,7 @@ def set_location_rules(world: "REPOWorld") -> None:
             print(f"Adding rule for {loc_name} requiring {stockItemsRequired} stock")
             if stockItemsRequired > 0:
                 set_rule(multiworld.get_location(loc_name,player),
-                    lambda state: state.has(iname.shop_stock,player,stockItemsRequired))
+                    lambda state, requiredStockUps=stockItemsRequired: state.has(iname.shop_stock,player,requiredStockUps))
 
     #set_rule(multiworld.get_location())
 

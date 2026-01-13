@@ -17,9 +17,9 @@ death_head_battery = "Death Head Battery Upgrade"
 
 # Health
 progressive_health = "Progressive Health Pack Unlock"
-small_health = "Small Health Pack"
-medium_health = "Medium Health Pack"
-large_health = "Large Health Pack"
+#small_health = "Small Health Pack"     # these will eventually be filler, but aren't implemented
+#medium_health = "Medium Health Pack"
+#large_health = "Large Health Pack"
 
 # Melee Weapons
 baseball_bat = "Baseball Bat Unlock"
