@@ -12,12 +12,14 @@ double_jump_up = "Double Jump Upgrade"
 tumble_up = "Tumble Launch Upgrade"
 tumble_wings = "Tumble Wings Upgrade"
 crouch_rest = "Crouch Rest Upgrade"
+tumble_climb = "Tumble Climb Upgrade"
+death_head_battery = "Death Head Battery Upgrade"
 
 # Health
 progressive_health = "Progressive Health Pack Unlock"
-small_health = "Small Health Pack"
-medium_health = "Medium Health Pack"
-large_health = "Large Health Pack"
+#small_health = "Small Health Pack"     # these will eventually be filler, but aren't implemented
+#medium_health = "Medium Health Pack"
+#large_health = "Large Health Pack"
 
 # Melee Weapons
 baseball_bat = "Baseball Bat Unlock"
@@ -44,7 +46,7 @@ stun_grenade = "Stun Grenade Unlock"
 human_grenade = "Human Grenade Unlock"
 duct_taped_grenade = "Duct Taped Grenade Unlock"
 shockwave_mine = "Shockwave Mine Unlock"
-stun_mine = "Stun Mine Unlock"
+stun_mine = "Trapzap Unlock"
 explosive_mine = "Explosive Mine Unlock"
 rubber_duck = "Rubber Duck Unlock"
 
