@@ -85,22 +85,23 @@ class StartingLevelType(TextChoice):
     option_museum_of_human_art = 3
     default = "random"
 
-class UpgradeItemWeights(OptionDict):
-    """Choose the Weights for adding Upgrades to the Item Pool (death head battery does nothing in singleplayer)"""
-    display_name: str = "Upgrade Item Weights"
+class FillerItemWeights(OptionDict):
+    """Choose the Weights for adding Filler to the Item Pool (death head battery and map player count do nothing in singleplayer)"""
+    display_name: str = "Filler Item Weights"
     default = {
-        iname.health_up : 5,
+        iname.health_up : 4,
         iname.strength_up : 3,
-        iname.range_up : 2,
+        iname.range_up : 4,
         iname.sprint_up: 3,
         iname.stamina_up : 5, 
         iname.player_count_up : 1,      # does nothing in singleplayer
         iname.double_jump_up : 2, 
         iname.tumble_up : 2,
         iname.tumble_wings : 2,
-        iname.crouch_rest : 2,
+        iname.crouch_rest : 4,
         iname.tumble_climb : 2,
-        iname.death_head_battery : 1    # does nothing in singleplayer
+        iname.death_head_battery : 1,    # does nothing in singleplayer
+        iname.small_health: 2
     }
     
 
@@ -118,7 +119,7 @@ class REPOGameOptions(PerGameCommonOptions):
     shop_upgrade_total: ShopUpgradeLocationsTotal
     shop_upgrade_logical: ShopUpgradeLocationsInLogic
     starting_level_type: StartingLevelType
-    upgrade_item_weights: UpgradeItemWeights
+    filler_item_weights: FillerItemWeights
     death_link: DeathLink
 
     

@@ -48,8 +48,8 @@ item_table: Dict[str, REPOItemData] = {
     iname.death_head_battery: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
 
     # ---- SHOP UNLOCKS ----
-    #iname.small_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),    #these are meant to be filler but aren't implemented
-    #iname.medium_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),
+    iname.small_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Misc Filler"),
+    #iname.medium_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),   #these were meant to be filler but aren't implemented
     #iname.large_health: REPOItemData(ItemClassification.filler,2,(base_shop_offset:=base_shop_offset+1),"Health Pack"),
     iname.progressive_health: REPOItemData(ItemClassification.progression,3,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
     iname.baseball_bat: REPOItemData(ItemClassification.progression,1,(base_shop_offset:=base_shop_offset+1),"Melee Shop Unlock"),

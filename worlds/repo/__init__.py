@@ -106,8 +106,10 @@ class REPOWorld(World):
 
         total_filler = self.location_total - items_total
 
-        available_upgrades: List[str] = [upgrade for upgrade in items_to_create if (items_to_create[upgrade] > 0 and item_table[upgrade].item_group == "Upgrades")]
-        print(available_upgrades)
+        available_filler: List[str] = [upgrade for upgrade in items_to_create if 
+                                         (items_to_create[upgrade] > 0 and (item_table[upgrade].item_group == "Upgrades" or 
+                                                                            item_table[upgrade].item_group == "Misc Filler"))]
+        print(available_filler)
         print(trap_items)
         print("Loaction Count: " + str(self.location_total))
         print("Item Count: " + str(items_total))
@@ -118,9 +120,9 @@ class REPOWorld(World):
         #traps_needed = total_filler * self.options.trapamount.value / 100
         #print("Traps needed: " + str(math.floor(traps_needed)))
 
-        #Trap Order for Weights: ['Gunk Trap', 'Scour Trap', 'Bleached Trap', 'Fear Trap', 'Clutz Trap', 'Text Trap', 'Shell Shatter Trap', 'Poison Cocktail Trap', 'Taser Trap']
+        #Trap Order for Weights: ['Extra Monster Trap', 'Ping Trap', 'Audit Trap']
         #for counter in range(0, math.floor(traps_needed)):
-        #    trap_item = self.random.choices(trap_items, weights=[3,2,3,2,1,4,1,1,2],k=1)
+        #    trap_item = self.random.choices(trap_items, weights=[3,3,2],k=1)
         #    items_to_create[trap_item[0]] += 1
 
         #filler_needed = total_filler - traps_needed
@@ -128,16 +130,16 @@ class REPOWorld(World):
         print("Filler needed: " + str(math.ceil(filler_needed)))
 
         #Upgrade Order for Weights [Health Up, Strength Up, Range Up, Sprint Up, Stamina Up, Player Count Up, Double Jump Up, Tumble Launch Up] weights=[5,3,2,3,5,1,2,2]
-        upgrade_weights = []
+        filler_weights = []
 
-        for upgrade in available_upgrades:
-            if upgrade in self.options.upgrade_item_weights:
-                upgrade_weights.append(self.options.upgrade_item_weights[upgrade])
+        for filler_item in available_filler:
+            if filler_item in self.options.filler_item_weights:
+                filler_weights.append(self.options.filler_item_weights[filler_item])
             else:
-                upgrade_weights.append(0)
+                filler_weights.append(0)
 
         for counter in range(0, math.ceil(filler_needed)):
-            filler_item = self.random.choices(available_upgrades,weights= upgrade_weights,k=1)
+            filler_item = self.random.choices(available_filler,weights= filler_weights,k=1)
             items_to_create[filler_item[0]] += 1
 
         # add items to item pool
