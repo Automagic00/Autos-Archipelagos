@@ -205,6 +205,7 @@ class REPOWorld(World):
             "upgrade_locations": int(self.options.shop_upgrade_total.value),
             "shop_stock" : int(self.options.shop_stock.value),
             "valuable_hunt": bool(self.options.valuable_hunt.value),
-            "monster_hunt": bool(self.options.monster_hunt.value)
+            "monster_hunt": bool(self.options.monster_hunt.value),
+            "death_link": bool(self.options.death_link.value)
         }
         return slot_data

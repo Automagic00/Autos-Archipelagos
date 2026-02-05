@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionDict, DefaultOnToggle
+from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionDict, DefaultOnToggle, DeathLink
 from .names import item_names as iname
 
 # class Goal(Choice):
@@ -119,5 +119,6 @@ class REPOGameOptions(PerGameCommonOptions):
     shop_upgrade_logical: ShopUpgradeLocationsInLogic
     starting_level_type: StartingLevelType
     upgrade_item_weights: UpgradeItemWeights
+    death_link: DeathLink
 
     
