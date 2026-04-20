@@ -79,3 +79,7 @@ museum_lvl = "Museum of Human Art Level"
 shop_stock = "Progressive Shop Stock"
 
 # ---- Traps ----
+monster_trap = "Extra Monster Trap"
+audit_trap = "Audit Trap"
+lure_trap = "Monster Lure Trap"
+moon_phase_trap = "Progressive Moon Phase Trap"

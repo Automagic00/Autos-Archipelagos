@@ -80,19 +80,23 @@ class FillerItemWeights(OptionDict):
     """Choose the Weights for adding Filler to the Item Pool (death head battery and map player count do nothing in singleplayer)"""
     display_name: str = "Filler Item Weights"
     default = {
-        iname.health_up : 4,
-        iname.strength_up : 3,
-        iname.range_up : 4,
-        iname.sprint_up: 3,
-        iname.stamina_up : 5, 
-        iname.player_count_up : 1,      # does nothing in singleplayer
-        iname.double_jump_up : 2, 
-        iname.tumble_up : 2,
-        iname.tumble_wings : 2,
-        iname.crouch_rest : 4,
-        iname.tumble_climb : 2,
-        iname.death_head_battery : 1,    # does nothing in singleplayer
-        iname.small_health: 2
+        iname.health_up : 40,
+        iname.strength_up : 30,
+        iname.range_up : 40,
+        iname.sprint_up: 30,
+        iname.stamina_up : 50, 
+        #iname.player_count_up : 10,      # does nothing in singleplayer and you only need one in multiplayer
+        iname.double_jump_up : 20, 
+        iname.tumble_up : 20,
+        iname.tumble_wings : 20,
+        iname.crouch_rest : 40,
+        iname.tumble_climb : 20,
+        iname.death_head_battery : 10,    # does nothing in singleplayer
+        iname.small_health: 20,
+        iname.monster_trap: 8,
+        iname.audit_trap: 6,
+        iname.lure_trap: 15,
+        iname.moon_phase_trap: 3    # there will never be more than 4
     }
     
 
