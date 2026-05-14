@@ -95,6 +95,17 @@ item_table: Dict[str, REPOItemData] = {
     iname.lure_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
     iname.moon_phase_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
 
+    # ---- Cosmetic Update ----
+    iname.roll_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Ranged Shop Unlock"),
+    iname.void_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Ranged Shop Unlock"),
+    iname.zero_grav_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Stun Shop Unlock"),
+    iname.leaf_blower: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
+    iname.scout_vehicle: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
+    iname.hauler_vehicle: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Shop Unlock"),
+    iname.defibro: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
+    iname.semibot_walkies: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
+
+
     # ---- Event Items ----
     "Victory": REPOItemData(ItemClassification.progression,0,None,"Event"),
 }
