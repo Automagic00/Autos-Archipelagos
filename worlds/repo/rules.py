@@ -56,7 +56,8 @@ def set_location_rules(world: "REPOWorld") -> None:
 
     #Set Logic for Victory Location
     add_rule(multiworld.get_location("Victory",player),
-        lambda state: state.has_all({iname.headman_lvl,iname.mcjannek_lvl,iname.swiftbroom_lvl,iname.museum_lvl},player))
+        lambda state: state.has_all_counts({iname.headman_lvl: 1,iname.mcjannek_lvl: 1,iname.swiftbroom_lvl: 1,iname.museum_lvl: 1, iname.energy_crystal: 
+                                     1 if options.level_quota.value > 6 else 0},player))
     
     # ---- Pelly Logic ----
     #Player Should be able to reach all Pellys
