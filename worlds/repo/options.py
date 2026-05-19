@@ -36,8 +36,8 @@ class MonsterHunt(Toggle):
 class CombatLogic(Choice):
     """Determines what items are logically required to fight monsters.
     Easy: Guns or Explosives
-    Medium: Strength Upgrades, Melee Weapons, Guns, or Explosives
-    Hard: Nothing. Player may have to use valuables found in levels."""
+    Medium: Strength Upgrades + Stun Items, Melee Weapons, Guns, or Explosives
+    Hard: No combat logic. Player may have to kill monsters with valuables found in levels."""
     display_name: str = "Combat Logic"
     option_easy = 0
     option_medium = 1
@@ -52,23 +52,23 @@ class ShopPackCount(Range):
     default = 10
 
 class ShopUpgradeLocationsTotal(Range):
-    """Choose how many Archipelago Items show up in the Upgrades section of the Shop"""
+    """Choose how many Archipelago Items show up in the Upgrades section of the Shop."""
     display_name: str = "Total Shop Upgrade Locations"
     range_start = 20
     range_end = 100
     default = 80
 
 class ShopUpgradeLocationsInLogic(Range):
-    """Choose how many shop how many shop upgrades will be potentially logically relevant.
+    """Choose how many shop upgrades will potentially be logically relevant.
     Items past this number will not have progression items.
-    This number gets set to the Total Shop Upgrade Locations if its greater.\n"""
+    This number gets set to the Total Shop Upgrade Locations if it is greater.\n"""
     display_name: str = "Shop Upgrade Locations in Logic"
     range_start = 20
     range_end = 100
     default = 60
 
 class StartingLevelType(TextChoice):
-    """Choose which level type to start with"""
+    """Choose which level type to start with."""
     display_name: str = "Starting Level Type"
     option_swiftbroom_academy = 0
     option_headman_manor = 1
@@ -77,7 +77,14 @@ class StartingLevelType(TextChoice):
     default = "random"
 
 class FillerItemWeights(OptionDict):
-    """Choose the Weights for adding Filler to the Item Pool (death head battery and map player count do nothing in singleplayer)"""
+    """Choose the weights for adding filler and traps to the item pool.
+    Each upgrade item will spawn one upgrade of that type in the truck.
+    Each small health pack spawns one small health pack (25hp) in the truck.
+    Traps:
+        Extra Monster Trap - Spawns an extra enemy (or enemy group) from the tier 3 enemy pool.
+        Audit Trap - Takes half of your money the next time you visit a shop.
+        Monster Lure Trap - Lures monsters to your location for two minutes.
+        Progressive Moon Phase Trap - Increases the moon phase by one stage FOR THE REST OF THE MULTIWORLD."""
     display_name: str = "Filler Item Weights"
     default = {
         iname.health_up : 40,
