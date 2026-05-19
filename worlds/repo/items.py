@@ -34,18 +34,18 @@ item_table: Dict[str, REPOItemData] = {
     iname.shop_stock: REPOItemData(ItemClassification.progression,0,base_shop_offset,"Progressive Shop"),
 
     # ---- UPGRADES ----
-    iname.health_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.strength_up: REPOItemData(ItemClassification.progression,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.range_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.sprint_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.stamina_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.player_count_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.double_jump_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_up: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.crouch_rest: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_wings: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.tumble_climb: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
-    iname.death_head_battery: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.health_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.strength_up: REPOItemData(ItemClassification.progression_deprioritized_skip_balancing,13,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.range_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.sprint_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.stamina_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.player_count_up: REPOItemData(ItemClassification.filler,1,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.double_jump_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_up: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.crouch_rest: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_wings: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.tumble_climb: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
+    iname.death_head_battery: REPOItemData(ItemClassification.filler,3,(base_shop_offset:=base_shop_offset+1),"Upgrades"),
 
     # ---- SHOP UNLOCKS ----
     iname.small_health: REPOItemData(ItemClassification.filler,0,(base_shop_offset:=base_shop_offset+1),"Misc Filler"),
@@ -96,8 +96,8 @@ item_table: Dict[str, REPOItemData] = {
     iname.moon_phase_trap: REPOItemData(ItemClassification.trap,0,(base_shop_offset:=base_shop_offset+1),"Traps"),
 
     # ---- Cosmetic Update ----
-    iname.roll_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Ranged Shop Unlock"),
-    iname.void_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Ranged Shop Unlock"),
+    iname.roll_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Stun Shop Unlock"),
+    iname.void_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Stun Shop Unlock"),
     iname.zero_grav_staff: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Stun Shop Unlock"),
     iname.leaf_blower: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
     iname.scout_vehicle: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
