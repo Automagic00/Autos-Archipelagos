@@ -17,7 +17,7 @@ death_head_battery = "Death Head Battery Upgrade"
 
 # Health
 progressive_health = "Progressive Health Pack Unlock"
-#small_health = "Small Health Pack"     # these will eventually be filler, but aren't implemented
+small_health = "Small Health Pack"     # these will eventually be filler, but aren't implemented
 #medium_health = "Medium Health Pack"
 #large_health = "Large Health Pack"
 
@@ -27,28 +27,33 @@ frying_pan = "Frying Pan Unlock"
 sledge_hammer = "Sledge Hammer Unlock"
 sword = "Sword Unlock"
 inflatable_hammer = "Inflatable Hammer Unlock"
-prodzap = "Prodzap Unlock"
 
 # Ranged Weapons
 gun = "Gun Unlock"
 shotgun = "Shotgun Unlock"
-tranq_gun = "Tranq Gun Unlock"
-pulse_pistol = "Pulse Pistol Unlock"
 photon_blaster = "Photon Blaster Unlock"
-boltzap = "Boltzap Unlock"
 cart_cannon = "C.A.R.T. Cannon Unlock"
 cart_laser = "C.A.R.T. Laser Unlock"
+roll_staff = "Roll Staff Unlock"
+void_staff = "Void Staff Unlock"
 
 # Explosive Weapons
 grenade = "Grenade Unlock"
-shock_grenade = "Shock Grenade Unlock"
-stun_grenade = "Stun Grenade Unlock"
 human_grenade = "Human Grenade Unlock"
-duct_taped_grenade = "Duct Taped Grenade Unlock"
-shockwave_mine = "Shockwave Mine Unlock"
-stun_mine = "Trapzap Unlock"
+duct_taped_grenade = "Duct Taped Grenades Unlock"
 explosive_mine = "Explosive Mine Unlock"
 rubber_duck = "Rubber Duck Unlock"
+
+# Stun Weapons
+prodzap = "Prodzap Unlock"
+tranq_gun = "Tranq Gun Unlock"
+pulse_pistol = "Pulse Pistol Unlock"
+boltzap = "Boltzap Unlock"
+shock_grenade = "Shockwave Grenade Unlock"
+stun_grenade = "Stun Grenade Unlock"
+shockwave_mine = "Shockwave Mine Unlock"
+stun_mine = "Trapzap Unlock"
+zero_grav_staff = "Zero Gravity Staff Unlock"
 
 # Drones
 recharge_drone = "Recharge Drone Unlock"
@@ -58,16 +63,23 @@ feather_drone = "Feather Drone Unlock"
 zero_grav_drone = "Zero Gravity Drone Unlock"
 
 # CARTS
-pocket_cart = "Pocket C.A.R.T. Unlock"
+pocket_cart = "POCKET C.A.R.T. Unlock"
 cart = "C.A.R.T. Unlock"
 
+# Vehicles
+scout_vehicle = "Scout Unlock"
+hauler_vehicle = "Hauler Unlock"
+
 # Misc
-valuable_detector = "Valuable Detector Unlock"
-extraction_detector = "Extraction Detector Unlock"
+valuable_detector = "Valuable Tracker Unlock"
+extraction_detector = "Extraction Tracker Unlock"
 energy_crystal = "Energy Crystal Unlock"
 zero_grav_orb = "Zero Gravity Orb Unlock"
 duck_bucket = "Duck Bucket Unlock"
 phase_bridge = "Phase Bridge Unlock"
+leaf_blower = "Leaf Blower Unlock"
+defibro = "Defibro Unlock"
+semibot_walkies = "Semibot Walkies Unlock"
 
 # ---- Level Type Items ----
 swiftbroom_lvl = "Swiftbroom Academy Level"
@@ -79,3 +91,7 @@ museum_lvl = "Museum of Human Art Level"
 shop_stock = "Progressive Shop Stock"
 
 # ---- Traps ----
+monster_trap = "Extra Monster Trap"
+audit_trap = "Audit Trap"
+lure_trap = "Monster Lure Trap"
+moon_phase_trap = "Progressive Moon Phase Trap"

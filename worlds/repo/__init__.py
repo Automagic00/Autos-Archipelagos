@@ -106,9 +106,12 @@ class REPOWorld(World):
 
         total_filler = self.location_total - items_total
 
-        available_upgrades: List[str] = [upgrade for upgrade in items_to_create if (items_to_create[upgrade] > 0 and item_table[upgrade].item_group == "Upgrades")]
-        print(available_upgrades)
-        print(trap_items)
+        available_filler: List[str] = [upgrade for upgrade in items_to_create if 
+                                         (item_table[upgrade].item_group == "Upgrades" or 
+                                                                            item_table[upgrade].item_group == "Misc Filler" or
+                                                                            item_table[upgrade].item_group == "Traps")]
+        print(available_filler)
+        #print(trap_items)
         print("Loaction Count: " + str(self.location_total))
         print("Item Count: " + str(items_total))
         print("Total Filler: " + str(total_filler))
@@ -118,9 +121,9 @@ class REPOWorld(World):
         #traps_needed = total_filler * self.options.trapamount.value / 100
         #print("Traps needed: " + str(math.floor(traps_needed)))
 
-        #Trap Order for Weights: ['Gunk Trap', 'Scour Trap', 'Bleached Trap', 'Fear Trap', 'Clutz Trap', 'Text Trap', 'Shell Shatter Trap', 'Poison Cocktail Trap', 'Taser Trap']
+        #Trap Order for Weights: ['Extra Monster Trap', 'Monster Lure Trap', 'Audit Trap', 'Progressive Moon Phase Trap']
         #for counter in range(0, math.floor(traps_needed)):
-        #    trap_item = self.random.choices(trap_items, weights=[3,2,3,2,1,4,1,1,2],k=1)
+        #    trap_item = self.random.choices(trap_items, weights=[3,3,2],k=1)
         #    items_to_create[trap_item[0]] += 1
 
         #filler_needed = total_filler - traps_needed
@@ -128,17 +131,19 @@ class REPOWorld(World):
         print("Filler needed: " + str(math.ceil(filler_needed)))
 
         #Upgrade Order for Weights [Health Up, Strength Up, Range Up, Sprint Up, Stamina Up, Player Count Up, Double Jump Up, Tumble Launch Up] weights=[5,3,2,3,5,1,2,2]
-        upgrade_weights = []
+        filler_weights = []
 
-        for upgrade in available_upgrades:
-            if upgrade in self.options.upgrade_item_weights:
-                upgrade_weights.append(self.options.upgrade_item_weights[upgrade])
+        for filler_item in available_filler:
+            if filler_item in self.options.filler_item_weights:
+                filler_weights.append(self.options.filler_item_weights[filler_item])
             else:
-                upgrade_weights.append(0)
+                filler_weights.append(0)
 
         for counter in range(0, math.ceil(filler_needed)):
-            filler_item = self.random.choices(available_upgrades,weights= upgrade_weights,k=1)
+            filler_item = self.random.choices(available_filler,weights= filler_weights,k=1)
             items_to_create[filler_item[0]] += 1
+            if items_to_create[iname.moon_phase_trap] >= 4: 
+                filler_weights[available_filler.index(iname.moon_phase_trap)] = 0
 
         # add items to item pool
         for item, quantity in items_to_create.items():
@@ -166,7 +171,7 @@ class REPOWorld(World):
                 if (location_table[location_name].location_group == "Shop Upgrade Purchase" and location_table[location_name].location_id_offset > self.options.shop_upgrade_total):
                     self.location_total -= 1
                     continue
-                elif(location_table[location_name].location_group.__contains__("Pelly") and self.options.pelly_spawning == False and not any(map(location_name.__contains__, self.options.pellys_required))):
+                elif(location_table[location_name].location_group.__contains__("Pelly") and self.options.pellys_required == 0):
                     self.location_total -= 1
                     print(f"Pelly Removed: {location_name}")
                     continue
@@ -200,11 +205,11 @@ class REPOWorld(World):
         slot_data: Dict[str, Any] = {
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
-            "pellys_required": set(self.options.pellys_required),
-            "pelly_spawning": bool(self.options.pelly_spawning.value),
+            "pellys_required": int(self.options.pellys_required.value),
             "upgrade_locations": int(self.options.shop_upgrade_total.value),
             "shop_stock" : int(self.options.shop_stock.value),
             "valuable_hunt": bool(self.options.valuable_hunt.value),
-            "monster_hunt": bool(self.options.monster_hunt.value)
+            "monster_hunt": bool(self.options.monster_hunt.value),
+            "death_link": bool(self.options.death_link.value)
         }
         return slot_data
