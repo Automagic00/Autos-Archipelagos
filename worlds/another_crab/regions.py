@@ -22,6 +22,7 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     rname.central_shallows_grapple: set(),
     rname.slacktide_before: {
+        rname.slacktide_after,
         rname.snail_cave,
         rname.reefs_edge,
         sname.soda_can,
@@ -30,7 +31,6 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.tin_can
     },
     rname.snail_cave: {
-        rname.slacktide_after,
         sname.soda_can,
         sname.bottle_cap,
         sname.shot_glass,
