@@ -74,7 +74,7 @@ class ACTWorld(World):
             randoVerified: bool = False
             shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index(sname.soda_can)]]
             plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
-            prevented_shells_at_soda = [sname.piggy_bank,sname.crab_husk,sname.rubber_duck,sname.baby_shoe]
+            prevented_shells_at_soda = [sname.piggy_bank,sname.crab_husk,sname.rubber_duck,sname.baby_shoe,sname.dentures]
             prevented_plug_regions = [rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
             print(plug_region.entrances[0].parent_region.name)
 
@@ -352,6 +352,5 @@ class ACTWorld(World):
             "ngplus_bosses": bool(self.options.ngplus_bosses.value),
             "ngplus_slots": bool(self.options.ngplus_slots.value)
         }
-
 
         return slot_data
