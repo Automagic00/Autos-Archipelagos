@@ -38,7 +38,7 @@ def set_region_rules(world: "ACTWorld") -> None:
   #add_rule(multiworld.get_entrance("Fort Slacktide - Before Destruction -> Moon Snail's Cave",player),
     #lambda state: state.has_any({logic.can_reach_msg_dmg_shells(state,player), logic.has_adaptation(state,player)},player))
    
-  multiworld.get_entrance("Moon Snail's Cave -> Fort Slacktide - After Destruction", player).access_rule = \
+  multiworld.get_entrance("Fort Slacktide - Before Destruction -> Fort Slacktide - After Destruction", player).access_rule = \
     lambda state: state.has(iname.pristine_pearl, player)
     
   multiworld.get_entrance("Fort Slacktide - After Destruction -> Reef's Edge", player).access_rule = \

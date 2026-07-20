@@ -20,6 +20,7 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.soda_can
     },
     rname.slacktide_before: {
+        rname.slacktide_after,
         rname.snail_cave,
         sname.soda_can,
         sname.coconut,
@@ -27,7 +28,6 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.tin_can
     },
     rname.snail_cave: {
-        rname.slacktide_after,
         sname.soda_can,
         sname.bottle_cap,
         sname.shot_glass,
