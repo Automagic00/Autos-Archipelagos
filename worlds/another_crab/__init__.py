@@ -81,7 +81,7 @@ class ACTWorld(World):
             
             #Make sure shell rando will work
             while randoVerified == False:
-                #Make sure soda can has something usable for combat
+                #Make sure soda can has something usable for combat if forkless enabled
                 if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda == element for element in prevented_shells_at_soda)):
                     self.random.shuffle(shell_items)
                     shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
@@ -164,9 +164,11 @@ class ACTWorld(World):
         if self.options.shelleport_location:
             shelleport = self.create_item(iname.shelleport)
             if self.options.shelleport_location == "starting_items":
+                print("shelleport starting item")
                 self.multiworld.push_precollected(shelleport)
                 items_to_create[iname.shelleport] = 0
             elif self.options.shelleport_location == "vanilla_location":
+                print("vanilla shelleport")
                 self.get_location(lname.shelleport_skill).place_locked_item(shelleport)
                 self.location_total -=  1
                 items_to_create[iname.shelleport] = 0
@@ -174,6 +176,7 @@ class ACTWorld(World):
         if self.options.fishing_line_location:
             fishing_line = self.create_item(iname.fishing_line)
             if self.options.fishing_line_location == "vanilla_location":
+                print("vanilla fishing line")
                 self.get_location(lname.fishing_line).place_locked_item(fishing_line)
                 self.location_total -= 1
                 items_to_create[iname.fishing_line] = 0

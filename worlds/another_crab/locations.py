@@ -226,7 +226,7 @@ location_table: Dict[str, ACTLocationData] = {
     lname.breadclaw_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 608, "Flotsam Vale"), #669e8494-68f1-4de8-8814-6b41a0a69d18-2_A-HighSwamp
     lname.clothesclaw_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 610, "Flotsam Vale"), #b4a9c83a-b0c6-4606-a785-16f4ff33d66e-2_A-HighSwamp
     lname.hairclaw_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 614, "Flotsam Vale"), #6db7743b-1b30-49c4-983a-bb8256959022-2_A-HighSwamp
-    lname.chipclaw_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 615, "Flotsam Vale"), #adbf6e36-d142-458d-a2a4-3406168e3a12-2_C-Facilities
+    lname.chipclaw_scuttleport_gunkfish: ACTLocationData(rname.scuttleport, 615, "Scuttleport"), #adbf6e36-d142-458d-a2a4-3406168e3a12-2_C-Facilities
 
     lname.breadclaw_scuttleport_cubby: ACTLocationData(rname.scuttleport, 424, "Scuttleport"), #b5875ab1-4e89-4ba5-a9ea-6eca950d51f0-2_A-HighSwamp
     lname.clothesclaw_scuttleport_cubby: ACTLocationData(rname.scuttleport, 425, "Scuttleport"), #8f06cd49-3b2b-4883-b7a5-a421b38870ba-2_A-HighSwamp
@@ -575,8 +575,8 @@ location_table: Dict[str, ACTLocationData] = {
     lname.mussel_sandsbetween_bobbitfish: ACTLocationData(rname.sands_between, 159,"The Sands Between"), #da5f126f-e470-432c-b5b0-8eca9918ed77-2_A-OOGroveRadius
     lname.barnacle_sandsbetween_bobbitfish: ACTLocationData(rname.sands_between, 161,"The Sands Between"), #15cf7503-de68-4475-b39c-fe687f85c448-2_A-OOGroveRadius
     lname.whelkplusplus_sandsbetween_southeelpeak: ACTLocationData(rname.sands_between, 166,"The Sands Between"), #d61a21a2-c27d-45d7-8e11-75fcd11e8b78-2_A-OOGroveRadius
-    lname.salpplus_sandsbetween_groveeel: ACTLocationData(rname.sands_between, 167,"The Sands Between"), #7faef89f-c78a-4002-9454-c20bf5098229-2_A-OOGroveRadius
-    lname.usedbandage_sandsbetween_groveeel: ACTLocationData(rname.sands_between, 168,"The Sands Between"), #3123f8ec-3548-41f5-a777-c10268e06b8b-2_A-OOGroveRadius
+    lname.salpplus_sandsbetween_groveeel: ACTLocationData(rname.sands_east_grove_shells, 167,"The Sands Between - Grapple to East of Grove"), #7faef89f-c78a-4002-9454-c20bf5098229-2_A-OOGroveRadius
+    lname.usedbandage_sandsbetween_groveeel: ACTLocationData(rname.sands_east_grove_shells, 168,"The Sands Between - Grapple to East of Grove"), #3123f8ec-3548-41f5-a777-c10268e06b8b-2_A-OOGroveRadius
 
     lname.limpet_ridge_ncliffkelp: ACTLocationData(rname.secluded_ridge, 191, "The Sands Between - Secluded Ridge"), #fcb1f0bb-2ebf-449c-b5fd-ebb7d515c7af-2_A-OOGroveRadius
     lname.sanddollar_ridge_broom: ACTLocationData(rname.secluded_ridge, 194, "The Sands Between - Secluded Ridge"), #42686eee-4b9f-4d44-a52d-569d2c814f13-2_A-OOGroveRadius
@@ -639,8 +639,8 @@ location_table: Dict[str, ACTLocationData] = {
     lname.anemoneplus_flotsamvale_northwestfish: ACTLocationData(rname.flotsam_vale, 421, "Flotsam Vale"), #f29c22d3-4459-4d21-b76d-dbdd514fe09a-2_A-HighSwamp
     lname.turtleshell_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 609, "Flotsam Vale"), #584ec079-5ecc-409b-bcac-7197b1d04a1c-2_A-HighSwamp
     lname.lilisopod_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 613, "Flotsam Vale"), #6709552a-af26-4b87-a69e-97830fd645be-2_A-HighSwamp
-    lname.rustynail_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 616, "Flotsam Vale"), #dbcacde0-7803-42c7-8894-026826e23a67-2_C-Facilities
-    lname.barnacle_flotsamvale_gunkfish: ACTLocationData(rname.flotsam_vale, 617, "Flotsam Vale"), #670ead0c-1985-4d91-a259-3ab2d5162376-2_C-Facilities
+    lname.rustynail_scuttleport_gunkfish: ACTLocationData(rname.scuttleport, 616, "Scuttleport"), #dbcacde0-7803-42c7-8894-026826e23a67-2_C-Facilities
+    lname.barnacle_scuttleport_gunkfish: ACTLocationData(rname.scuttleport, 617, "Scuttleport"), #670ead0c-1985-4d91-a259-3ab2d5162376-2_C-Facilities
 
     lname.googlyeye_scuttleport_cubbies: ACTLocationData(rname.scuttleport, 427, "Scuttleport"), #5736e238-67d5-4215-823d-a0c3b3d60b2a-2_A-HighSwamp
     lname.seastar_scuttleport_cubbies: ACTLocationData(rname.scuttleport, 428, "Scuttleport"), #69c1d4c5-c467-4127-a12a-6277376c47f0-2_A-HighSwamp

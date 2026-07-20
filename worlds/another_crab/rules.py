@@ -323,6 +323,9 @@ def set_location_rules(world: "ACTWorld") -> None:
   set_rule(multiworld.get_location(lname.sanddollar_shallows_arch, player),
             lambda state: state.has(iname.fishing_line, player))
 
+  set_rule(multiworld.get_location(lname.clothesclaw_shallows_southwestfort, player),
+            lambda state: (state.has(iname.fishing_line, player) and state.can_reach_location(lname.nephro, player)) or logic.are_skips_allowed(options))
+
   set_rule(multiworld.get_location(lname.clothesclaw_shallows_southwestfort, player), 
             lambda state: state.has(iname.fishing_line, player) and state.can_reach_location(lname.nephro, player))
  
@@ -773,15 +776,6 @@ def set_location_rules(world: "ACTWorld") -> None:
         set_rule(multiworld.get_location(lname.hairclaw_flotsamvale_gunkfish, player),
                 lambda state: state.has(iname.spearfishing, player))
         
-        set_rule(multiworld.get_location(lname.chipclaw_flotsamvale_gunkfish, player),
-                lambda state: state.has(iname.spearfishing, player))
-        
-        set_rule(multiworld.get_location(lname.rustynail_flotsamvale_gunkfish, player),
-                lambda state: state.has(iname.spearfishing, player))
-        
-        set_rule(multiworld.get_location(lname.barnacle_flotsamvale_gunkfish, player),
-                lambda state: state.has(iname.spearfishing, player))
-        
         # grapple + spearfishing
         set_rule(multiworld.get_location(lname.chipclaw_flotsamvale_consortiumfish, player),
                 lambda state: state.has_all({iname.spearfishing, iname.fishing_line}, player))
@@ -790,11 +784,20 @@ def set_location_rules(world: "ACTWorld") -> None:
 
         # grapple + eelectrocute (will add metal shell later)
         set_rule(multiworld.get_location(lname.oldworldwhorl_scuttleport_eelectrocute, player),
-                lambda state: state.has_all({iname.fishing_line, iname.eelectrocute}, player))
+                lambda state: state.has(iname.eelectrocute, player) and (state.has(iname.fishing_line, player) or logic.can_CAL(options, state, player)))
                 
         # grapple and spearfishing
         set_rule(multiworld.get_location(lname.mussel_scuttleport_magnetfish,player),
                 lambda state: state.has_all({iname.fishing_line, iname.spearfishing}, player))
+
+        set_rule(multiworld.get_location(lname.chipclaw_scuttleport_gunkfish, player),
+                lambda state: state.has(iname.spearfishing, player))
+        
+        set_rule(multiworld.get_location(lname.rustynail_scuttleport_gunkfish, player),
+                lambda state: state.has(iname.spearfishing, player))
+        
+        set_rule(multiworld.get_location(lname.barnacle_scuttleport_gunkfish, player),
+                lambda state: state.has(iname.spearfishing, player))
         
         if options.goal != "voltai" and options.goal != "roland":
         
