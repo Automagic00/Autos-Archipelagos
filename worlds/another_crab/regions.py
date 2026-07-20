@@ -90,13 +90,7 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.legal_brick,
         sname.spring
     }, 
-    rname.trashbin_plateau: {
-        rname.trashbin_shells
-    },
-    rname.trashbin_shells: {
-        sname.shotgun_shell,
-        sname.cascadia_roll
-    },
+    rname.trashbin_plateau: set(),
     rname.southern_town_ridge: {
         sname.legal_brick
     },

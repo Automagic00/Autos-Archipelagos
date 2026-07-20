@@ -42,16 +42,13 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: (options.goal == "magista") or logic.is_secluded_ridge_accessible(options, state, player)
 
   multiworld.get_entrance("The Sands Between -> The Sands Between - Grapple to East of Grove", player).access_rule = \
-    lambda state: state.has(iname.fishing_line, player)
+    lambda state: (options.goal == "magista") or state.has_all({iname.fishing_line, iname.eelectrocute}, player)
 
   multiworld.get_entrance("Secluded Ridge -> Secluded Ridge - Past Eelectrocute", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_secluded_ridge_eel_accessible(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Trashbin Plateau", player).access_rule = \
     lambda state: (options.goal == "magista") or state.has(iname.mantis_punch, player)
-
-  multiworld.get_entrance("Trashbin Plateau -> Trashbin Shells", player).access_rule = \
-    lambda state: state.has_all({iname.eelectrocute, iname.fishing_line}, player)
     
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
