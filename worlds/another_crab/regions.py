@@ -80,7 +80,7 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.coffee_pod,
         sname.legal_brick,
         sname.ink_cartridge
-    }
+    },
     rname.post_pag: set(),
     rname.secluded_ridge: {
         rname.secluded_ridge_eel
@@ -96,7 +96,7 @@ ACT_regions: Dict[str, Set[str]] = {
     rname.trashbin_shells: {
         sname.shotgun_shell,
         sname.cascadia_roll
-    }
+    },
     rname.southern_town_ridge: {
         sname.legal_brick
     },
@@ -202,8 +202,6 @@ ACT_regions: Dict[str, Set[str]] = {
     sname.baby_shoe : set(),
     sname.lil_bro : set(),
     sname.matryoshka_large : set(),
-    #sname.matryoshka_medium : set(),
-    #sname.matryoshka_small : set(),
     sname.shuttlecock : set(),
     sname.felix_cube : set(),
     sname.piggy_bank : set(),
@@ -247,7 +245,5 @@ ACT_regions: Dict[str, Set[str]] = {
     sname.snow_globe : set(),
     sname.knights_helmet : set(),
     sname.plug_fuse: set()
-
-
 }
 
