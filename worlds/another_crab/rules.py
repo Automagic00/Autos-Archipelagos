@@ -357,7 +357,7 @@ def set_location_rules(world: "ACTWorld") -> None:
             lambda state: state.has_all({iname.spearfishing, iname.fishing_line}, player))
 
 # Other
-set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
+  set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
             lambda state: state.has(iname.pristine_pearl, player))
 
 # ---- Fort Slacktide ----
