@@ -228,8 +228,14 @@ class ACTWorld(World):
                 #if self.options.allow_forkless and item_name == iname.fork:
                     #items_to_create[item_name] = 0
 
+        individual_locations_to_exclude = []
+        if not self.options.ngplus_bosses:
+            individual_locations_to_exclude.append(lname.extremely_rude_snail)
+
         for location_name in location_name_to_id:
             if location_table[location_name].region in regions_to_exclude:
+                self.location_total -= 1
+            elif location_name in individual_locations_to_exclude:
                 self.location_total -= 1
         
         # fill empty locations with filler and traps
@@ -248,9 +254,10 @@ class ACTWorld(World):
         if self.options.ngplus_stowaways.value == True:
             stowaways += [stow for stow in item_table if item_table[stow].item_group == "StowawaysNGPlus"]
 
+        print(!"Available Filler:")
         print(available_filler)
         print(trap_items)
-        print("Loaction Count: " + str(self.location_total))
+        print("Location Count: " + str(self.location_total))
         print("Item Count: " + str(items_total))
         print("Total Filler: " + str(total_filler))
         if total_filler < 0:
@@ -298,19 +305,19 @@ class ACTWorld(World):
             region.add_exits(exits)
 
         regions_to_exclude = []
-            # player can complete the game if they can reach the final region
+            # player can complete the game if they can reach the final region/location
         if self.options.goal == "home":
             self.multiworld.completion_condition[self.player] = \
                 lambda state: state.can_reach_region(spot = rname.carcinia_ruins, player = self.player)
             
         if self.options.goal == "roland":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach_region(spot = rname.pinbarge, player = self.player)
+                lambda state: state.can_reach_location(spot = lname.roland, player = self.player)
             regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
             
         if self.options.goal == "voltai":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach_region(spot = rname.scuttleport,player =self.player)
+                lambda state: state.can_reach_location(spot = lname.voltai, player =self.player)
             regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
 
         if self.options.goal == "magista":
@@ -319,17 +326,16 @@ class ACTWorld(World):
             regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
 
         for location_name, location_id in location_name_to_id.items():
-            if location_table[location_name].region not in regions_to_exclude:
+            individual_locations_to_exclude = []
+            if not self.options.ngplus_bosses:
+                individual_locations_to_exclude.append(lname.extremely_rude_snail)
+
+            isLocationExcluded = (location_name in individual_locations_to_exclude)
+            isLocationInExcludedRegion = (location_table[location_name].region in regions_to_exclude)
+            if (not isLocationExcluded) and (not isLocationInExcludedRegion):
                 region = self.multiworld.get_region(location_table[location_name].region, self.player) 
                 location = ACTLocation(self.player, location_name, location_id, region)
-                region.locations.append(location)
-
-        # for i in range(len(shell_items)):
-        #     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
-        #     location = self.placed_shells[i]
-        #     region.locations.append(location)
-
-        
+                region.locations.append(location)      
 
     def set_rules(self) -> None:
         set_region_rules(self)

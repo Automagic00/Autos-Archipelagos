@@ -117,6 +117,10 @@ def set_location_rules(world: "ACTWorld") -> None:
     
     set_rule(multiworld.get_location(lname.magista, player),
            lambda state: state.has(iname.fork,player))
+
+    if options.ngplus_bosses:
+        set_rule(multiworld.get_location(lname.extremely_rude_snail, player), 
+                lambda state: state.has(iname.fork,player))
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
@@ -170,8 +174,8 @@ def set_location_rules(world: "ACTWorld") -> None:
 
     #Forkless Enabled, ensures player has some means of dealing damage for bosses
   elif options.allow_forkless == "forkless_easy":
-    set_rule(multiworld.get_location(lname.bloodstar_shallows_help,player),
-           lambda state: logic.can_deal_damage_easy(state,player))
+    set_rule(multiworld.get_location(lname.bloodstar_shallows_help, player),
+            lambda state: logic.can_deal_damage_easy(state,player))
     
     set_rule(multiworld.get_location(lname.nephro, player),
             lambda state: logic.can_deal_damage_easy(state,player))
@@ -184,6 +188,10 @@ def set_location_rules(world: "ACTWorld") -> None:
       
     set_rule(multiworld.get_location(lname.magista, player),
             lambda state: logic.can_deal_damage_easy(state,player))
+
+    if options.ngplus_bosses:
+        set_rule(multiworld.get_location(lname.extremely_rude_snail, player),
+                lambda state: logic.can_deal_damage_easy(state.player))
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
@@ -248,6 +256,10 @@ def set_location_rules(world: "ACTWorld") -> None:
       
     set_rule(multiworld.get_location(lname.magista, player),
             lambda state: logic.can_deal_damage_hard(state,player))
+
+    if options.ngplus_bosses:
+        set_rule(multiworld.get_location(lname.extremely_rude_snail, player),
+                lambda state: logic.can_deal_damage_easy(state.player))
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
@@ -296,14 +308,6 @@ def set_location_rules(world: "ACTWorld") -> None:
                         
                         set_rule(multiworld.get_location(lname.firth, player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
-  
-
-  # if options.allow_forkless == "forkless_hard":
-  #   set_rule(multiworld.get_location(lname.nephro, player),
-  #          lambda state: logic.can_deal_damage)
-    
-  #   set_rule(multiworld.get_location(lname.royal_shellsplitter, player),
-  #          lambda state: logic.can_deal_damage)
     
 # ---- Cave of Respite ----
  # spearfishing
@@ -332,6 +336,9 @@ def set_location_rules(world: "ACTWorld") -> None:
     
   set_rule(multiworld.get_location(lname.sanddollar_shallows_arch, player),
             lambda state: state.has(iname.fishing_line, player))
+
+  set_rule(multiworld.get_location(lname.clothesclaw_shallows_southwestfort, player), 
+            lambda state: state.has(iname.fishing_line, player) and state.can_reach_location(lname.nephro, player))
  
  # spearfishing
   set_rule(multiworld.get_location(lname.mussel_shallows_southwestcastlefish, player),
@@ -348,6 +355,10 @@ def set_location_rules(world: "ACTWorld") -> None:
     
   set_rule(multiworld.get_location(lname.anemone_shallows_umbrellafishing, player),
             lambda state: state.has_all({iname.spearfishing, iname.fishing_line}, player))
+
+# Other
+set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
+            lambda state: state.has(iname.pristine_pearl, player))
 
 # ---- Fort Slacktide ----
  # grapple
