@@ -36,9 +36,6 @@ class ACTWorld(World):
     slot_data_items = List[ACTItem]
     placed_shells = List[ACTLocation]
 
-    def generate_output(self, output_directory: str):
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml", show_entrance_names=False ) #regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[self.player]
-
     def generate_early(self):
         # early fork shuffling
         if self.options.fork_location == "shuffled_early_local" and not self.options.allow_forkless:
