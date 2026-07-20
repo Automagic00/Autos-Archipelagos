@@ -12,12 +12,10 @@ from . import logic
 if TYPE_CHECKING:
     from . import ACTWorld
 
-
 def set_region_rules(world: "ACTWorld") -> None:
   multiworld = world.multiworld
   player = world.player
   options = world.options
-  #logic.set_options(world.options)
 
   multiworld.get_entrance("Central Shallows -> Central Shallows - Items Behind Grapple", player).access_rule = \
     lambda state: logic.can_skip_some_grapples(options, state, player)
@@ -42,12 +40,18 @@ def set_region_rules(world: "ACTWorld") -> None:
     
   multiworld.get_entrance("The Sands Between -> Secluded Ridge", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_secluded_ridge_accessible(options, state, player)
-    
+
+  multiworld.get_entrance("The Sands Between -> The Sands Between - Grapple to East of Grove", player).access_rule = \
+    lambda state: state.has(iname.fishing_line, player)
+
   multiworld.get_entrance("Secluded Ridge -> Secluded Ridge - Past Eelectrocute", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_secluded_ridge_eel_accessible(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Trashbin Plateau", player).access_rule = \
     lambda state: (options.goal == "magista") or state.has(iname.mantis_punch, player)
+
+  multiworld.get_entrance("Trashbin Plateau -> Trashbin Shells", player).access_rule = \
+    lambda state: state.has_all({iname.eelectrocute, iname.fishing_line}, player)
     
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
@@ -76,24 +80,6 @@ def set_region_rules(world: "ACTWorld") -> None:
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
     lambda state: logic.has_all_maps(state,player) and state.has(iname.eelectrocute, player)
   
-
-  
-  #Matryoshka Shell Rules
-  #multiworld.get_entrance("Tide Pools -> Matryoshka Medium",player).access_rule = \
-    #lambda state: state.has(sname.matryoshka_large, player)
-  
- # multiworld.get_entrance("Tide Pools -> Matryoshka Small",player).access_rule = \
-    #lambda state: state.has(sname.matryoshka_medium, player)
-  
-
-# def set_shell_rules(world: "ACTWorld") -> None:
-#    multiworld = world.multiworld
-#    player = world.player
-
-#    set_rule(multiworld.get_location(lname.nephro, player),
-#             lambda state: state.can_reach_region())
-
-
 def set_location_rules(world: "ACTWorld") -> None:
   multiworld = world.multiworld
   player = world.player
@@ -124,7 +110,7 @@ def set_location_rules(world: "ACTWorld") -> None:
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
-                lambda state: (state.has(iname.fork,player) or logic.are_skips_allowed(options))) #allow pagurus quick kill if not vanilla
+                lambda state: (state.has(iname.fork,player) or logic.can_pagurus_quick_kill(options,state,player))) #allow pagurus quick kill if not vanilla
         
         set_rule(multiworld.get_location(lname.lichenthrope, player),
                 lambda state: state.has(iname.fork,player))
@@ -133,7 +119,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                 lambda state: state.has(iname.fork,player))
         
         set_rule(multiworld.get_location(lname.heikea, player),
-                lambda state: state.has(iname.fork,player))
+                lambda state: (state.has(iname.fork,player) or logic.can_heikia_quick_kill(options,state,player)))
         
         set_rule(multiworld.get_location(lname.topoda, player),
                 lambda state: state.has(iname.fork,player))
@@ -195,7 +181,7 @@ def set_location_rules(world: "ACTWorld") -> None:
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
-                lambda state: (logic.can_deal_damage_easy(state,player) or logic.are_skips_allowed(options)))
+                lambda state: (logic.can_deal_damage_easy(state,player) or logic.can_pagurus_quick_kill(options,state,player)))
         
         set_rule(multiworld.get_location(lname.lichenthrope, player),
                 lambda state: logic.can_deal_damage_easy(state,player))
@@ -204,7 +190,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                 lambda state: logic.can_deal_damage_easy(state,player))
         
         set_rule(multiworld.get_location(lname.heikea, player),
-                lambda state: logic.can_deal_damage_easy(state,player))
+                lambda state: (logic.can_deal_damage_easy(state,player) or logic.can_heikia_quick_kill(options,state,player)))
         
         set_rule(multiworld.get_location(lname.topoda, player),
                 lambda state: logic.can_deal_damage_easy(state,player))
@@ -263,7 +249,7 @@ def set_location_rules(world: "ACTWorld") -> None:
     
     if options.goal != "magista":
         set_rule(multiworld.get_location(lname.pagurus, player),
-                lambda state: (logic.can_deal_damage_hard(state,player) or logic.are_skips_allowed(options)))
+                lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_pagurus_quick_kill(options)))
         
         set_rule(multiworld.get_location(lname.lichenthrope, player),
                 lambda state: logic.can_deal_damage_hard(state,player))
@@ -272,7 +258,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                 lambda state: logic.can_deal_damage_hard(state,player))
         
         set_rule(multiworld.get_location(lname.heikea, player),
-                lambda state: logic.can_deal_damage_hard(state,player))
+                lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_heikia_quick_kill(options,state,player)))
         
         set_rule(multiworld.get_location(lname.topoda, player),
                 lambda state: logic.can_deal_damage_hard(state,player))
@@ -356,10 +342,6 @@ def set_location_rules(world: "ACTWorld") -> None:
   set_rule(multiworld.get_location(lname.anemone_shallows_umbrellafishing, player),
             lambda state: state.has_all({iname.spearfishing, iname.fishing_line}, player))
 
-# Other
-  set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
-            lambda state: state.has(iname.pristine_pearl, player))
-
 # ---- Fort Slacktide ----
  # grapple
 
@@ -387,6 +369,10 @@ def set_location_rules(world: "ACTWorld") -> None:
  # spearfishing
   set_rule(multiworld.get_location(lname.breadclaw_slacktide_roofhiddenfish, player),
             lambda state: state.has_all({iname.spearfishing, iname.fishing_line}, player))
+
+# Other
+  set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
+            lambda state: state.has(iname.pristine_pearl, player))
 
   if options.goal != "magista":
         # ---- Reef's Edge ----        
