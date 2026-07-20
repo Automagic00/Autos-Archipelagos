@@ -254,7 +254,7 @@ class ACTWorld(World):
         if self.options.ngplus_stowaways.value == True:
             stowaways += [stow for stow in item_table if item_table[stow].item_group == "StowawaysNGPlus"]
 
-        print(!"Available Filler:")
+        print("Available Filler:")
         print(available_filler)
         print(trap_items)
         print("Location Count: " + str(self.location_total))
