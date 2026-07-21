@@ -9,8 +9,6 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     rname.tide_pool: {
         rname.starting_cave,
-        #sname.matryoshka_medium,
-        #sname.matryoshka_small
     },
     rname.starting_cave: {
         rname.central_shallows
@@ -22,6 +20,7 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     rname.central_shallows_grapple: set(),
     rname.slacktide_before: {
+        rname.slacktide_after,
         rname.snail_cave,
         rname.reefs_edge,
         sname.soda_can,
@@ -30,7 +29,6 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.tin_can
     },
     rname.snail_cave: {
-        rname.slacktide_after,
         sname.soda_can,
         sname.bottle_cap,
         sname.shot_glass,
@@ -42,13 +40,13 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     rname.reefs_edge: {
         rname.reefs_edge_grapple,
-        rname.new_carcinia,
-        sname.salt_shaker,
-        sname.thimble,
-        sname.tennis_ball,
         sname.sauce_nozzle
     },
-    rname.reefs_edge_grapple: set(),
+    rname.reefs_edge_grapple: {
+        rname.new_carcinia,
+        sname.thimble,
+        sname.tennis_ball
+    },
     rname.new_carcinia: {
         rname.sands_between,
         sname.f_key,
@@ -65,37 +63,46 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     rname.sands_between: {
         rname.post_pag,
+        rname.sands_east_grove_shells,
         rname.secluded_ridge,
         rname.trashbin_plateau,
         rname.southern_town_ridge,
         rname.grove_main,
         rname.flotsam_vale,
-        sname.coffee_pod,
-        sname.cascadia_roll,
-        sname.ink_cartridge,
         sname.yoccult,
-        sname.legal_brick,
         sname.mason_jar,
-        sname.valve,
         sname.bebop_cup,
-        sname.wafer_cone,
-        sname.shotgun_shell,
-        sname.egg_shell,
         sname.disco_ball,
-        sname.lil_red_cup
+        sname.lil_red_cup,
+        sname.valve
+    },
+    rname.sands_east_grove_shells: {
+        sname.coffee_pod,
+        sname.legal_brick,
+        sname.ink_cartridge
     },
     rname.post_pag: set(),
     rname.secluded_ridge: {
         rname.secluded_ridge_eel
     },
-    rname.secluded_ridge_eel: set(), 
+    rname.secluded_ridge_eel: {
+        sname.shotgun_shell,
+        sname.legal_brick,
+        sname.spring
+    }, 
     rname.trashbin_plateau: set(),
-    rname.southern_town_ridge: set(),
+    rname.southern_town_ridge: {
+        sname.legal_brick
+    },
     rname.grove_main: {
         rname.grove_village,
         rname.grove_raised_platforms,
         rname.consortium_arena,
-        sname.coffee_mug
+        sname.coffee_mug,
+        sname.cascadia_roll,
+        sname.wafer_cone,
+        sname.egg_shell,
+        sname.coffee_pod
     },
     rname.grove_raised_platforms: set(),
     rname.grove_village: {
@@ -110,23 +117,31 @@ ACT_regions: Dict[str, Set[str]] = {
         rname.scuttleport,
         rname.plug_fuse,
         sname.boxing_glove,
-        sname.spring,
-        sname.rubber_duck,
         sname.tissue_box,
         sname.cardboard_box,
+        sname.salt_shaker,
+        sname.spring, 
+        sname.shotgun_shell,
+        sname.legal_brick
     },
     rname.plug_fuse: {
         sname.plug_fuse
     },
     rname.post_ceviche: set(),
-    rname.consortium_arena: set(),
+    rname.consortium_arena: {
+        sname.salt_shaker,
+        sname.spring,
+        sname.rubber_duck
+    },
     rname.scuttleport: {
         sname.dumptruck,
+        sname.rubber_duck,
         rname.plug_fuse
     },
     rname.pinbarge: {
         rname.unfathom,
-        sname.gacha_capsule
+        sname.gacha_capsule,
+        sname.ink_cartridge
     },
     rname.unfathom: {
         rname.plains,
@@ -181,8 +196,6 @@ ACT_regions: Dict[str, Set[str]] = {
     sname.baby_shoe : set(),
     sname.lil_bro : set(),
     sname.matryoshka_large : set(),
-    #sname.matryoshka_medium : set(),
-    #sname.matryoshka_small : set(),
     sname.shuttlecock : set(),
     sname.felix_cube : set(),
     sname.piggy_bank : set(),
@@ -226,7 +239,5 @@ ACT_regions: Dict[str, Set[str]] = {
     sname.snow_globe : set(),
     sname.knights_helmet : set(),
     sname.plug_fuse: set()
-
-
 }
 

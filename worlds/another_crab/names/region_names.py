@@ -25,6 +25,7 @@ slacktide_before = "Fort Slacktide - Before Destruction" # slacktide before the 
 central_shallows_grapple = "Central Shallows - Items Behind Grapple" # a selection of items in slacktide which can be obtained without the grapple using parkour
 slacktide_after = "Fort Slacktide - After Destruction" # slacktide after the player gets the pearl and slacktide goes crazy
 reefs_edge_grapple = "Reef's Edge - Items Behind Grapple" # a selection of items in reef's edge which can be obtained without grapple using parkour
+sands_east_grove_shells = "The Sands Between - Grapple to East of Grove"
 post_pag = "The Sands Between - Post Pagurus" # after the pagurus map piece is returned
 southern_town_ridge = "Southern Town Ridge" # area in sands by company town which usually requires eelectrocute to access
 secluded_ridge = "Secluded Ridge" # area in sands that usually requires mantis punch to access
