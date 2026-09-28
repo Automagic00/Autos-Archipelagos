@@ -201,6 +201,7 @@ class REPOWorld(World):
         #Sleep for if im trying to read the output log
         #time.sleep(3)
         slot_data: Dict[str, Any] = {
+            "world_version": World.world_version.as_simple_string(),
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
             "pellys_required": int(self.options.pellys_required.value),
