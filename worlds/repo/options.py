@@ -103,8 +103,15 @@ class FillerItemWeights(OptionDict):
         iname.monster_trap: 8,
         iname.audit_trap: 6,
         iname.lure_trap: 15,
-        iname.moon_phase_trap: 3    # there will never be more than 4
+        iname.moon_phase_trap: 2    # there will never be more than 4
     }
+
+class AuditTrapMoneyLost(Range):
+    """The percentage of the player's money that an Audit Trap will take when triggered."""
+    display_name: str = "Audit Trap Money Lost"
+    range_start = 5
+    range_end = 100
+    default = 33
     
 
 
@@ -121,6 +128,7 @@ class REPOGameOptions(PerGameCommonOptions):
     shop_upgrade_logical: ShopUpgradeLocationsInLogic
     starting_level_type: StartingLevelType
     filler_item_weights: FillerItemWeights
+    audit_trap_money_lost: AuditTrapMoneyLost
     death_link: DeathLink
 
     

@@ -208,6 +208,7 @@ class REPOWorld(World):
             "shop_stock" : int(self.options.shop_stock.value),
             "valuable_hunt": bool(self.options.valuable_hunt.value),
             "monster_hunt": bool(self.options.monster_hunt.value),
+            "audit_trap_money_lost": int(self.options.audit_trap_money_lost.value),
             "death_link": bool(self.options.death_link.value)
         }
         return slot_data
