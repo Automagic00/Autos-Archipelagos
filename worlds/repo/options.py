@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionDict, DefaultOnToggle, DeathLink
+from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionCounter, DefaultOnToggle, DeathLink
 from .names import item_names as iname
 
 # class Goal(Choice):
@@ -76,7 +76,7 @@ class StartingLevelType(TextChoice):
     option_museum_of_human_art = 3
     default = "random"
 
-class FillerItemWeights(OptionDict):
+class FillerItemWeights(OptionCounter):
     """Choose the weights for adding filler and traps to the item pool.
     Each upgrade item will spawn one upgrade of that type in the truck.
     Each small health pack spawns one small health pack (25hp) in the truck.
@@ -86,6 +86,27 @@ class FillerItemWeights(OptionDict):
         Monster Lure Trap - Lures monsters to your location for two minutes.
         Progressive Moon Phase Trap - Increases the moon phase by one stage FOR THE REST OF THE MULTIWORLD."""
     display_name: str = "Filler Item Weights"
+    min = 0
+    max = 1000
+    valid_keys = {
+        iname.health_up,
+        iname.strength_up,
+        iname.range_up,
+        iname.sprint_up,
+        iname.stamina_up, 
+        iname.player_count_up,      # does nothing in singleplayer and you only need one in multiplayer
+        iname.double_jump_up, 
+        iname.tumble_up,
+        iname.tumble_wings,
+        iname.crouch_rest,
+        iname.tumble_climb,
+        iname.death_head_battery,    # does nothing in singleplayer
+        iname.small_health,
+        iname.monster_trap,
+        iname.audit_trap,
+        iname.lure_trap,
+        iname.moon_phase_trap    # there will never be more than 4
+    }
     default = {
         iname.health_up : 40,
         iname.strength_up : 30,
@@ -98,7 +119,7 @@ class FillerItemWeights(OptionDict):
         iname.tumble_wings : 20,
         iname.crouch_rest : 40,
         iname.tumble_climb : 20,
-        iname.death_head_battery : 10,    # does nothing in singleplayer
+        #iname.death_head_battery : 10,    # does nothing in singleplayer
         iname.small_health: 20,
         iname.monster_trap: 8,
         iname.audit_trap: 6,
