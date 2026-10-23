@@ -2,7 +2,7 @@ import math
 from typing import Dict, List, Any
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
-from BaseClasses import Region, ItemClassification, CollectionState
+from BaseClasses import Region, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive
 
 from .items import item_table, item_name_groups, item_name_to_id, filler_items, costume_items, trap_items, shell_items,item_limited_group, ACTItem, ACTItemData
@@ -16,6 +16,17 @@ from .names import location_names as lname, item_names as iname, region_names as
 class ACTWeb(WebWorld):
     theme: str = "ocean"
     game: str = "Another Crab's Treasure"
+
+    setup_en = Tutorial(
+        "Multiworld Setup Guide",
+        "A guide to setting up the Archipelago randomizer for Another Crab's Treasure.",
+        "English",
+        "setup_en.md",
+        "setup/en",
+        ["Automagic00"]
+    )
+
+    tutorials = [setup_en]
 
 class ACTWorld(World):
     """
