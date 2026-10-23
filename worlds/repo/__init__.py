@@ -3,7 +3,7 @@ import time
 from typing import Dict, List, Any
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
-from BaseClasses import LocationProgressType, Region, ItemClassification, CollectionState
+from BaseClasses import LocationProgressType, Region, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive
 
 from .items import item_table, item_name_groups, item_name_to_id, filler_items, trap_items, REPOItem, REPOItemData,event_items
@@ -17,6 +17,17 @@ from .names import location_names as lname, item_names as iname, region_names as
 class REPOWeb(WebWorld):
     theme: str = "stone"
     game: str = "R.E.P.O"
+
+    setup_en = Tutorial(
+        "Multiworld Setup Guide",
+        "A guide to setting up the Archipelago randomizer for R.E.P.O.",
+        "English",
+        "setup_en.md",
+        "setup/en",
+        ["Automagic00"]
+    )
+
+    tutorials = [setup_en]
 
 class REPOWorld(World):
     
