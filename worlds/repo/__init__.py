@@ -191,11 +191,9 @@ class REPOWorld(World):
                     location = REPOLocation(self.player, location_name, location_id, region)
 
                 if (location_table[location_name].location_group == "Shop Upgrade Purchase" and location_table[location_name].location_id_offset > self.options.shop_upgrade_logical):
-                    print(f"Excluding {location_name}")
-                    location.progress_type == LocationProgressType.EXCLUDED
+                    location.progress_type = LocationProgressType.EXCLUDED
                 elif(location_table[location_name].location_group == "Shop Upgrade Purchase"and location_table[location_name].location_id_offset % 20 == 0):
-                    print(f"Making {location} Priority")
-                    location.progress_type == LocationProgressType.PRIORITY
+                    location.progress_type = LocationProgressType.PRIORITY
                 region.locations.append(location)
 
         # for i in range(len(shell_items)):
@@ -214,6 +212,7 @@ class REPOWorld(World):
         #Sleep for if im trying to read the output log
         #time.sleep(3)
         slot_data: Dict[str, Any] = {
+            "world_version": World.world_version.as_simple_string(),
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
             "pellys_required": int(self.options.pellys_required.value),
@@ -221,6 +220,7 @@ class REPOWorld(World):
             "shop_stock" : int(self.options.shop_stock.value),
             "valuable_hunt": bool(self.options.valuable_hunt.value),
             "monster_hunt": bool(self.options.monster_hunt.value),
+            "audit_trap_money_lost": int(self.options.audit_trap_money_lost.value),
             "death_link": bool(self.options.death_link.value)
         }
         return slot_data
