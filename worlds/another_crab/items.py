@@ -4,10 +4,10 @@ from BaseClasses import ItemClassification, Item
 
 from .names import item_names as iname, shell_names as sname
 
-class ACTItemData(NamedTuple):
-    classification: ItemClassification
-    quantity_in_item_pool: int
-    item_id: int
+class ACTItemData:
+    classification: ItemClassification = ItemClassification.filler
+    quantity_in_item_pool: int = 0
+    item_id: int = 483021700
     item_group: str = ""
 
 class ACTItem(Item):

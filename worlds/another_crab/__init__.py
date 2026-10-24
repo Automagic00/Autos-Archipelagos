@@ -143,10 +143,6 @@ class ACTWorld(World):
     def create_item(self, item: Union[str, ACTItemData]) -> ACTItem:
         return ACTItem(self.player, item if isinstance(item, ACTItemData) else item_table[item])
 
-    # not actually used rn, may be useful for shell rando
-    def create_event(self, event: str) -> ACTItem:
-        return ACTItem(event, True, None, self.player)
-
     def create_items(self) -> None:
         ACT_items: List[ACTItem] = []
         self.slot_data_items = []
@@ -350,8 +346,6 @@ class ACTWorld(World):
         set_region_rules(self)
         set_location_rules(self)
     
-    # shell slotdata stuff almost certainly isn't going to work properly like this
-
     def fill_slot_data(self) -> Dict[str, Any]:
 
         shell_rando: Dict[str,str] = {}
@@ -365,7 +359,8 @@ class ACTWorld(World):
             "shell_rando_enabled": bool(self.options.randomshells.value > 0),
             "shell_rando": shell_rando,
             "ngplus_bosses": bool(self.options.ngplus_bosses.value),
-            "ngplus_slots": bool(self.options.ngplus_slots.value)
+            "ngplus_slots": bool(self.options.ngplus_slots.value),
+            "version_number": "0.5.4"
         }
 
         return slot_data
