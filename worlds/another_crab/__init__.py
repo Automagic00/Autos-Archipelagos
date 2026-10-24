@@ -10,7 +10,7 @@ from .locations import location_table, location_name_groups, location_name_to_id
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules
 from .options import ACTGameOptions
-from .names import location_names as lname, item_names as iname, region_names as rname, shell_names as sname
+from .names import location_names as lname, region_names as rname, shell_names as sname
 
 
 class ACTWeb(WebWorld):
@@ -40,8 +40,8 @@ class ACTWorld(World):
     item_name_groups = item_name_groups
     location_name_groups = location_name_groups
     location_total = location_total
-
     location_name_to_id = location_name_to_id
+    item_name_to_id = {data.name: data.item_id for data in item_table.values() if data.item_id is not None}
 
     slot_data_items = List[ACTItem]
     placed_shells = List[ACTLocation]
@@ -49,15 +49,15 @@ class ACTWorld(World):
     def generate_early(self):
         # early fork shuffling
         if self.options.fork_location == "shuffled_early_local" and not self.options.allow_forkless:
-            self.multiworld.local_early_items[self.player][iname.fork] = 1
+            self.multiworld.local_early_items[self.player]["Fork"] = 1
         if self.options.fork_location == "shuffled_early_global" and not self.options.allow_forkless:
-            self.multiworld.early_items[self.player][iname.fork] = 1
+            self.multiworld.early_items[self.player]["Fork"] = 1
 
         # early shelleport shuffling
         if self.options.shelleport_location == "shuffled_early_local":
-            self.multiworld.local_early_items[self.player][iname.shelleport] = 1
+            self.multiworld.local_early_items[self.player]["Shelleport"] = 1
         if self.options.shelleport_location == "shuffled_early_global":
-            self.multiworld.early_items[self.player][iname.shelleport] = 1
+            self.multiworld.early_items[self.player]["Shelleport"] = 1
 
     def get_locations(self):
         return self.multiworld.get_locations(self.player)
@@ -84,7 +84,7 @@ class ACTWorld(World):
             randoVerified: bool = False
             shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index(sname.soda_can)]]
             plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
-            prevented_shells_at_soda = [sname.piggy_bank,sname.crab_husk,sname.rubber_duck,sname.baby_shoe,sname.dentures]
+            prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
             prevented_plug_regions = [rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
             print(plug_region.entrances[0].parent_region.name)
 
@@ -92,16 +92,16 @@ class ACTWorld(World):
             #Make sure shell rando will work
             while randoVerified == False:
                 #Make sure soda can has something usable for combat if forkless enabled
-                if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda == element for element in prevented_shells_at_soda)):
+                if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda.name == element for element in prevented_shells_at_soda)):
                     self.random.shuffle(shell_items)
                     shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
-                    print(shell_at_soda)
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
+                    print(shell_at_soda.name)
                 #elif plug_region.entrances
                 elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions) and (self.options.randomfuse == True):
                     self.random.shuffle(shell_items)
                     shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
                     
                 elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != rname.plug_fuse):
@@ -124,7 +124,7 @@ class ACTWorld(World):
                     #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,shell_locations[i],None,region)
-                    shell_placed_loc.place_locked_item(ACTItem(shell_items[i],ItemClassification.progression,None,self.player))
+                    shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
                     region.locations.append(shell_placed_loc)
         
         #If shells not randoed
@@ -135,7 +135,7 @@ class ACTWorld(World):
                     shell_placed_loc = ACTLocation(self.player,shell_locations[i],None,region)
                     
                     if location_table[shell_locations[i]].region not in regions_to_exclude:
-                        shell_placed_loc.place_locked_item(ACTItem(shell_items[i],ItemClassification.progression,None,self.player))
+                        shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
                         region.locations.append(shell_placed_loc)
 
         return super().pre_fill()
@@ -157,31 +157,31 @@ class ACTWorld(World):
         # yaml options
         if self.options.fork_location == "vanilla_location" and self.options.allow_forkless == "disabled":
             print("vanilla fork")
-            fork = self.create_item(iname.fork)
+            fork = self.create_item("Fork")
             if self.options.fork_location == "vanilla_location":
                 self.get_location(lname.fork_pickup).place_locked_item(fork)
                 self.location_total -=  1
-                items_to_create[iname.fork] = 0
+                items_to_create["Fork"] = 0
 
         if self.options.shelleport_location:
-            shelleport = self.create_item(iname.shelleport)
+            shelleport = self.create_item("Shelleport")
             if self.options.shelleport_location == "starting_items":
                 print("shelleport starting item")
                 self.multiworld.push_precollected(shelleport)
-                items_to_create[iname.shelleport] = 0
+                items_to_create["Shelleport"] = 0
             elif self.options.shelleport_location == "vanilla_location":
                 print("vanilla shelleport")
                 self.get_location(lname.shelleport_skill).place_locked_item(shelleport)
                 self.location_total -=  1
-                items_to_create[iname.shelleport] = 0
+                items_to_create["Shelleport"] = 0
 
         if self.options.fishing_line_location:
-            fishing_line = self.create_item(iname.fishing_line)
+            fishing_line = self.create_item("Fishing Line")
             if self.options.fishing_line_location == "vanilla_location":
                 print("vanilla fishing line")
                 self.get_location(lname.fishing_line).place_locked_item(fishing_line)
                 self.location_total -= 1
-                items_to_create[iname.fishing_line] = 0
+                items_to_create["Fishing Line"] = 0
 
         if self.options.remove_costumes:
             for costumes in costume_items: items_to_create[costumes] = 0
@@ -212,17 +212,17 @@ class ACTWorld(World):
                     items_to_create[item_name] = 3
                 if  item_table[item_name].item_group == "Costume":
                     items_to_create[item_name] = 0
-                if  item_name == iname.captain_costume:
+                if  item_name == "Captain":
                     items_to_create[item_name] = 1
-                if  item_name == iname.stainless_relic:
+                if  item_name == "Stainless Relic":
                     items_to_create[item_name] = 0
-                if  item_name == iname.map_piece_fv:
+                if  item_name == "Map Piece - Flotsam Vale":
                     items_to_create[item_name] = 0
-                if  item_name == iname.map_piece_heikea:
+                if  item_name == "Map Piece - Heikea":
                     items_to_create[item_name] = 0
-                if  item_name == iname.map_piece_pagurus:
+                if  item_name == "Map Piece - Pagurus":
                     items_to_create[item_name] = 0
-                if  item_name == iname.barbed_hook:
+                if  item_name == "Barbed Hook":
                     items_to_create[item_name] = 0
                 if  "+" in item_name:
                     items_to_create[item_name] = 0
@@ -230,8 +230,6 @@ class ACTWorld(World):
                     items_to_create[item_name] = 0
                 if item_table[item_name].item_group == "Adapations":
                     items_to_create[item_name] = 0
-                #if self.options.allow_forkless and item_name == iname.fork:
-                    #items_to_create[item_name] = 0
 
         individual_locations_to_exclude = []
         if not self.options.ngplus_bosses:
