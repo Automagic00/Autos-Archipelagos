@@ -1,5 +1,5 @@
 import math
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Union
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, CollectionState, Tutorial

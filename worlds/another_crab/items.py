@@ -4,8 +4,6 @@ from BaseClasses import ItemClassification, Item
 
 from .names import item_names as iname, shell_names as sname
 
-item_base_id: int = 483021700
-
 class ACTItemData(NamedTuple):
     classification: ItemClassification
     quantity_in_item_pool: int
