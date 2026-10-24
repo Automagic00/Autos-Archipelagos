@@ -24,11 +24,10 @@ class ACTItem(Item):
         super().__init__(data.name, classification or data.classification, data.item_id, player)
         self.data = data
 
-# a lot of quantities here will need to be adjusted later
 item_table: Dict[str, ACTItemData] = {
     # progression
     iname.fork: ACTItemData(ItemClassification.progression, 1, 483021701, "Progression"), 
-    #iname.heartkelp_pod: ACTItemData(ItemClassification.progression, 1, 483021702, "Progression"), #throwing this into the progression items because the average player will definitely need heals to beat the game.
+    #iname.heartkelp_pod: ACTItemData(ItemClassification.progression, 1, 483021702, "Progression"), 
     iname.fishing_line: ACTItemData(ItemClassification.progression, 1, 483021703, "Progression"),
     iname.pristine_pearl: ACTItemData(ItemClassification.progression, 1, 483021704, "Progression"),
     iname.map_piece_fv: ACTItemData(ItemClassification.progression, 1, 483021705, "Progression"),
@@ -39,7 +38,7 @@ item_table: Dict[str, ACTItemData] = {
     iname.bloodstar_limb: ACTItemData(ItemClassification.useful, 20, 483021708, "Upgrades"), # total in game: 25
     iname.heartkelp_sprout: ACTItemData(ItemClassification.useful, 7, 483021709, "Upgrades"), # total in game: 7
     iname.old_whorl: ACTItemData(ItemClassification.useful, 11, 483021710, "Upgrades"),
-    iname.stainless_relic: ACTItemData(ItemClassification.useful, 11, 483021711, "Upgrades"), # supposed to be 16 total
+    iname.stainless_relic: ACTItemData(ItemClassification.useful, 11, 483021711, "Upgrades"), # total in game: 16
     iname.tackle_pouch: ACTItemData(ItemClassification.useful, 5, 483021712, "Upgrades"),
 
     # stowaways
@@ -54,15 +53,15 @@ item_table: Dict[str, ACTItemData] = {
     iname.bobber: ACTItemData(ItemClassification.useful, 1, 483021721, "Stowaways"),
     iname.chum: ACTItemData(ItemClassification.progression, 1, 483021722, "Stowaways"),
     iname.cockle: ACTItemData(ItemClassification.useful, 3, 483021723, "Stowaways"),
-    iname.cockle_plus: ACTItemData(ItemClassification.useful, 1, 483021813, "Stowaways"), #missed on first pass oops
+    iname.cockle_plus: ACTItemData(ItemClassification.useful, 1, 483021813, "Stowaways"),
     iname.contact_lens: ACTItemData(ItemClassification.useful, 1, 483021724, "Stowaways"),
     iname.cotton_ball: ACTItemData(ItemClassification.useful, 1, 483021725, "Stowaways"),
-    iname.earthworm: ACTItemData(ItemClassification.useful, 1, 483021814, "Stowaways"), #missed on first pass oops
+    iname.earthworm: ACTItemData(ItemClassification.useful, 1, 483021814, "Stowaways"), 
     iname.fredrick: ACTItemData(ItemClassification.progression, 1, 483021726, "Stowaways"),
     iname.fruit_sticker: ACTItemData(ItemClassification.useful, 2, 483021727, "Stowaways"),
     iname.fruit_sticker_plus: ACTItemData(ItemClassification.useful, 1, 483021728, "Stowaways"),
     iname.googly_eye: ACTItemData(ItemClassification.useful, 3, 483021729, "Stowaways"),
-    iname.lil_isopod: ACTItemData(ItemClassification.progression,3, 483021847,"Stowaways"),#missed on first pass and also second pass lmao
+    iname.lil_isopod: ACTItemData(ItemClassification.progression,3, 483021847,"Stowaways"),
     iname.lamprey: ACTItemData(ItemClassification.useful, 1, 483021730, "Stowaways"),
     iname.lamprey_plus: ACTItemData(ItemClassification.useful, 1, 483021731, "Stowaways"),
     iname.lanternfish: ACTItemData(ItemClassification.progression, 1, 483021732, "Stowaways"),
@@ -104,7 +103,7 @@ item_table: Dict[str, ACTItemData] = {
     iname.sponge: ACTItemData(ItemClassification.progression, 3, 483021768, "Stowaways"),
     iname.sponge_plus: ACTItemData(ItemClassification.progression, 1, 483021769, "Stowaways"),
     iname.turtle_shell_shard: ACTItemData(ItemClassification.useful, 2, 483021770, "Stowaways"),
-    #iname.ur: ACTItemData(ItemClassification.useful, 1, 483021771, "Stowaways"), #Not used in base game
+    #iname.ur: ACTItemData(ItemClassification.useful, 1, 483021771, "Stowaways"), # Not used in base game
     iname.used_bandage: ACTItemData(ItemClassification.useful, 1, 483021772, "Stowaways"),
     iname.used_bandage_plus: ACTItemData(ItemClassification.useful, 1, 483021773, "Stowaways"),
     iname.wad_of_gum: ACTItemData(ItemClassification.useful, 1, 483021774, "Stowaways"),
@@ -154,8 +153,8 @@ item_table: Dict[str, ACTItemData] = {
     iname.carclaw: ACTItemData(ItemClassification.filler, 1, 483021786, "Currency"),
 
     # consumable
-    iname.barbed_hook: ACTItemData(ItemClassification.filler, 10, 483021787, "Consumable"), #113 in game
-    iname.shark_egg: ACTItemData(ItemClassification.filler, 4, 483021835, "Consumable"), #4 in game
+    iname.barbed_hook: ACTItemData(ItemClassification.filler, 10, 483021787, "Consumable"), # total in game: 113
+    iname.shark_egg: ACTItemData(ItemClassification.filler, 4, 483021835, "Consumable"), # total in game: 4
 
     # costume
     #iname.plastic_poncho: ACTItemData(ItemClassification.filler, 1, 483021788, "Costume"),
