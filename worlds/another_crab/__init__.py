@@ -5,7 +5,7 @@ from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive
 
-from .items import item_table, item_name_groups, item_name_to_id, filler_items, costume_items, trap_items, shell_items,item_limited_group, ACTItem, ACTItemData
+from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, shell_items,item_limited_group, ACTItem, ACTItemData
 from .locations import location_table, location_name_groups, location_name_to_id, location_total, shell_locations, ACTLocation, ACTLocationData
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules
@@ -41,7 +41,6 @@ class ACTWorld(World):
     location_name_groups = location_name_groups
     location_total = location_total
 
-    item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
 
     slot_data_items = List[ACTItem]
@@ -141,12 +140,8 @@ class ACTWorld(World):
 
         return super().pre_fill()
 
-    def create_item(self, name: str) -> ACTItem:
-        item_data = item_table[name]
-        if item_data.item_id_offset != None:
-            return ACTItem(name, item_data.classification, self.item_name_to_id[name], self.player)
-        else:
-            return ACTItem(name, item_data.classification, None, self.player)
+    def create_item(self, item: Union[str, ACTItemData]) -> ACTItem:
+        return ACTItem(self.player, item if isinstance(item, ACTItemData) else item_table[item])
 
     # not actually used rn, may be useful for shell rando
     def create_event(self, event: str) -> ACTItem:
