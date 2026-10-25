@@ -185,7 +185,7 @@ class ACTWorld(World):
         #Remove NG+ Stowaways based on option
         if self.options.ngplus_stowaways.value == False:
             for item_name in item_table:
-                if item_table[item_name].item_group == "StowawaysNGPlus":
+                if "StowawaysNGPlus" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
 
         #Exclude regions and items based on goal
@@ -200,13 +200,13 @@ class ACTWorld(World):
         if self.options.goal == "magista":
             regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             for item_name in item_table:
-                if item_table[item_name].item_group == "Currency":
+                if "Currency" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
-                if  item_table[item_name].item_group == "Stowaways":
+                if  "Stowaways" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
-                if  item_table[item_name].item_group == "Upgrades":
+                if  "Upgrades" in item_table[item_name].item_group:
                     items_to_create[item_name] = 3
-                if  item_table[item_name].item_group == "Costume":
+                if  "Costume" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
                 if  item_name == "Captain":
                     items_to_create[item_name] = 1
@@ -224,7 +224,7 @@ class ACTWorld(World):
                     items_to_create[item_name] = 0
                 if item_name in item_limited_group:
                     items_to_create[item_name] = 0
-                if item_table[item_name].item_group == "Adapations":
+                if "Adapations" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
 
         individual_locations_to_exclude = []
@@ -246,12 +246,12 @@ class ACTWorld(World):
 
         total_filler = self.location_total - items_total
 
-        available_filler: List[str] = [filler for filler in items_to_create if (items_to_create[filler] > 0) and item_table[filler].classification == ItemClassification.filler and item_table[filler].item_group != "Costume"]
-        stowaways: List[str] = [stow for stow in item_table if item_table[stow].item_group == "Stowaways"]
+        available_filler: List[str] = [filler for filler in items_to_create if (items_to_create[filler] > 0) and item_table[filler].classification == ItemClassification.filler and "Costume" not in item_table[filler].item_group]
+        stowaways: List[str] = [stow for stow in item_table if "Stowaways" in item_table[stow].item_group]
 
         #add NG+ stowaways if settings allow
         if self.options.ngplus_stowaways.value == True:
-            stowaways += [stow for stow in item_table if item_table[stow].item_group == "StowawaysNGPlus"]
+            stowaways += [stow for stow in item_table if "StowawaysNGPlus" in item_table[stow].item_group]
 
         print("Available Filler:")
         print(available_filler)
