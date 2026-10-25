@@ -3,10 +3,10 @@ from typing import Dict, List, Set, NamedTuple
 from BaseClasses import ItemClassification, Item
 
 class ACTItemData(NamedTuple):
-    name: str = ""
+    name: str
     classification: ItemClassification = ItemClassification.filler
     quantity_in_item_pool: int = 0
-    item_id: int = 483021700 # last used number 483021881, 483021882 available
+    item_id: int = None # first id: 483021700, last used: 483021881, available: 483021882 
     item_group: str = None
 
 class ACTItem(Item):

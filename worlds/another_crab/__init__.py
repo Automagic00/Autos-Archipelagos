@@ -10,7 +10,7 @@ from .locations import location_table, location_name_groups, location_name_to_id
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules
 from .options import ACTGameOptions
-from .names import location_names as lname, region_names as rname, shell_names as sname
+from .names import shell_names as sname
 
 
 class ACTWeb(WebWorld):
@@ -40,7 +40,7 @@ class ACTWorld(World):
     item_name_groups = item_name_groups
     location_name_groups = location_name_groups
     location_total = location_total
-    location_name_to_id = location_name_to_id
+    location_name_to_id = {data.name: data.location_id for data in location_table.values() if data.location_id is not None}
     item_name_to_id = {data.name: data.item_id for data in item_table.values() if data.item_id is not None}
 
     slot_data_items = List[ACTItem]
@@ -68,13 +68,13 @@ class ACTWorld(World):
         #Regions to Exclude based on selected goal
         regions_to_exclude = []
         if self.options.goal == "roland":
-            regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
         
         if self.options.goal == "voltai":
-            regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         if self.options.goal == "magista":
-            regions_to_exclude = [rname.reefs_edge,rname.reefs_edge_grapple,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.southern_town_ridge,rname.secluded_ridge_eel,rname.secluded_ridge,rname.trashbin_plateau,rname.expired_grove,rname.grove_main,rname.grove_village,rname.grove_raised_platforms,rname.flotsam_vale,rname.post_ceviche,rname.consortium_arena,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Southern Town Ridge","Secluded Ridge - Past Eelectrocute","Secluded Ridge","Trashbin Plateau","Expired Grove","Expired Grove - Village","Expired Grove - Raised Platforms","Flotsam Vale","Flotsam Vale - Post Ceviche Sisters","Flotsam Vale - Consortium Arena","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         
         #Shuffle Shell Event Locations
@@ -85,7 +85,7 @@ class ACTWorld(World):
             shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index(sname.soda_can)]]
             plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
             prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
-            prevented_plug_regions = [rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            prevented_plug_regions = ["Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             print(plug_region.entrances[0].parent_region.name)
 
             
@@ -104,7 +104,7 @@ class ACTWorld(World):
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
                     
-                elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != rname.plug_fuse):
+                elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != "Plug Fuse Pipes"):
                     #swap plug_fuse and shell in plug_fuse location
                     plug_fuse_item_index = shell_items.index(sname.plug_fuse)
                     plug_fuse_location_index = shell_locations.index(sname.plug_fuse)
@@ -159,7 +159,7 @@ class ACTWorld(World):
             print("vanilla fork")
             fork = self.create_item("Fork")
             if self.options.fork_location == "vanilla_location":
-                self.get_location(lname.fork_pickup).place_locked_item(fork)
+                self.get_location("Fork Pickup").place_locked_item(fork)
                 self.location_total -=  1
                 items_to_create["Fork"] = 0
 
@@ -171,7 +171,7 @@ class ACTWorld(World):
                 items_to_create["Shelleport"] = 0
             elif self.options.shelleport_location == "vanilla_location":
                 print("vanilla shelleport")
-                self.get_location(lname.shelleport_skill).place_locked_item(shelleport)
+                self.get_location("Shelleport Skill (Moon Snail)").place_locked_item(shelleport)
                 self.location_total -=  1
                 items_to_create["Shelleport"] = 0
 
@@ -179,7 +179,7 @@ class ACTWorld(World):
             fishing_line = self.create_item("Fishing Line")
             if self.options.fishing_line_location == "vanilla_location":
                 print("vanilla fishing line")
-                self.get_location(lname.fishing_line).place_locked_item(fishing_line)
+                self.get_location("Fishing Line").place_locked_item(fishing_line)
                 self.location_total -= 1
                 items_to_create["Fishing Line"] = 0
 
@@ -196,13 +196,13 @@ class ACTWorld(World):
         regions_to_exclude = []
 
         if self.options.goal == "roland":
-            regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             
         if self.options.goal == "voltai":
-            regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         if self.options.goal == "magista":
-            regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             for item_name in item_table:
                 if item_table[item_name].item_group == "Currency":
                     items_to_create[item_name] = 0
@@ -233,7 +233,7 @@ class ACTWorld(World):
 
         individual_locations_to_exclude = []
         if not self.options.ngplus_bosses:
-            individual_locations_to_exclude.append(lname.extremely_rude_snail)
+            individual_locations_to_exclude.append("Extremely Rude Snail")
 
         for location_name in location_name_to_id:
             if location_table[location_name].region in regions_to_exclude:
@@ -311,27 +311,27 @@ class ACTWorld(World):
             # player can complete the game if they can reach the final region/location
         if self.options.goal == "home":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach_region(spot = rname.carcinia_ruins, player = self.player)
+                lambda state: state.can_reach_region(spot = "New Carcinia Ruins", player = self.player)
             
         if self.options.goal == "roland":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach_location(spot = lname.roland, player = self.player)
-            regions_to_exclude = [rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+                lambda state: state.can_reach_location(spot = "Roland, Venture Crabitalist", player = self.player)
+            regions_to_exclude = ["The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             
         if self.options.goal == "voltai":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach_location(spot = lname.voltai, player =self.player)
-            regions_to_exclude = [rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+                lambda state: state.can_reach_location(spot = "Voltai, The Accumulator", player =self.player)
+            regions_to_exclude = ["Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         if self.options.goal == "magista":
             self.multiworld.completion_condition[self.player] = \
-                lambda state: state.can_reach(spot = rname.reefs_edge,player = self.player)
-            regions_to_exclude = [rname.reefs_edge,rname.new_carcinia,rname.sands_between,rname.post_pag,rname.secluded_ridge,rname.expired_grove,rname.grove_main,rname.grove_village,rname.flotsam_vale,rname.scuttleport,rname.pinbarge,rname.unfathom,rname.plains,rname.old_ocean,rname.drain_bottom,rname.trash_island,rname.carcinia_ruins]
+                lambda state: state.can_reach_location(spot = "Magista, Tyrant of Slacktide", player = self.player)
+            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         for location_name, location_id in location_name_to_id.items():
             individual_locations_to_exclude = []
             if not self.options.ngplus_bosses:
-                individual_locations_to_exclude.append(lname.extremely_rude_snail)
+                individual_locations_to_exclude.append("Extremely Rude Snail")
 
             isLocationExcluded = (location_name in individual_locations_to_exclude)
             isLocationInExcludedRegion = (location_table[location_name].region in regions_to_exclude)

@@ -3,8 +3,6 @@ from worlds.generic.Rules import add_rule, set_rule, forbid_item, add_item_rule
 from BaseClasses import CollectionState
 
 from .options import ACTGameOptions
-from .names import location_names as lname
-from .names import region_names as rname
 from . import logic
 
 if TYPE_CHECKING:
@@ -84,714 +82,714 @@ def set_location_rules(world: "ACTWorld") -> None:
 
   #Forkless Disabled, ensures player has fork for bosses
   if options.allow_forkless == "disabled":
-    set_rule(multiworld.get_location(lname.bloodstar_shallows_help,player),
+    set_rule(multiworld.get_location("Bloodstar Limb (Central Shallows - Help a Crab)",player),
            lambda state: state.has("Fork",player))
 
-    set_rule(multiworld.get_location(lname.nephro, player),
+    set_rule(multiworld.get_location("Nephro, Captain of the Guard", player),
            lambda state: state.has("Fork",player))
     
-    set_rule(multiworld.get_location(lname.platoon_pathfinder, player),
+    set_rule(multiworld.get_location("Polluted Platoon Pathfinder", player),
            lambda state: state.has("Fork",player))
     
-    set_rule(multiworld.get_location(lname.royal_shellsplitter, player),
+    set_rule(multiworld.get_location("Royal Shellsplitter", player),
            lambda state: state.has("Fork",player))
     
-    set_rule(multiworld.get_location(lname.magista, player),
+    set_rule(multiworld.get_location("Magista, Tyrant of Slacktide", player),
            lambda state: state.has("Fork",player))
 
     if options.ngplus_bosses:
-        set_rule(multiworld.get_location(lname.extremely_rude_snail, player), 
+        set_rule(multiworld.get_location("Extremely Rude Snail", player), 
                 lambda state: state.has("Fork",player))
     
     if options.goal != "magista":
-        set_rule(multiworld.get_location(lname.pagurus, player),
+        set_rule(multiworld.get_location("Pagurus, The Ravenous", player),
                 lambda state: (state.has("Fork",player) or logic.can_pagurus_quick_kill(options,state,player))) #allow pagurus quick kill if not vanilla
         
-        set_rule(multiworld.get_location(lname.lichenthrope, player),
+        set_rule(multiworld.get_location("Diseased Lichenthrope", player),
                 lambda state: state.has("Fork",player))
         
-        set_rule(multiworld.get_location(lname.carbonara_connoisseur, player),
+        set_rule(multiworld.get_location("Curdled Carbonara Connoisseur", player),
                 lambda state: state.has("Fork",player))
         
-        set_rule(multiworld.get_location(lname.heikea, player),
+        set_rule(multiworld.get_location("Heikea, Intimidation Crab", player),
                 lambda state: (state.has("Fork",player) or logic.can_heikia_quick_kill(options,state,player)))
         
-        set_rule(multiworld.get_location(lname.topoda, player),
+        set_rule(multiworld.get_location("Grovekeeper Topoda", player),
                 lambda state: state.has("Fork",player))
         
-        set_rule(multiworld.get_location(lname.consortium, player),
+        set_rule(multiworld.get_location("The Consortium", player),
                 lambda state: state.has("Fork",player))
         
-        set_rule(multiworld.get_location(lname.sludge_steamroller, player),
+        set_rule(multiworld.get_location("Scuttling Sludge Steamroller", player),
                 lambda state: state.has("Fork",player))
         
-        set_rule(multiworld.get_location(lname.ceviche_sisters, player),
+        set_rule(multiworld.get_location("Ceviche Sisters", player),
                 lambda state: state.has("Fork",player))
 
-        set_rule(multiworld.get_location(lname.voltai, player),
+        set_rule(multiworld.get_location("Voltai, The Accumulator", player),
                 lambda state: state.has("Fork",player))
                 
         if options.goal != "voltai":        
-                set_rule(multiworld.get_location(lname.roland, player),
+                set_rule(multiworld.get_location("Roland, Venture Crabitalist", player),
                         lambda state: state.has("Fork",player))
                 
                 if options.goal != "roland":
-                        set_rule(multiworld.get_location(lname.petroch, player),
+                        set_rule(multiworld.get_location("Petroch, The False Moon", player),
                                 lambda state: state.has("Fork",player))
                         
-                        set_rule(multiworld.get_location(lname.inkerton, player),
+                        set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: state.has("Fork",player))
                         
-                        set_rule(multiworld.get_location(lname.camtscha, player),
+                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: state.has("Fork",player))
                         
-                        set_rule(multiworld.get_location(lname.praya_dubia, player),
+                        set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
                                 lambda state: state.has("Fork",player))
                         
-                        set_rule(multiworld.get_location(lname.firth, player),
+                        set_rule(multiworld.get_location("Firth, The Crab Who Stole The Whorl", player),
                                 lambda state: state.has("Fork",player))
                         
                         
 
     #Forkless Enabled, ensures player has some means of dealing damage for bosses
   elif options.allow_forkless == "forkless_easy":
-    set_rule(multiworld.get_location(lname.bloodstar_shallows_help, player),
+    set_rule(multiworld.get_location("Bloodstar Limb (Central Shallows - Help a Crab)", player),
             lambda state: logic.can_deal_damage_easy(state,player))
     
-    set_rule(multiworld.get_location(lname.nephro, player),
+    set_rule(multiworld.get_location("Nephro, Captain of the Guard", player),
             lambda state: logic.can_deal_damage_easy(state,player))
     
-    set_rule(multiworld.get_location(lname.royal_shellsplitter, player),
+    set_rule(multiworld.get_location("Royal Shellsplitter", player),
             lambda state: logic.can_deal_damage_easy(state,player))
     
-    set_rule(multiworld.get_location(lname.platoon_pathfinder, player),
+    set_rule(multiworld.get_location("Polluted Platoon Pathfinder", player),
             lambda state: logic.can_deal_damage_easy(state,player))
       
-    set_rule(multiworld.get_location(lname.magista, player),
+    set_rule(multiworld.get_location("Magista, Tyrant of Slacktide", player),
             lambda state: logic.can_deal_damage_easy(state,player))
 
     if options.ngplus_bosses:
-        set_rule(multiworld.get_location(lname.extremely_rude_snail, player),
+        set_rule(multiworld.get_location("Extremely Rude Snail", player),
                 lambda state: logic.can_deal_damage_easy(state.player))
     
     if options.goal != "magista":
-        set_rule(multiworld.get_location(lname.pagurus, player),
+        set_rule(multiworld.get_location("Pagurus, The Ravenous", player),
                 lambda state: (logic.can_deal_damage_easy(state,player) or logic.can_pagurus_quick_kill(options,state,player)))
         
-        set_rule(multiworld.get_location(lname.lichenthrope, player),
+        set_rule(multiworld.get_location("Diseased Lichenthrope", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.carbonara_connoisseur, player),
+        set_rule(multiworld.get_location("Curdled Carbonara Connoisseur", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.heikea, player),
+        set_rule(multiworld.get_location("Heikea, Intimidation Crab", player),
                 lambda state: (logic.can_deal_damage_easy(state,player) or logic.can_heikia_quick_kill(options,state,player)))
         
-        set_rule(multiworld.get_location(lname.topoda, player),
+        set_rule(multiworld.get_location("Grovekeeper Topoda", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.consortium, player),
+        set_rule(multiworld.get_location("The Consortium", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.sludge_steamroller, player),
+        set_rule(multiworld.get_location("Scuttling Sludge Steamroller", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.ceviche_sisters, player),
+        set_rule(multiworld.get_location("Ceviche Sisters", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
-        set_rule(multiworld.get_location(lname.voltai, player),
+        set_rule(multiworld.get_location("Voltai, The Accumulator", player),
                 lambda state: logic.can_deal_damage_easy(state,player))
         
         if options.goal != "voltai":
-                set_rule(multiworld.get_location(lname.roland, player),
+                set_rule(multiworld.get_location("Roland, Venture Crabitalist", player),
                         lambda state: logic.can_deal_damage_easy(state,player))
                 
                 if options.goal != "roland":
-                        set_rule(multiworld.get_location(lname.petroch, player),
+                        set_rule(multiworld.get_location("Petroch, The False Moon", player),
                                 lambda state: logic.can_deal_damage_easy(state,player))
                         
-                        set_rule(multiworld.get_location(lname.inkerton, player),
+                        set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: logic.can_deal_damage_easy(state,player)) 
                         
-                        set_rule(multiworld.get_location(lname.camtscha, player),
+                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: logic.can_deal_damage_easy(state,player))
                         
-                        set_rule(multiworld.get_location(lname.praya_dubia, player),
+                        set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
                                 lambda state: logic.can_deal_damage_easy(state,player))
                         
-                        set_rule(multiworld.get_location(lname.firth, player),
+                        set_rule(multiworld.get_location("Firth, The Crab Who Stole The Whorl", player),
                                 lambda state: logic.can_deal_damage_easy(state,player))
   
   else:
-    set_rule(multiworld.get_location(lname.bloodstar_shallows_help,player),
+    set_rule(multiworld.get_location("Bloodstar Limb (Central Shallows - Help a Crab)",player),
            lambda state: logic.can_deal_damage_hard(state,player))
     
-    set_rule(multiworld.get_location(lname.nephro, player),
+    set_rule(multiworld.get_location("Nephro, Captain of the Guard", player),
             lambda state: logic.can_deal_damage_hard(state,player))
     
-    set_rule(multiworld.get_location(lname.royal_shellsplitter, player),
+    set_rule(multiworld.get_location("Royal Shellsplitter", player),
             lambda state: logic.can_deal_damage_hard(state,player))
     
-    set_rule(multiworld.get_location(lname.platoon_pathfinder, player),
+    set_rule(multiworld.get_location("Polluted Platoon Pathfinder", player),
             lambda state: logic.can_deal_damage_hard(state,player))
       
-    set_rule(multiworld.get_location(lname.magista, player),
+    set_rule(multiworld.get_location("Magista, Tyrant of Slacktide", player),
             lambda state: logic.can_deal_damage_hard(state,player))
 
     if options.ngplus_bosses:
-        set_rule(multiworld.get_location(lname.extremely_rude_snail, player),
+        set_rule(multiworld.get_location("Extremely Rude Snail", player),
                 lambda state: logic.can_deal_damage_easy(state.player))
     
     if options.goal != "magista":
-        set_rule(multiworld.get_location(lname.pagurus, player),
+        set_rule(multiworld.get_location("Pagurus, The Ravenous", player),
                 lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_pagurus_quick_kill(options)))
         
-        set_rule(multiworld.get_location(lname.lichenthrope, player),
+        set_rule(multiworld.get_location("Diseased Lichenthrope", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.carbonara_connoisseur, player),
+        set_rule(multiworld.get_location("Curdled Carbonara Connoisseur", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.heikea, player),
+        set_rule(multiworld.get_location("Heikea, Intimidation Crab", player),
                 lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_heikia_quick_kill(options,state,player)))
         
-        set_rule(multiworld.get_location(lname.topoda, player),
+        set_rule(multiworld.get_location("Grovekeeper Topoda", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.consortium, player),
+        set_rule(multiworld.get_location("The Consortium", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.sludge_steamroller, player),
+        set_rule(multiworld.get_location("Scuttling Sludge Steamroller", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.ceviche_sisters, player),
+        set_rule(multiworld.get_location("Ceviche Sisters", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
-        set_rule(multiworld.get_location(lname.voltai, player),
+        set_rule(multiworld.get_location("Voltai, The Accumulator", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
         
         if options.goal !="voltai":
-                set_rule(multiworld.get_location(lname.roland, player),
+                set_rule(multiworld.get_location("Roland, Venture Crabitalist", player),
                         lambda state: logic.can_deal_damage_hard(state,player))
                 
                 if options.goal != "roland":
-                        set_rule(multiworld.get_location(lname.petroch, player),
+                        set_rule(multiworld.get_location("Petroch, The False Moon", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
-                        set_rule(multiworld.get_location(lname.inkerton, player),
+                        set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
-                        set_rule(multiworld.get_location(lname.camtscha, player),
+                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
-                        set_rule(multiworld.get_location(lname.praya_dubia, player),
+                        set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
-                        set_rule(multiworld.get_location(lname.firth, player),
+                        set_rule(multiworld.get_location("Firth, The Crab Who Stole The Whorl", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
     
 # ---- Cave of Respite ----
  # spearfishing
-  set_rule(multiworld.get_location(lname.clothesclaw_caveofrespite_entrancefishing, player),
+  set_rule(multiworld.get_location("Clothesclaw (Cave of Respite - Fishing Before Cave Entrance)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
   
-  set_rule(multiworld.get_location(lname.chipclaw_caveofrespite_forkroomfishing, player),
+  set_rule(multiworld.get_location("Chipclaw (Cave of Respite - Fishing Near Fork Pickup)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
   
-  set_rule(multiworld.get_location(lname.mussel_caveofrespite_crabfightfishing, player),
+  set_rule(multiworld.get_location("Mussel (Cave of Respite - Fishing In Crab Fight Tutorial)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
   
-  set_rule(multiworld.get_location(lname.sanddollar_caveofrespite_pathfishing, player),
+  set_rule(multiworld.get_location("Sand Dollar (Cave of Respite - Fishing on Path Before Cave)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
 
 # ---- Central Shallows ----
  # grapple   
-  set_rule(multiworld.get_location(lname.chipclaw_shallows_sandcastle, player),
+  set_rule(multiworld.get_location("Chipclaw (Central Shallows - Southwest Sandcastle)", player),
             lambda state: state.has("Fishing Line", player))
     
-  set_rule(multiworld.get_location(lname.bloodstar_shallows_clam, player),
+  set_rule(multiworld.get_location("Bloodstar Limb (Central Shallow - Southwest Sandcastle Clam)", player),
             lambda state: state.has("Fishing Line", player))
     
-  set_rule(multiworld.get_location(lname.anothercrab_shallows_pillar, player),
+  set_rule(multiworld.get_location("Another Crab (Central Shallows - Tall Pillar Near Royal Shellsplitter)", player),
             lambda state: state.has("Fishing Line", player) or logic.can_CAL(options,state,player))
     
-  set_rule(multiworld.get_location(lname.sanddollar_shallows_arch, player),
+  set_rule(multiworld.get_location("Sand Dollar (Central Shallows - South Arch Wall)", player),
             lambda state: state.has("Fishing Line", player))
 
-  set_rule(multiworld.get_location(lname.clothesclaw_shallows_southwestfort, player),
-            lambda state: (state.has("Fishing Line", player) and state.can_reach_location(lname.nephro, player)) or logic.are_skips_allowed(options))
+  set_rule(multiworld.get_location("Clothesclaw (Central Shallows - Small Tower Outside Southwest Fort)", player),
+            lambda state: (state.has("Fishing Line", player) and state.can_reach_location("Nephro, Captain of the Guard", player)) or logic.are_skips_allowed(options))
 
-  set_rule(multiworld.get_location(lname.clothesclaw_shallows_southwestfort, player), 
-            lambda state: state.has("Fishing Line", player) and state.can_reach_location(lname.nephro, player))
+  set_rule(multiworld.get_location("Clothesclaw (Central Shallows - Small Tower Outside Southwest Fort)", player), 
+            lambda state: state.has("Fishing Line", player) and state.can_reach_location("Nephro, Captain of the Guard", player))
  
  # spearfishing
-  set_rule(multiworld.get_location(lname.mussel_shallows_southwestcastlefish, player),
+  set_rule(multiworld.get_location("Mussel (Central Shallows - Dig Spot Near Southwest Sandcastle)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
     
-  set_rule(multiworld.get_location(lname.breadclaw_shallows_slacktidesouthfish, player),
+  set_rule(multiworld.get_location("Breadclaw (Central Shallows - Fishing South of Slacktide Entrance)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
     
-  set_rule(multiworld.get_location(lname.anemone_shallows_southwestcastlehiddenfishing, player),
+  set_rule(multiworld.get_location("Anemone (Central Shallows - Hidden Fishing on South-Eastern Wall of Castle on South-Western Plateau)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
     
-  set_rule(multiworld.get_location(lname.razorblade_shallows_slacktidebottlefishing, player),
+  set_rule(multiworld.get_location("Razor Blade (Central Shallows - Fishing South West of Slacktide Near Bottles)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
     
-  set_rule(multiworld.get_location(lname.anemone_shallows_umbrellafishing, player),
+  set_rule(multiworld.get_location("Anemone [Stowaway] (Central Shallow - Fishing West of Umbrella)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
 
 # ---- Fort Slacktide ----
  # grapple
 
-  set_rule(multiworld.get_location(lname.magista,player),
+  set_rule(multiworld.get_location("Magista, Tyrant of Slacktide",player),
             lambda state: state.has("Fishing Line", player))
  
-  set_rule(multiworld.get_location(lname.limpet_slacktide_stairs, player),
+  set_rule(multiworld.get_location("Limpet (Slacktide - Stairs Left of Main Hallway)", player),
             lambda state: state.has("Fishing Line", player))
    
-  set_rule(multiworld.get_location(lname.seastar_slacktide_grappleroom, player),
+  set_rule(multiworld.get_location("Seastar (Slacktide - Top of Fishing Line Room)", player),
             lambda state: state.has("Fishing Line", player))
     
-  set_rule(multiworld.get_location(lname.barnacle_slacktide_bigurchin, player),
+  set_rule(multiworld.get_location("Barnacle (Slacktide - After Big Urchin Spiral Staircase)", player),
             lambda state: (state.has("Fishing Line", player) or logic.can_boost_jump(options, state, player)))
     
-  set_rule(multiworld.get_location(lname.rustynail_slacktide_bigurchin, player),
-            lambda state: state.has("Fishing Line", player) or ((logic.can_big_boost_jump(options, state, player) and state.can_reach_region(rname.slacktide_after,player))))
+  set_rule(multiworld.get_location("Rusty Nail (Slacktide - Big Urchin Staircase Grapple Point)", player),
+            lambda state: state.has("Fishing Line", player) or ((logic.can_big_boost_jump(options, state, player) and state.can_reach_region("Fort Slacktide - After Destruction",player))))
     
-  set_rule(multiworld.get_location(lname.chipclaw_slacktide_brokenwall, player),
+  set_rule(multiworld.get_location("Chipclaw (Fort Slacktide - Behind Broken Wall)", player),
             lambda state: state.has("Fishing Line", player))
     
-  set_rule(multiworld.get_location(lname.bloodstar_slacktide_clam, player),
+  set_rule(multiworld.get_location("Bloodstar Limb (Slacktide - Clam Above Duchess's Chamber)", player),
             lambda state: state.has("Fishing Line", player))
     
  # spearfishing
-  set_rule(multiworld.get_location(lname.breadclaw_slacktide_roofhiddenfish, player),
+  set_rule(multiworld.get_location("Breadclaw (Fort Slacktide - Path to Roof Hidden Fishing)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
 
 # Other
-  set_rule(multiworld.get_location(lname.breadclaw_slacktide_training, player), 
+  set_rule(multiworld.get_location("Breadclaw (Fort Slacktide - On South Training Area Wall)", player), 
             lambda state: state.has("Pristine Pearl", player))
 
   if options.goal != "magista":
         # ---- Reef's Edge ----        
         # mantis punch
-        set_rule(multiworld.get_location(lname.seastarplus_reefsedge_pole, player),
+        set_rule(multiworld.get_location("Sea Star+ (Reef's Edge - Top of Large Hammer Crab Pole)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_reefsedge_sign, player),
+        set_rule(multiworld.get_location("Hairclaw (Reef's Edge - Near I95 Sign On Ledge)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_reefsedge_cliff, player),
+        set_rule(multiworld.get_location("Barbed Hook (Reef's Edge - North Facing Cliff Near Seahorse)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.whelkplus_reefsedge_sponge, player),
+        set_rule(multiworld.get_location("Whelk+ (Reef's Edge - Near Orange Coral and Sponge)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         # ---- New Carcinia ----
         # grapple
-        set_rule(multiworld.get_location(lname.sanddollar_newcarcinia_hammerhead, player),
+        set_rule(multiworld.get_location("Sand Dollar (New Carcinia - Flat Coral Near/Above Hammerhead)", player),
                 lambda state: state.has("Fishing Line", player))
         
         # ---- Sands Between ----
         # grapple
-        set_rule(multiworld.get_location(lname.barbedhook_sandsbetween_spire, player),
+        set_rule(multiworld.get_location("Barbed Hook (The Sands Between - Top of Spire Near Grove Entrance)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.clown_costume_pickup, player),
+        set_rule(multiworld.get_location("Clown Costume (The Sands Between - Path of the Clown)", player),
                 lambda state: state.has("Fishing Line", player))
         
         # mantis punch
-        set_rule(multiworld.get_location(lname.rustynailplus_sandsbetween_centralvista, player),
+        set_rule(multiworld.get_location("Rusty Nail+ (The Sands Between - Mantis Block near Central Vista)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.seastarplus_sandsbetween_flotsam, player),
+        set_rule(multiworld.get_location("Sea Star+ (The Sands Between - Mantis Block near Flotsam Vale Entrance)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.seaslug_sandsbetween_crabrave, player),
+        set_rule(multiworld.get_location("Sea Slug (The Sands Between - Mantis Block below Crab Rave)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.whelk_sandsbetween_crabrave, player),
+        set_rule(multiworld.get_location("Sea Slug (The Sands Between - Mantis Block below Crab Rave)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.sinkerplus_sandsbetween_northridgemantis, player),
+        set_rule(multiworld.get_location("Sinker+ (The Sands Between - Mantis Block North of Secluded Ridge)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.limpetplus_sandsbetween_grovemantis, player),
+        set_rule(multiworld.get_location("Limpet+ (The Sands Between - Mantis Block at Grove Entrance)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.oldworldwhorl_sandsbetween_mantispitfall, player),
+        set_rule(multiworld.get_location("Old World Whorl (The Sands Between - Mantis Block Pitfall North of Central Vista)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         # eelectrocute
-        set_rule(multiworld.get_location(lname.lumpsuckerplus_sandsbetween_anchor, player),
+        set_rule(multiworld.get_location("Lumpsucker+ (The Sands Between - On the anchor, after the electric crab)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.stainlessrelic_sandsbetween_eelectrocute, player),
+        set_rule(multiworld.get_location("Stainless Relic (The Sands Between - On Electric Crab Platform)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.tacklepouch_sandsbetween_eelnorthchain, player),
+        set_rule(multiworld.get_location("Tackle Pouch (The Sands Between - Eelectrocute Crab North of Chains)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.paperclaw_sandsbetween_southeelshortcut, player),
+        set_rule(multiworld.get_location("Paperclaw (The Sands Between - Southern Eelectrocute Path, Near Shortcut)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.sinkerplus_sandsbetween_southeel, player),
+        set_rule(multiworld.get_location("Sinker+ (The Sands Between - South Eelectrocute Path)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.musselplus_sandsbetween_southeel, player),
+        set_rule(multiworld.get_location("Mussel+ (The Sands Between - South Eelectrocute Path First Jump)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_sandsbetween_southeel, player),
+        set_rule(multiworld.get_location("Hairclaw (The Sands Between - South Eelectrocute Path Second Jump)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.kelpsprout_sandsbetween_southeelside, player),
+        set_rule(multiworld.get_location("Hearkelp Sprout (The Sands Between - South Eelectrocute Path, Green Coral Side Path)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_sandsbetween_southeel, player),
+        set_rule(multiworld.get_location("Barbed Hook (The Sands Between - South Eelectrocute Path Large Island)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.oyster_sandsbetween_southeelashtray, player),
+        set_rule(multiworld.get_location("Oyster (The Sands Between - South Eelectrocute Path Large Island Ashtray)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_sandsbetween_southeelshellsplitter, player),
+        set_rule(multiworld.get_location("Barbed Hook (The Sands Between - South Eelectrocute Path Near Shellsplitter)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location(lname.paperclaw_sandsbetween_trashanchor, player),
+        set_rule(multiworld.get_location("Paperclaw (The Sands Between - Behind Trashbag Near Anchor)", player),
                 lambda state: state.has("Eelectrocute", player))
         
         # spearfishing
-        set_rule(multiworld.get_location(lname.hairclaw_sandsbetween_anchorfish, player),
+        set_rule(multiworld.get_location("Hairclaw (The Sands Between - Fishing Near Anchor)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.chipclaw_sandsbetween_northeastchainfish, player),
+        set_rule(multiworld.get_location("Chipclaw (The Sands Between - Fishing North East of Chains)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_sandsbetween_propanefish, player),
+        set_rule(multiworld.get_location("Clothesclaw (The Sands Between - Fishing Near Propane Tank)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.mussel_sandsbetween_bobbitfish, player),
+        set_rule(multiworld.get_location("Mussel (The Sands Between - Fishing Near Bobbit Hill)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_sandsbetween_anchorcentralfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (The Sands Between - Fishing Between Central Vista and Anchor)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barnacle_sandsbetween_bobbitfish, player),
+        set_rule(multiworld.get_location("Barnacle (The Sands Between - Fishing On Bobbit Hill 2nd Layer)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.breadclaw_sandsbetween_nailfish, player),
+        set_rule(multiworld.get_location("Breadclaw (The Sands Between - Fishing Near Nail)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.breadclaw_sandsbetween_palletfish, player),
+        set_rule(multiworld.get_location("Breadclaw (The Sands Between - Fishing In Wooden Pallet)", player),
                 lambda state: state.has("Spearfishing", player))
 
         # spearfishing + eelectrocute
-        set_rule(multiworld.get_location(lname.hairclaw_sandsbetween_southeelfish, player),
+        set_rule(multiworld.get_location("Hairclaw (The Sands Between - South Eelectrocute Path Large Island Fishing)", player),
                 lambda state: state.has_all({"Spearfishing", "Eelectrocute"}, player))
         
-        set_rule(multiworld.get_location(lname.chipclaw_sandsbetween_anchoreelhiddenfish, player),
+        set_rule(multiworld.get_location("Chipclaw (The Sands Between - Hidden Fishing on Stone Cliff Near Anchor)", player),
                 lambda state: state.has_all({"Spearfishing", "Eelectrocute"}, player))
 
         # grapple + eelectrocute
-        set_rule(multiworld.get_location(lname.whelkplusplus_sandsbetween_southeelpeak, player),
+        set_rule(multiworld.get_location("Whelk++ (The Sands Between - South Eelectrocute Path First Island Peak)", player),
                 lambda state: state.has_all({"Fishing Line", "Eelectrocute"}, player))
         
-        set_rule(multiworld.get_location(lname.salpplus_sandsbetween_groveeel, player),
+        set_rule(multiworld.get_location("Salp+ (The Sands Between - Eelectrocute Path Near Grove Small Island)", player),
                 lambda state: state.has_all({"Fishing Line", "Eelectrocute"}, player))
         
-        set_rule(multiworld.get_location(lname.usedbandage_sandsbetween_groveeel, player),
+        set_rule(multiworld.get_location("Used Bandage (The Sands Between - Eelectrocute Path Near Grove)", player),
                 lambda state: state.has_all({"Fishing Line", "Eelectrocute"}, player))
 
         # post-pag
-        set_rule(multiworld.get_location(lname.bloodstar_postpag_anchorswarm, player),
+        set_rule(multiworld.get_location("Bloodstar Limb (Post Pagurus - Crab Swarm Near Anchor)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.stapleclaw_postpag_litter, player),
+        set_rule(multiworld.get_location("Stapleclaw (Post Pagurus - Litterbox)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_postpag_chains, player),
+        set_rule(multiworld.get_location("Hairclaw (Post Pagurus - Middle of Chains)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_postpag_chains, player),
+        set_rule(multiworld.get_location("Clothesclaw (Post Pagurus - Middle of Chains)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_echain, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - East of Chains)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_nechain, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Near Northeastern Chain)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_echainpreserver, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Near Preserver East of Chains)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_necentral, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Rocks North-East of Central Vista)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_nwridge, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Rocks North-West of Ridge Overlook)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_neeelpath, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Fence Near North-East Eelectrocute Path)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_postpag_nridge, player),
+        set_rule(multiworld.get_location("Hairclaw (Post Pagurus - North of Ridge Overlook)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_postpag_ecentral, player),
+        set_rule(multiworld.get_location("Hairclaw (Post Pagurus - East of Central Vista)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_wplayground, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - West of Playground)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.chipclaw_postpag_nwpropane, player),
+        set_rule(multiworld.get_location("Chipclaw (Post Pagurus - Preserver North-West of Propane)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_ridgeentrance, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - Near Secluded Ridge Entrance)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_postpag_swcentral, player),
+        set_rule(multiworld.get_location("Barbed Hook (Post Pagurus - South-West of Central Vista)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
         
-        set_rule(multiworld.get_location(lname.paperclaw_postpag_schain, player),
+        set_rule(multiworld.get_location("Paperclaw (Post Pagurus - South of Chains)", player),
                 lambda state: state.has("Map Piece - Pagurus", player))
 
 
         # ---- Secluded Ridge and Trashbin Plateau ----
         # grapple
-        set_rule(multiworld.get_location(lname.sharkegg_ridge_broomspire, player),
+        set_rule(multiworld.get_location("Shark Egg (Secluded Ridge - Broom Spire Peak)", player),
                 lambda state: state.has("Mantis Punch", player) and (logic.can_CAL(options, state, player) or state.has("Fishing Line", player)))
                 
-        set_rule(multiworld.get_location(lname.bobber_ridge_broomspire, player),
+        set_rule(multiworld.get_location("Bobber (Secluded Ridge - Broom Spire Climb)", player),
                 lambda state: state.has_all({"Mantis Punch","Fishing Line"}, player))
         
         # spearfishing
-        set_rule(multiworld.get_location(lname.clothesclaw_ridge_overlookfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Secluded Ridge - Fishing on Ridge Overlook)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.chipclaw_ridge_southfish, player),
+        set_rule(multiworld.get_location("Chipclaw [Currency] (Fishing South of Ridge Overlook)", player),
                 lambda state: state.has("Spearfishing", player))
           
-        set_rule(multiworld.get_location(lname.cockle_ridge_eelfish, player),
+        set_rule(multiworld.get_location("Cockle (Secluded Ridge - Fishing on Eelectrocute Path)", player),
                 lambda state: state.has("Spearfishing", player))
 
         # spearfishing + eelectrocute
-        set_rule(multiworld.get_location(lname.stapleclaw_trashbin_eelfish, player),
+        set_rule(multiworld.get_location("Stapleclaw (Trashbin Plateau - Eelectrocute Grapple Path Fishing)", player),
                 lambda state: state.has_all({"Spearfishing", "Eelectrocute"}, player))
 
         # grapple + eelectrocute
-        set_rule(multiworld.get_location(lname.barbedhook_trashbin_eelgrapple, player),
+        set_rule(multiworld.get_location("Barbed Hook (Trashbin Plateau - Eelectrocute Grapple Path)", player),
                 lambda state: state.has_all({"Fishing Line", "Eelectrocute"}, player))
         
         # ---- Expired Grove Main ----
         # grapple        
-        set_rule(multiworld.get_location(lname.hairclaw_grovemain_milkurchins, player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove Main - Milk Carton Urchins)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.breadclaw_grovemain_oilgrapple, player),
+        set_rule(multiworld.get_location("Breadclaw (Expired Grove Main - Grapple Near Top of Oil Drum)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovemain_oildrum, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Main - Main Pathway Around Oil Drum)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.sharktooth_grovemain_pizza, player),
+        set_rule(multiworld.get_location("Shark Tooth (Expired Grove Main - Under Pizza Box)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.map_piece_heikea_arena, player),
+        set_rule(multiworld.get_location("Map Piece - Heikea", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovemain_carts, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Main - Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.kelpsprout_grovemain_carts, player),
+        set_rule(multiworld.get_location("Heartkelp Sprout (Expired Grove Main - Top of Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.contactlens_grovemain_carts, player),
+        set_rule(multiworld.get_location("Contact Lens (Expired Grove Main - Behind Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
         # mantis punch
-        set_rule(multiworld.get_location(lname.sharkegg_grovemain_mantis, player),
+        set_rule(multiworld.get_location("Shark Egg (Expired Grove Main - Mantis Block on Left Path)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location(lname.cottonball_grovemain_mantis, player),
+        set_rule(multiworld.get_location("Cotton Ball (Expired Grove Main - Mantis Block on Oil Drum Path)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         # spearfishing
-        set_rule(multiworld.get_location(lname.mussel_grovemain_fishing, player),
+        set_rule(multiworld.get_location("Mussel (Expired Grove Main - Fishing by Entrance)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_grovemain_mantisfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Main - Fishing Near Mantis Block)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.sponge_grovemain_fishing, player),
+        set_rule(multiworld.get_location("Sponge (Expired Grove Main - Fishing by Crystal Parkour)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_grovemain_fishing, player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove Main - Hidden Fishing Near Milk Carton)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.oyster_grovemain_fishing, player),
+        set_rule(multiworld.get_location("Oyster (Expired Grove Main - River Fishing Under Bridge)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.limpet_grovemain_fishing, player),
+        set_rule(multiworld.get_location("Limpet (Expired Grove Main - River Fishing Before Lichenthrope)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_grovemain_riverfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Main - River Fishing Near Carbonara Waterfall)", player),
                 lambda state: state.has("Spearfishing", player))
 
         # ---- Expired Grove Village ----
         # grapple
-        set_rule(multiworld.get_location(lname.hairclaw_grovevillage_NEcarton, player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove Village - In North East High Milk Carton)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.tacklepouch_grovevillage_clam, player),
+        set_rule(multiworld.get_location("Tackle Pouch (Expired Grove Village - Clam Near Cave Shortcut)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_grovevillage_upsidedown, player),
+        set_rule(multiworld.get_location("Clotheclaw (Expired Grove Village - Upside Down Village)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.phytoplanktonplus_grovevillage_upsidedown, player),
+        set_rule(multiworld.get_location("Phytoplankton+ (Expired Grove Village - Top of Upside Down village)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_above1, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - Above Village 1)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_above2, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - Above Village 2)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_above3, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - Above Village 3)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_ornament, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - In Bottle After Ornament Parkour)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_hammer, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - In Hammer Crab Cave)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.wadofgum_grovevillage_gumpile, player),
+        set_rule(multiworld.get_location("Wad of Gum (Expired Grove Village - Gum Pile in Hammer Crab Cave)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.stainlessrelic_grovevillage_clam, player),
+        set_rule(multiworld.get_location("Stainless Relic (Expired Grove Village - Clam in Hammer Crab Cave)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location(lname.anemone_grovevillage_seahorse, player),
+        set_rule(multiworld.get_location("Anemone (Expired Grove Village - Near Seahorse)", player),
                 lambda state: state.has("Fishing Line", player))
         
         # spearfishing
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_cartfish, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - Hidden Fishing Near Shopping Cart Mantis Block)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_grovevillage_river, player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove Village - River Fishing Before Oil Drum)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_riveroil, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - River Fishing After Oil Drum)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.anemone_grovevillage_fishing, player),
+        set_rule(multiworld.get_location("Anemone (Expired Grove Village - River Fishing Near Cart Mantis Block)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_grovevillage_dock, player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Village - Dock Fishing Spot 1)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.mussel_grovevillage_dock, player),
+        set_rule(multiworld.get_location("Mussel (Expired Grove Village - Dock Fishing Spot 2)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_grovevillage_dock, player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Village - Dock Fishing Spot 3)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_grovevillage_dock, player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove Village - Dock Fishing Spot 4)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.earthworm_grovevillage_dock, player),
+        set_rule(multiworld.get_location("Earthworm (Expired Grove Village - Dock Fishing Spot 5)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_grovevillage_hidden, player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Village - Hidden Fishing on Topoda Path)", player),
                 lambda state: state.has("Spearfishing", player))
 
         # mantis punch
-        set_rule(multiworld.get_location(lname.oldworldwhorl_grovevillage_topoda, player),
+        set_rule(multiworld.get_location("Old World Whorl (Expired Grove Village - Post-Topoda Mantis Block)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         # ---- Flotsam Vale ----
 
         # spearfishing
-        set_rule(multiworld.get_location(lname.hairclaw_flotsamvale_APfish,player),
+        set_rule(multiworld.get_location("Hairclaw (Flotsam Vale - Gunk Lake Fishing Outside Air Pocket Cave)",player),
                 lambda state: state.has("Spearfishing", player))
                 
-        set_rule(multiworld.get_location(lname.lamprey_flotsamvale_islandfish, player),
+        set_rule(multiworld.get_location("Lamprey (Flotsam Vale - Small Island Fishing East of Entrance)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.mussel_flotsamvale_elevatedfish, player),
+        set_rule(multiworld.get_location("Mussel (Flotsam Vale - Elevated Island Fishing)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_flotsamvale_snailfish, player),
+        set_rule(multiworld.get_location("Barbed Hook (Flotsam Vale - Upper Flotsam Vale Fishing Near Snail Shell)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.siphonophoreplus_flotsamvale_waterfall, player),
+        set_rule(multiworld.get_location("Siphonophore+ (Flotsam Vale - Fishing Near Waterfall)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_flotsamvale_northfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Flotsam Vale - North Gunk Lake Fishing)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.whelk_flotsamvale_westfish, player),
+        set_rule(multiworld.get_location("Whelk (Flotsam Vale - West Gunk Lake Fishing)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.breadclaw_flotsamvale_westfish, player),
+        set_rule(multiworld.get_location("Breadclaw (Flotsam Vale - West Gunk Lake Fishing Near Shore)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_flotsamvale_northshorefish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Flotsam Vale - North Gunk Lake Fishing Near Shore)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_flotsamvale_southfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Flotsam Vale - Gunk Lake Fishing South of Sludge Steamroller)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_flotsamvale_westfish, player),
+        set_rule(multiworld.get_location("Barbed Hook (Flotsam Vale - Gunk Lake Fishing West of Sludge Steamroller)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.anemoneplus_flotsamvale_northwestfish, player),
+        set_rule(multiworld.get_location("Anemone+ (Flotsam Vale - Gunk Lake Fishing Northwest of Sludge Steamroller)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Hairclaw (Flotsam Vale - Gunk Fishing Near Bridge)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.breadclaw_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Breadclaw (Flotsam Vale - Gunk Fishing on Docks)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.turtleshell_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Turtle Shell Shard (Flotsam Vale - Gunk Fishing by Priest)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.clothesclaw_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Clothesclaw (Flotsam Vale - Gunk Fishing on Docks)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Barbed Hook (Flotsam Vale - Gunk Fishing Near Dock)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barbedhook_flotsamvale_sludgefish, player),
+        set_rule(multiworld.get_location("Barbed Hook (Flotsam Vale - Gunk Fishing Near Sludge Steamroller)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.lilisopod_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Lil' Isopod (Flotsam Vale - Gunk Fishing on Docks)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.hairclaw_flotsamvale_gunkfish, player),
+        set_rule(multiworld.get_location("Hairclaw (Flotsam Vale - Gunk Fishing Near Bridge)", player),
                 lambda state: state.has("Spearfishing", player))
         
         # grapple + spearfishing
-        set_rule(multiworld.get_location(lname.chipclaw_flotsamvale_consortiumfish, player),
+        set_rule(multiworld.get_location("Chipclaw (Flotsam Vale - Fishing Past Consortium)", player),
                 lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
         
         # ---- Scuttleport ----
 
         # grapple + eelectrocute (will add metal shell later)
-        set_rule(multiworld.get_location(lname.oldworldwhorl_scuttleport_eelectrocute, player),
+        set_rule(multiworld.get_location("Old World Whorl (Scuttleport - Eelectrocute Room in Survivor's Camp Building)", player),
                 lambda state: state.has("Eelectrocute", player) and (state.has("Fishing Line", player) or logic.can_CAL(options, state, player)))
                 
         # grapple and spearfishing
-        set_rule(multiworld.get_location(lname.mussel_scuttleport_magnetfish,player),
+        set_rule(multiworld.get_location("Mussel (Scuttleport - Fishing Next to First Magnet)",player),
                 lambda state: state.has_all({"Fishing Line", "Spearfishing"}, player))
 
-        set_rule(multiworld.get_location(lname.chipclaw_scuttleport_gunkfish, player),
+        set_rule(multiworld.get_location("Chipclaw (Scuttleport - Gunk Fishing Under Middle Tower)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.rustynail_scuttleport_gunkfish, player),
+        set_rule(multiworld.get_location("Rusty Nail (Scuttleport - Gunk Fishing Near Blue Tower)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location(lname.barnacle_scuttleport_gunkfish, player),
+        set_rule(multiworld.get_location("Barnacle (Scuttleport - Gunk Fishing Near Middle Tower)", player),
                 lambda state: state.has("Spearfishing", player))
         
         if options.goal != "voltai" and options.goal != "roland":
@@ -799,29 +797,29 @@ def set_location_rules(world: "ACTWorld") -> None:
                 # ---- The Unfathom ----
 
                 # grapple
-                set_rule(multiworld.get_location(lname.tacklepouch_plains_grapplesnail,player),
+                set_rule(multiworld.get_location("Tackle Pouch (Abyssal Plains - Across Grapple Hooks by Snail Shell)",player),
                         lambda state: state.has("Fishing Line",player) or logic.can_CAL(options,state,player))
                 
                 # spearfishing
-                set_rule(multiworld.get_location(lname.salp_unfathom_glowstickfish, player),
+                set_rule(multiworld.get_location("Salp (The Unfathom - Fishing Near Red Glowstick)", player),
                         lambda state: state.has("Spearfishing", player))
                 
-                set_rule(multiworld.get_location(lname.barnacleplus_unfathom_pinbargefish, player),
+                set_rule(multiworld.get_location("Barnacle+ (The Unfathom - Fishing Near Pinbarge Shipwreck)", player),
                         lambda state: state.has("Spearfishing", player))
                 
                 # ---- Abyssal Plains ----
 
                 # spearfishing
-                set_rule(multiworld.get_location(lname.stapleclaw_plains_fish, player),
+                set_rule(multiworld.get_location("Stapleclaw (Abyssal Plains - Fishing Southeast of Shortcut)", player),
                         lambda state: state.has("Spearfishing", player))
                 
                 # ---- The Old Ocean ----
 
                 # mantis punch
-                set_rule(multiworld.get_location(lname.whelkplusplus_oldocean_mantis, player),
+                set_rule(multiworld.get_location("Whelk++ (The Old Ocean - Behind Mantis Punch Wall)", player),
                         lambda state: state.has("Mantis Punch", player))
                         
                 # grapple
-                set_rule(multiworld.get_location(lname.fruitstickerplus_oldocean_island, player),
+                set_rule(multiworld.get_location("Fruit Sticker+ (The Old Ocean - Beyond Lone House on Floating Island)", player),
                         lambda state: state.has("Fishing Line",player))
                         

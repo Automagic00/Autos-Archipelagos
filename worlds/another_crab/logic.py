@@ -3,8 +3,6 @@ from worlds.generic.Rules import set_rule
 from BaseClasses import CollectionState
 
 from .options import ACTGameOptions
-from .names import location_names as lname
-from .names import region_names as rname
 from .names import shell_names as sname
 
 if TYPE_CHECKING:
@@ -15,10 +13,10 @@ def can_skip_some_grapples(options: ACTGameOptions, state: CollectionState, play
     return state.has("Fishing Line", player) or are_skips_allowed(options)
 
 def is_slacktide_before_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.can_reach_location(lname.nephro, player) or are_skips_allowed(options)
+    return state.can_reach_location("Nephro, Captain of the Guard", player) or are_skips_allowed(options)
 
 def is_reefs_edge_accessible_vanilla(state: CollectionState, player: int) -> bool:
-    return state.has_all({"Fishing Line", "Pristine Pearl"}, player) and state.can_reach_location(lname.magista, player)
+    return state.has_all({"Fishing Line", "Pristine Pearl"}, player) and state.can_reach_location("Magista, Tyrant of Slacktide", player)
  
 # This allows I-beam/decoy (skips), or CAL (glitch) to enter cave
 def is_moonsnail_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
@@ -28,7 +26,7 @@ def can_reach_moonsnail(options: ACTGameOptions, state: CollectionState, player:
     return state.has("Fishing Line", player) or are_skips_allowed(options)
     
 def is_post_ceviche_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.can_reach_location(lname.ceviche_sisters, player) or can_sisters_skip(options, state, player) or can_sisters_skip_glitches(options,state,player)
+    return state.can_reach_location("Ceviche Sisters", player) or can_sisters_skip(options, state, player) or can_sisters_skip_glitches(options,state,player)
     
 def is_consortium_accessible_vale(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return can_big_boost_jump(options, state, player) 

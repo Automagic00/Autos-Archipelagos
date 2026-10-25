@@ -1,54 +1,49 @@
 from typing import Dict, Set
-
-from .names import region_names as rname
 from .names import shell_names as sname
 
 ACT_regions: Dict[str, Set[str]] = {
-    rname.menu: {
-        rname.tide_pool
+    "Menu": {
+        "Tide Pool"
     },
-    rname.tide_pool: {
-        rname.starting_cave,
+    "Tide Pool": {
+        "Central Shallows"
     },
-    rname.starting_cave: {
-        rname.central_shallows
-    },
-    rname.central_shallows: {
-        rname.central_shallows_grapple,
-        rname.slacktide_before,
+    "Central Shallows": {
+        "Central Shallows - Items Behind Grapple",
+        "Fort Slacktide - Before Destruction",
         sname.soda_can
     },
-    rname.central_shallows_grapple: set(),
-    rname.slacktide_before: {
-        rname.slacktide_after,
-        rname.snail_cave,
-        rname.reefs_edge,
+    "Central Shallows - Items Behind Grapple": set(),
+    "Fort Slacktide - Before Destruction": {
+        "Fort Slacktide - After Destruction",
+        "Moon Snail's Cave",
+        "Reef's Edge",
         sname.soda_can,
         sname.coconut,
         sname.banana_peel,
         sname.tin_can
     },
-    rname.snail_cave: {
+    "Moon Snail's Cave": {
         sname.soda_can,
         sname.bottle_cap,
         sname.shot_glass,
         sname.party_hat
     },
-    rname.slacktide_after: {
-        rname.reefs_edge,
+    "Fort Slacktide - After Destruction": {
+        "Reef's Edge",
         sname.teacup
     },
-    rname.reefs_edge: {
-        rname.reefs_edge_grapple,
+    "Reef's Edge": {
+        "Reef's Edge - Items Behind Grapple",
         sname.sauce_nozzle
     },
-    rname.reefs_edge_grapple: {
-        rname.new_carcinia,
+    "Reef's Edge - Items Behind Grapple": {
+        "New Carcinia",
         sname.thimble,
         sname.tennis_ball
     },
-    rname.new_carcinia: {
-        rname.sands_between,
+    "New Carcinia": {
+        "The Sands Between",
         sname.f_key,
         sname.conchiglie,
         sname.shuttlecock,
@@ -61,14 +56,14 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.trophy,
         sname.matryoshka_large
     },
-    rname.sands_between: {
-        rname.post_pag,
-        rname.sands_east_grove_shells,
-        rname.secluded_ridge,
-        rname.trashbin_plateau,
-        rname.southern_town_ridge,
-        rname.grove_main,
-        rname.flotsam_vale,
+    "The Sands Between": {
+        "The Sands Between - Post Pagurus",
+        "The Sands Between - Grapple to East of Grove",
+        "Secluded Ridge",
+        "Trashbin Plateau",
+        "Southern Town Ridge",
+        "Expired Grove",
+        "Flotsam Vale",
         sname.yoccult,
         sname.mason_jar,
         sname.bebop_cup,
@@ -76,46 +71,46 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.lil_red_cup,
         sname.valve
     },
-    rname.sands_east_grove_shells: {
+    "The Sands Between - Grapple to East of Grove": {
         sname.coffee_pod,
         sname.legal_brick,
         sname.ink_cartridge
     },
-    rname.post_pag: set(),
-    rname.secluded_ridge: {
-        rname.secluded_ridge_eel
+    "The Sands Between - Post Pagurus": set(),
+    "Secluded Ridge": {
+        "Secluded Ridge - Past Eelectrocute"
     },
-    rname.secluded_ridge_eel: {
+    "Secluded Ridge - Past Eelectrocute": {
         sname.shotgun_shell,
         sname.legal_brick,
         sname.spring
     }, 
-    rname.trashbin_plateau: set(),
-    rname.southern_town_ridge: {
+    "Trashbin Plateau": set(),
+    "Southern Town Ridge": {
         sname.legal_brick
     },
-    rname.grove_main: {
-        rname.grove_village,
-        rname.grove_raised_platforms,
-        rname.consortium_arena,
+    "Expired Grove": {
+        "Expired Grove - Village",
+        "Expired Grove - Raised Platforms",
+        "Flotsam Vale - Consortium Arena",
         sname.coffee_mug,
         sname.cascadia_roll,
         sname.wafer_cone,
         sname.egg_shell,
         sname.coffee_pod
     },
-    rname.grove_raised_platforms: set(),
-    rname.grove_village: {
+    "Expired Grove - Raised Platforms": set(),
+    "Expired Grove - Village": {
         sname.skull,
         sname.ham_tin,
         sname.crab_husk
     },
-    rname.flotsam_vale: {
-        rname.pinbarge,
-        rname.post_ceviche,
-        rname.consortium_arena,
-        rname.scuttleport,
-        rname.plug_fuse,
+    "Flotsam Vale": {
+        "Pinbarge",
+        "Flotsam Vale - Post Ceviche Sisters",
+        "Flotsam Vale - Consortium Arena",
+        "Scuttleport",
+        "Scuttleport - Plug Fuse Pipes",
         sname.boxing_glove,
         sname.tissue_box,
         sname.cardboard_box,
@@ -124,27 +119,27 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.shotgun_shell,
         sname.legal_brick
     },
-    rname.plug_fuse: {
+    "Scuttleport - Plug Fuse Pipes": {
         sname.plug_fuse
     },
-    rname.post_ceviche: set(),
-    rname.consortium_arena: {
+    "Flotsam Vale - Post Ceviche Sisters": set(),
+    "Flotsam Vale - Consortium Arena": {
         sname.salt_shaker,
         sname.spring,
         sname.rubber_duck
     },
-    rname.scuttleport: {
+    "Scuttleport": {
+        "Scuttleport - Plug Fuse Pipes",
         sname.dumptruck,
-        sname.rubber_duck,
-        rname.plug_fuse
+        sname.rubber_duck
     },
-    rname.pinbarge: {
-        rname.unfathom,
+    "Pinbarge": {
+        "The Unfathom",
         sname.gacha_capsule,
         sname.ink_cartridge
     },
-    rname.unfathom: {
-        rname.plains,
+    "The Unfathom": {
+        "Abyssal Plains",
         sname.doll_head,
         sname.lightbulb,
         sname.mouse,
@@ -153,11 +148,11 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.party_popper,
         sname.service_bell
     },
-    rname.plains: {
-        rname.old_ocean
+    "Abyssal Plains": {
+        "The Old Ocean"
     },
-    rname.old_ocean: {
-        rname.drain_bottom,
+    "The Old Ocean": {
+        "Bottom of The Drain",
         sname.ultrasoft,
         sname.pill_bottle,
         sname.scrub_aggie,
@@ -168,13 +163,13 @@ ACT_regions: Dict[str, Set[str]] = {
         sname.dentures,
         sname.dish_scrubber
     },
-    rname.drain_bottom: {
-        rname.trash_island
+    "Bottom of The Drain": {
+        "Trash Island"
     },
-    rname.trash_island: {
-        rname.carcinia_ruins
+    "Trash Island": {
+        "Carcinia Ruins"
     },
-    rname.carcinia_ruins: set(),
+    "Carcinia Ruins": set(),
     sname.soda_can: set(),
     sname.bottle_cap: set(),
     sname.tin_can : set(),
