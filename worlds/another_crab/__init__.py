@@ -1,11 +1,9 @@
 import math
 from typing import Dict, List, Any, Union
-from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, CollectionState, Tutorial
-from Fill import fill_restrictive
 
-from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, shell_items,item_limited_group, ACTItem, ACTItemData
+from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, shell_items, item_limited_group, ACTItem, ACTItemData
 from .locations import location_table, location_name_groups, location_total, shell_locations, ACTLocation
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules

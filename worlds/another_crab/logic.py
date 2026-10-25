@@ -1,10 +1,7 @@
 from typing import TYPE_CHECKING, Dict, List
-from worlds.generic.Rules import set_rule
 from BaseClasses import CollectionState
 from .options import ACTGameOptions
-
-if TYPE_CHECKING:
-    from . import ACTWorld
+from . import ACTWorld
 
 ### Check if regions are accessible based on current glitch category and items (try to only invoke options in rules)
 def can_skip_some_grapples(options: ACTGameOptions, state: CollectionState, player: int) -> bool:

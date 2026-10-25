@@ -2,9 +2,9 @@ from typing import Dict, Set
 
 ACT_regions: Dict[str, Set[str]] = {
     "Menu": {
-        "Tide Pool"
+        "Cave of Respite"
     },
-    "Tide Pool": {
+    "Cave of Respite": {
         "Central Shallows"
     },
     "Central Shallows": {
