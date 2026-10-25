@@ -117,7 +117,6 @@ class ACTWorld(World):
 
             #print (regions_to_exclude)
             for i in range(len(shell_items)):
-                
                 if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name not in regions_to_exclude:
                     
                     #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])

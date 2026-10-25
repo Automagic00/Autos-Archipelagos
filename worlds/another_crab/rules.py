@@ -49,10 +49,10 @@ def set_region_rules(world: "ACTWorld") -> None:
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
     
-  multiworld.get_entrance("Expired Grove - Main -> Flotsam Vale - Consortium Arena",player).access_rule = \
+  multiworld.get_entrance("Expired Grove -> Flotsam Vale - Consortium Arena",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
     
-  multiworld.get_entrance("Expired Grove - Main -> Expired Grove - Raised Platforms",player).access_rule = \
+  multiworld.get_entrance("Expired Grove -> Expired Grove - Raised Platforms",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_consortium_accessible_grove(options, state, player)
   
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Post Ceviche Sisters", player).access_rule = \
@@ -64,10 +64,10 @@ def set_region_rules(world: "ACTWorld") -> None:
   multiworld.get_entrance("Flotsam Vale -> Scuttleport",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
     
-  multiworld.get_entrance("Flotsam Vale -> Plug Fuse Pipes",player).access_rule = \
+  multiworld.get_entrance("Flotsam Vale -> Shell - Plug Fuse",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
     
-  multiworld.get_entrance("Scuttleport -> Plug Fuse Pipes",player).access_rule = \
+  multiworld.get_entrance("Scuttleport -> Shell - Plug Fuse",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
@@ -578,59 +578,59 @@ def set_location_rules(world: "ACTWorld") -> None:
         set_rule(multiworld.get_location("Barbed Hook (Trashbin Plateau - Eelectrocute Grapple Path)", player),
                 lambda state: state.has_all({"Fishing Line", "Eelectrocute"}, player))
         
-        # ---- Expired Grove Main ----
+        # ---- Expired Grove ----
         # grapple        
-        set_rule(multiworld.get_location("Hairclaw (Expired Grove Main - Milk Carton Urchins)", player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove - Milk Carton Urchins)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Breadclaw (Expired Grove Main - Grapple Near Top of Oil Drum)", player),
+        set_rule(multiworld.get_location("Breadclaw (Expired Grove - Grapple Near Top of Oil Drum)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Main - Main Pathway Around Oil Drum)", player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove - Main Pathway Around Oil Drum)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Shark Tooth (Expired Grove Main - Under Pizza Box)", player),
+        set_rule(multiworld.get_location("Shark Tooth (Expired Grove - Under Pizza Box)", player),
                 lambda state: state.has("Fishing Line", player))
         
         set_rule(multiworld.get_location("Map Piece - Heikea", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Barbed Hook (Expired Grove Main - Shopping Cart Buildings)", player),
+        set_rule(multiworld.get_location("Barbed Hook (Expired Grove - Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Heartkelp Sprout (Expired Grove Main - Top of Shopping Cart Buildings)", player),
+        set_rule(multiworld.get_location("Heartkelp Sprout (Expired Grove - Top of Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
-        set_rule(multiworld.get_location("Contact Lens (Expired Grove Main - Behind Shopping Cart Buildings)", player),
+        set_rule(multiworld.get_location("Contact Lens (Expired Grove - Behind Shopping Cart Buildings)", player),
                 lambda state: state.has("Fishing Line", player))
         
         # mantis punch
-        set_rule(multiworld.get_location("Shark Egg (Expired Grove Main - Mantis Block on Left Path)", player),
+        set_rule(multiworld.get_location("Shark Egg (Expired Grove - Mantis Block on Left Path)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location("Cotton Ball (Expired Grove Main - Mantis Block on Oil Drum Path)", player),
+        set_rule(multiworld.get_location("Cotton Ball (Expired Grove - Mantis Block on Oil Drum Path)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         # spearfishing
-        set_rule(multiworld.get_location("Mussel (Expired Grove Main - Fishing by Entrance)", player),
+        set_rule(multiworld.get_location("Mussel (Expired Grove - Fishing by Entrance)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Main - Fishing Near Mantis Block)", player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove - Fishing Near Mantis Block)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Sponge (Expired Grove Main - Fishing by Crystal Parkour)", player),
+        set_rule(multiworld.get_location("Sponge (Expired Grove - Fishing by Crystal Parkour)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Hairclaw (Expired Grove Main - Hidden Fishing Near Milk Carton)", player),
+        set_rule(multiworld.get_location("Hairclaw (Expired Grove - Hidden Fishing Near Milk Carton)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Oyster (Expired Grove Main - River Fishing Under Bridge)", player),
+        set_rule(multiworld.get_location("Oyster (Expired Grove - River Fishing Under Bridge)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Limpet (Expired Grove Main - River Fishing Before Lichenthrope)", player),
+        set_rule(multiworld.get_location("Limpet (Expired Grove - River Fishing Before Lichenthrope)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Clothesclaw (Expired Grove Main - River Fishing Near Carbonara Waterfall)", player),
+        set_rule(multiworld.get_location("Clothesclaw (Expired Grove - River Fishing Near Carbonara Waterfall)", player),
                 lambda state: state.has("Spearfishing", player))
 
         # ---- Expired Grove Village ----

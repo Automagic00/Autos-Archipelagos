@@ -102,9 +102,9 @@ ACT_regions: Dict[str, Set[str]] = {
         "Trash Island"
     },
     "Trash Island": {
-        "Carcinia Ruins"
+        "New Carcinia Ruins"
     },
-    "Carcinia Ruins": set(),
+    "New Carcinia Ruins": set(),
     "Shell - Plug Fuse": set(),
     "Shell - Coffee Pod": set(),
     "Shell - Legal Brick": set(),

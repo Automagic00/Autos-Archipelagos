@@ -25,7 +25,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Fork Pickup', 'Tide Pool', 483021700), #73329d8e-7c96-4e82-9d3c-e57cc61b46b4-2_A-ShallowsTidePools
     ACTLocationData('Fishing Line', 'Fort Slacktide - Before Destruction', 483021702, "Fort Slacktide - Before Destruction"),
     ACTLocationData('Polluted Platoon Pathfinder', "Moon Snail's Cave", 483021746, "Moon Snail's Cave"), #default location for pristine pearl
-    ACTLocationData('Map Piece - Heikea', 'Expired Grove', 483021952, "Expired Grove - Main"),
+    ACTLocationData('Map Piece - Heikea', 'Expired Grove', 483021952, "Expired Grove"),
     ACTLocationData('Map Piece - Flotsam Vale', 'Flotsam Vale - Post Ceviche Sisters', 483022096, "Flotsam Vale - Post Ceviche Sisters"),
     ACTLocationData('Pagurus, The Ravenous', 'The Sands Between', 483021748, "Sands Between"), #default location for third map piece
     #ACTLocationData("Heartkelp Pods Pickup", "Tide Pool", 483021701, "Starting Items"), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
@@ -34,9 +34,9 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Nephro, Captain of the Guard', 'Central Shallows', 483021703, "Central Shallows"),
     ACTLocationData('Magista, Tyrant of Slacktide', 'Fort Slacktide - After Destruction', 483021744, "Fort Slacktide - After Destruction"),
     ACTLocationData('Royal Shellsplitter', 'Central Shallows', 483021747, "Central Shallows"),
-    ACTLocationData('Diseased Lichenthrope', 'Expired Grove', 483021749, "Expired Grove - Main"),
-    ACTLocationData('Curdled Carbonara Connoisseur', 'Expired Grove', 483021750, "Expired Grove - Main"),
-    ACTLocationData('Heikea, Intimidation Crab', 'Expired Grove', 483021751, "Expired Grove - Main"),
+    ACTLocationData('Diseased Lichenthrope', 'Expired Grove', 483021749, "Expired Grove"),
+    ACTLocationData('Curdled Carbonara Connoisseur', 'Expired Grove', 483021750, "Expired Grove"),
+    ACTLocationData('Heikea, Intimidation Crab', 'Expired Grove', 483021751, "Expired Grove"),
     ACTLocationData('Grovekeeper Topoda', 'Expired Grove - Village', 483021752, "Expired Grove - Village"),
     ACTLocationData('The Consortium', 'Flotsam Vale - Consortium Arena', 483021753, "Flotsam Vale - Consortium Arena"),
     ACTLocationData('Scuttling Sludge Steamroller', 'Flotsam Vale', 483021754, "Flotsam Vale"),
@@ -139,27 +139,27 @@ locations_data: List[ACTLocationData] = [
 
     ACTLocationData('Stapleclaw (Trashbin Plateau - Eelectrocute Grapple Path Fishing)', 'Trashbin Plateau', 483021909, "The Sands Between - Trashbin Plateau"), #190034bb-c13e-42ec-bac4-037cc828fde3-2_A-OOGroveRadius
 
-    ACTLocationData('Breadclaw (Expired Grove Main - East Takeout Container)', 'Expired Grove', 483021919, "Expired Grove - Main"), #7d3ea7ae-4d80-4618-b798-39ba032f7650-2_A-GroveForestLow
-    ACTLocationData('Breadclaw (Expired Grove Main - Near Tire Archway)', 'Expired Grove', 483021924, "Expired Grove - Main"), #075bc58b-ab5e-41cc-b82b-89f7c897821a-2_A-GroveForestLow
-    ACTLocationData('Chipclaw (Expired Grove Main - Plastic Silverware Near Entrance)', 'Expired Grove', 483021925, "Expired Grove - Main"), #af194776-481c-4198-aa8b-baf05f24de1b-2_A-GroveForestLow
-    ACTLocationData('Clothesclaw (Expired Grove Main - Chocolate Milk Carton)', 'Expired Grove', 483021926, "Expired Grove - Main"), # 6ad0a92e-48c3-40e6-9f3c-746fd78cf376-2_A-GroveForestLow
-    ACTLocationData('Breadclaw (Expired Grove Main - Inside Tire Archway)', 'Expired Grove', 483021927, "Expired Grove - Main"), #90bfa7e8-b69f-4e3b-b539-967c7df38523-2_A-GroveForestLow
-    ACTLocationData('Chipclaw (Expired Grove Main - East Sniper Ledge)', 'Expired Grove', 483021945, "Expired Grove - Main"), #9ca18539-8fd5-4def-9418-c17bbb1f0d65-2_A-GroveForestLow
-    ACTLocationData('Hairclaw (Expired Grove Main - Milk Carton Urchins)', 'Expired Grove', 483021946, "Expired Grove - Main"), #df6fcb07-437c-4b21-b207-5a9e8e37cccb-2_A-GroveForestLow
-     ACTLocationData('Chipclaw (Expired Grove Main - Rotten Apple Cores)', 'Expired Grove', 483021932, "Expired Grove - Main"), #faa3c9ce-87c7-4f6d-b07e-be334c3bc447-2_A-GroveForestLow
-     ACTLocationData('Chipclaw (Expired Grove Main - Shopping Cart Soda Cans)', 'Expired Grove', 483021933, "Expired Grove - Main"), #25737275-a222-4a6e-af6b-0c66c197cab7-2_A-GroveForestLow
-     ACTLocationData('Hairclaw (Expired Grove Main - Shopping Cart Moonshine)', 'Expired Grove', 483021934, "Expired Grove - Main"), #1c84843a-ab7e-433f-b376-83a0373f5a97-2_A-GroveForestLow
-     ACTLocationData('Chipclaw (Expired Grove Main - Circular Rock Past Shopping Cart)', 'Expired Grove', 483021938, "Expired Grove - Main"), #1b74ef4f-528c-484b-9a5f-abbb3434f133-2_A-GroveForestLow
-     ACTLocationData('Clothesclaw (Expired Grove Main - Gunk River Alcove Near Waterfall)', 'Expired Grove', 483021939, "Expired Grove - Main"), #f99a120b-43c2-4e65-91fd-71cbfbf3e8f7-2_A-GroveForestLow
-     ACTLocationData('Hairclaw (Expired Grove Main - Elevated Sniper Platform)', 'Expired Grove - Raised Platforms', 483021940, "Expired Grove - Raised Platforms"), #8f4a1f33-e567-4c84-b34b-739353b3ba08-2_A-GroveForestLow
-     ACTLocationData('Breadclaw (Expired Grove Main - Among Us Fries)', 'Expired Grove', 483021943, "Expired Grove - Main"), #c859129f-cc29-4624-a161-fdeffa00d0ca-2_B-GroveForestHigh
-     ACTLocationData('Breadclaw (Expired Grove Main - Small Platform Next to Oil Drum)', 'Expired Grove', 483021944, "Expired Grove - Main"), #b85cb09c-f1d7-4396-85cb-fde4dc845acd-2_B-GroveForestHigh
-     ACTLocationData('Breadclaw (Expired Grove Main - Grapple Near Top of Oil Drum)', 'Expired Grove', 483021949, "Expired Grove - Main"), #bc18b92b-a6c6-420c-9095-e15c34c2f921-2_B-GroveForestHigh
-     ACTLocationData('Clothesclaw (Expired Grove Main - Fishing Near Mantis Block)', 'Expired Grove', 483021956, "Expired Grove - Main"), #789ed5bd-38ce-4539-8f1c-135cc3c89377-2_A-GroveForestLow
-     ACTLocationData('Hairclaw (Expired Grove Main - Hidden Fishing Near Milk Carton)', 'Expired Grove', 483021957, "Expired Grove - Main"), #24079978-2320-428e-9096-71aa2d20fb9c-2_A-GroveForestLow
-     ACTLocationData('Clothesclaw (Expired Grove Main - River Fishing Near Carbonara Waterfall)', 'Expired Grove', 483021958, "Expired Grove - Main"), #ebad553d-fbff-441e-8c1d-0ccc65fe81ae-2_A-GroveForestLow
-     ACTLocationData('Clothesclaw (Expired Grove Main - Behind Waterfall Near Lycanthrope)', 'Expired Grove', 483022321, "Expired Grove - Main"), #cb589bcb-04b5-412d-a8a0-8502b584083b-2_A-GroveForestLow
-     ACTLocationData('Hairclaw (Expired Grove Main - Ledge After Grapple Nets)', 'Secluded Ridge', 483021930, "Expired Grove - Main"), #886641b3-08c7-4460-97dc-56d52e2e24c9-2_A-GroveForestLow
+    ACTLocationData('Breadclaw (Expired Grove - East Takeout Container)', 'Expired Grove', 483021919, "Expired Grove"), #7d3ea7ae-4d80-4618-b798-39ba032f7650-2_A-GroveForestLow
+    ACTLocationData('Breadclaw (Expired Grove - Near Tire Archway)', 'Expired Grove', 483021924, "Expired Grove"), #075bc58b-ab5e-41cc-b82b-89f7c897821a-2_A-GroveForestLow
+    ACTLocationData('Chipclaw (Expired Grove - Plastic Silverware Near Entrance)', 'Expired Grove', 483021925, "Expired Grove"), #af194776-481c-4198-aa8b-baf05f24de1b-2_A-GroveForestLow
+    ACTLocationData('Clothesclaw (Expired Grove - Chocolate Milk Carton)', 'Expired Grove', 483021926, "Expired Grove"), # 6ad0a92e-48c3-40e6-9f3c-746fd78cf376-2_A-GroveForestLow
+    ACTLocationData('Breadclaw (Expired Grove - Inside Tire Archway)', 'Expired Grove', 483021927, "Expired Grove"), #90bfa7e8-b69f-4e3b-b539-967c7df38523-2_A-GroveForestLow
+    ACTLocationData('Chipclaw (Expired Grove - East Sniper Ledge)', 'Expired Grove', 483021945, "Expired Grove"), #9ca18539-8fd5-4def-9418-c17bbb1f0d65-2_A-GroveForestLow
+    ACTLocationData('Hairclaw (Expired Grove - Milk Carton Urchins)', 'Expired Grove', 483021946, "Expired Grove"), #df6fcb07-437c-4b21-b207-5a9e8e37cccb-2_A-GroveForestLow
+     ACTLocationData('Chipclaw (Expired Grove - Rotten Apple Cores)', 'Expired Grove', 483021932, "Expired Grove"), #faa3c9ce-87c7-4f6d-b07e-be334c3bc447-2_A-GroveForestLow
+     ACTLocationData('Chipclaw (Expired Grove - Shopping Cart Soda Cans)', 'Expired Grove', 483021933, "Expired Grove"), #25737275-a222-4a6e-af6b-0c66c197cab7-2_A-GroveForestLow
+     ACTLocationData('Hairclaw (Expired Grove - Shopping Cart Moonshine)', 'Expired Grove', 483021934, "Expired Grove"), #1c84843a-ab7e-433f-b376-83a0373f5a97-2_A-GroveForestLow
+     ACTLocationData('Chipclaw (Expired Grove - Circular Rock Past Shopping Cart)', 'Expired Grove', 483021938, "Expired Grove"), #1b74ef4f-528c-484b-9a5f-abbb3434f133-2_A-GroveForestLow
+     ACTLocationData('Clothesclaw (Expired Grove - Gunk River Alcove Near Waterfall)', 'Expired Grove', 483021939, "Expired Grove"), #f99a120b-43c2-4e65-91fd-71cbfbf3e8f7-2_A-GroveForestLow
+     ACTLocationData('Hairclaw (Expired Grove - Elevated Sniper Platform)', 'Expired Grove - Raised Platforms', 483021940, "Expired Grove - Raised Platforms"), #8f4a1f33-e567-4c84-b34b-739353b3ba08-2_A-GroveForestLow
+     ACTLocationData('Breadclaw (Expired Grove - Among Us Fries)', 'Expired Grove', 483021943, "Expired Grove"), #c859129f-cc29-4624-a161-fdeffa00d0ca-2_B-GroveForestHigh
+     ACTLocationData('Breadclaw (Expired Grove - Small Platform Next to Oil Drum)', 'Expired Grove', 483021944, "Expired Grove"), #b85cb09c-f1d7-4396-85cb-fde4dc845acd-2_B-GroveForestHigh
+     ACTLocationData('Breadclaw (Expired Grove - Grapple Near Top of Oil Drum)', 'Expired Grove', 483021949, "Expired Grove"), #bc18b92b-a6c6-420c-9095-e15c34c2f921-2_B-GroveForestHigh
+     ACTLocationData('Clothesclaw (Expired Grove - Fishing Near Mantis Block)', 'Expired Grove', 483021956, "Expired Grove"), #789ed5bd-38ce-4539-8f1c-135cc3c89377-2_A-GroveForestLow
+     ACTLocationData('Hairclaw (Expired Grove - Hidden Fishing Near Milk Carton)', 'Expired Grove', 483021957, "Expired Grove"), #24079978-2320-428e-9096-71aa2d20fb9c-2_A-GroveForestLow
+     ACTLocationData('Clothesclaw (Expired Grove - River Fishing Near Carbonara Waterfall)', 'Expired Grove', 483021958, "Expired Grove"), #ebad553d-fbff-441e-8c1d-0ccc65fe81ae-2_A-GroveForestLow
+     ACTLocationData('Clothesclaw (Expired Grove - Behind Waterfall Near Lycanthrope)', 'Expired Grove', 483022321, "Expired Grove"), #cb589bcb-04b5-412d-a8a0-8502b584083b-2_A-GroveForestLow
+     ACTLocationData('Hairclaw (Expired Grove - Ledge After Grapple Nets)', 'Secluded Ridge', 483021930, "Expired Grove"), #886641b3-08c7-4460-97dc-56d52e2e24c9-2_A-GroveForestLow
 
      ACTLocationData('Breadclaw (Expired Grove Village - After Oil Drum)', 'Expired Grove - Village', 483021968, "Expired Grove - Village"), #66a4a627-ad3a-45d6-aaf1-1e505dac0495-2_B-GroveForestHigh
      ACTLocationData('Breadclaw (Expired Grove Village - In Bottle Near Cart Mantis Block 1)', 'Expired Grove - Village', 483021969, "Expired Grove - Village"), #a6e719fc-65b0-4c3a-830e-43065a819c7d-2_B-GroveForestHigh
@@ -334,9 +334,9 @@ locations_data: List[ACTLocationData] = [
      ACTLocationData('Old World Whorl (Secluded Ridge - North Cliff Clam)', 'Secluded Ridge', 483021890, "The Sands Between - Secluded Ridge"), #8e381b9e-ab7a-44ad-81c3-19157c97e0c6-2_A-OOGroveRadius
      ACTLocationData('Old World Whorl (Secluded Ridge - Eelectrocute Clam)', 'Secluded Ridge - Past Eelectrocute', 483021905, "The Sands Between - Secluded Ridge Eelectrocute"), #80e66e11-8e9a-4896-9db1-f8cd4a25fefc-2_A-OOGroveRadius
 
-     ACTLocationData('Old World Whorl (Expired Grove Main - South Clam)', 'Expired Grove', 483021917, "Expired Grove - Main"), #e8b4805a-d793-4cd6-943e-bb51b0a6a7dd-2_A-GroveForestLow
-     ACTLocationData('Bloodstar Limb (Expired Grove Main - Behind Gunk Waterfall)', 'Expired Grove', 483021929, "Expired Grove - Main"), #5053f259-8f89-44b2-a64e-6ad48884e569-2_A-GroveForestLow
-     ACTLocationData('Heartkelp Sprout (Expired Grove Main - Top of Shopping Cart Buildings)', 'Expired Grove', 483021961, "Expired Grove - Main"), #7689fa51-f5c8-498f-a842-b302b47f806b-2_A-GroveForestLow
+     ACTLocationData('Old World Whorl (Expired Grove - South Clam)', 'Expired Grove', 483021917, "Expired Grove"), #e8b4805a-d793-4cd6-943e-bb51b0a6a7dd-2_A-GroveForestLow
+     ACTLocationData('Bloodstar Limb (Expired Grove - Behind Gunk Waterfall)', 'Expired Grove', 483021929, "Expired Grove"), #5053f259-8f89-44b2-a64e-6ad48884e569-2_A-GroveForestLow
+     ACTLocationData('Heartkelp Sprout (Expired Grove - Top of Shopping Cart Buildings)', 'Expired Grove', 483021961, "Expired Grove"), #7689fa51-f5c8-498f-a842-b302b47f806b-2_A-GroveForestLow
 
      ACTLocationData('Bloodstar Limb (Expired Grove Village - In Upper South Milk Carton)', 'Expired Grove - Village', 483021995, "Expired Grove - Village"), #ef8017ce-dab2-48d4-864a-7a53ea9a26a7-2_C-Village
      ACTLocationData('Tackle Pouch (Expired Grove Village - Clam Near Cave Shortcut)', 'Expired Grove - Village', 483021998, "Expired Grove - Village"), #c69ffc64-04af-44d1-b470-a867c5f06199-2_D-Caves
@@ -409,26 +409,26 @@ locations_data: List[ACTLocationData] = [
 
      ACTLocationData('Barbed Hook (Trashbin Plateau - Eelectrocute Grapple Path)', 'Trashbin Plateau', 483021910, "The Sands Between - Trashbin Plateau"), #2bccca10-1f27-4762-9a9b-8e628586e0a4-2_A-OOGroveRadius
 
-     ACTLocationData('Barbed Hook (Expired Grove Main - Next to Sniper Crab)', 'Secluded Ridge', 483021914, "Expired Grove - Main"), #1a0f7d65-c345-4ab2-b447-9a33d5f3acca-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Ledge Near Gunk River)', 'Secluded Ridge', 483021915, "Expired Grove - Main"), #84480f21-e1d7-46d2-9c43-9669ed805a22-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - In Sand Near Gunk River)', 'Secluded Ridge', 483021916, "Expired Grove - Main"), #9b359e06-c812-437d-b03b-175dd8ef77de-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Behind Diseased Lichenthrope)', 'Secluded Ridge', 483021921, "Expired Grove - Main"), #7f4c117f-b387-42cc-a689-8ace39284f5d-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Ledge East of Lichenthrope)', 'Secluded Ridge', 483021922, "Expired Grove  - Main"), #dc6c6660-a95a-4587-85cd-cb012292d260-2_A-GroveForestLoww
-     ACTLocationData('Barbed Hook (Expired Grove Main - Crushed Soda Cans)', 'Secluded Ridge', 483021923, "Expired Grove - Main"), #80a22472-1b49-42d0-8ad5-a38ce1c7be8c-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Ledge Across Gunk River)', 'Secluded Ridge', 483021928, "Expired Grove - Main"), #c662e7b9-1f80-4a66-ae70-e0ba31f14a37-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Next to Sniper Crab)', 'Secluded Ridge', 483021914, "Expired Grove"), #1a0f7d65-c345-4ab2-b447-9a33d5f3acca-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Ledge Near Gunk River)', 'Secluded Ridge', 483021915, "Expired Grove"), #84480f21-e1d7-46d2-9c43-9669ed805a22-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - In Sand Near Gunk River)', 'Secluded Ridge', 483021916, "Expired Grove"), #9b359e06-c812-437d-b03b-175dd8ef77de-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Behind Diseased Lichenthrope)', 'Secluded Ridge', 483021921, "Expired Grove"), #7f4c117f-b387-42cc-a689-8ace39284f5d-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Ledge East of Lichenthrope)', 'Secluded Ridge', 483021922, "Expired Grove"), #dc6c6660-a95a-4587-85cd-cb012292d260-2_A-GroveForestLoww
+     ACTLocationData('Barbed Hook (Expired Grove - Crushed Soda Cans)', 'Secluded Ridge', 483021923, "Expired Grove"), #80a22472-1b49-42d0-8ad5-a38ce1c7be8c-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Ledge Across Gunk River)', 'Secluded Ridge', 483021928, "Expired Grove"), #c662e7b9-1f80-4a66-ae70-e0ba31f14a37-2_A-GroveForestLow
     
-     ACTLocationData('Barbed Hook (Expired Grove Main - Ledge After Shopping Cart)', 'Secluded Ridge', 483021935, "Expired Grove - Main"), #dc13eb69-ac98-4de9-9fe0-7f16a03d4ebb-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Bottles on Ledge After Shopping Cart)', 'Secluded Ridge', 483021937, "Expired Grove - Main"), #a5b6f3f6-6e1c-4934-9006-26da6cee47f4-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Paper Plate Near River)', 'Secluded Ridge', 483021941, "Expired Grove - Main"), #776881ba-f61b-4400-8cf5-f11fb11b6f94-2_B-GroveForestHigh
-     ACTLocationData('Barbed Hook (Expired Grove Main - Main Pathway Around Oil Drum)', 'Secluded Ridge', 483021942, "Expired Grove - Main"), #12c73a88-beef-4bfb-a2d1-c159c91d8304-2_B-GroveForestHigh
-     ACTLocationData('Barbed Hook  (Expired Grove Main - Carton Canopy)', 'Expired Grove - Raised Platforms', 483021948, "Expired Grove - Raised Platforms"), #75b98171-82f1-4559-ac2a-d0a63cccfab2-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Near Top of Oil Drum)', 'Secluded Ridge', 483021950, "Expired Grove - Main"), #3a1e7a2c-5111-4360-b168-cc5e84088b6a-2_B-GroveForestHigh
-     ACTLocationData('Barbed Hook (Expired Grove Main - Shopping Cart Buildings)', 'Expired Grove', 483021959, "Expired Grove - Main"), #bfe46822-3646-4b65-872d-718ab758ab6c-2_A-GroveForestLow
-     ACTLocationData('Shark Egg (Expired Grove Main - Mantis Block on Left Path)', 'Expired Grove', 483021960, "Expired Grove - Main"), #1bace4e0-6ae9-4c89-a583-3d2a9dab800e-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Parkour at Grove Entrance', 'Expired Grove', 4830223620, "Expired Grove - Main"), #9a2f64f8-cba8-41a4-acac-8cc3e6e9583d-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Bottle Near Paper Plate)', 'Expired Grove', 483022322, "Expired Grove - Main"), #6440b99a-9998-4191-961a-32d9f1ecd9e4-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Bottles Over River From Shopping Cart)', 'Expired Grove', 483022323, "Expired Grove - Main"), #f446f24d-71ec-4f13-a6a0-ad5834080de6-2_A-GroveForestLow
-     ACTLocationData('Barbed Hook (Expired Grove Main - Small Connecting Hallway)', 'Expired Grove', 483021931, "Expired Grove - Main"), #cf1311a6-d64c-4d03-b32e-f6440bb9e247-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Ledge After Shopping Cart)', 'Secluded Ridge', 483021935, "Expired Grove"), #dc13eb69-ac98-4de9-9fe0-7f16a03d4ebb-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Bottles on Ledge After Shopping Cart)', 'Secluded Ridge', 483021937, "Expired Grove"), #a5b6f3f6-6e1c-4934-9006-26da6cee47f4-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Paper Plate Near River)', 'Secluded Ridge', 483021941, "Expired Grove"), #776881ba-f61b-4400-8cf5-f11fb11b6f94-2_B-GroveForestHigh
+     ACTLocationData('Barbed Hook (Expired Grove - Main Pathway Around Oil Drum)', 'Secluded Ridge', 483021942, "Expired Grove"), #12c73a88-beef-4bfb-a2d1-c159c91d8304-2_B-GroveForestHigh
+     ACTLocationData('Barbed Hook  (Expired Grove - Carton Canopy)', 'Expired Grove - Raised Platforms', 483021948, "Expired Grove - Raised Platforms"), #75b98171-82f1-4559-ac2a-d0a63cccfab2-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Near Top of Oil Drum)', 'Secluded Ridge', 483021950, "Expired Grove"), #3a1e7a2c-5111-4360-b168-cc5e84088b6a-2_B-GroveForestHigh
+     ACTLocationData('Barbed Hook (Expired Grove - Shopping Cart Buildings)', 'Expired Grove', 483021959, "Expired Grove"), #bfe46822-3646-4b65-872d-718ab758ab6c-2_A-GroveForestLow
+     ACTLocationData('Shark Egg (Expired Grove - Mantis Block on Left Path)', 'Expired Grove', 483021960, "Expired Grove"), #1bace4e0-6ae9-4c89-a583-3d2a9dab800e-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Parkour at Grove Entrance', 'Expired Grove', 4830223620, "Expired Grove"), #9a2f64f8-cba8-41a4-acac-8cc3e6e9583d-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Bottle Near Paper Plate)', 'Expired Grove', 483022322, "Expired Grove"), #6440b99a-9998-4191-961a-32d9f1ecd9e4-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Bottles Over River From Shopping Cart)', 'Expired Grove', 483022323, "Expired Grove"), #f446f24d-71ec-4f13-a6a0-ad5834080de6-2_A-GroveForestLow
+     ACTLocationData('Barbed Hook (Expired Grove - Small Connecting Hallway)', 'Expired Grove', 483021931, "Expired Grove"), #cf1311a6-d64c-4d03-b32e-f6440bb9e247-2_A-GroveForestLow
 
      ACTLocationData('Barbed Hook (Expired Grove Village - In Cave After Heikea)', 'Expired Grove - Village', 483021987, "Expired Grove - Village"), #bcfabbd4-8575-4a6a-8325-7259996a7d68-2_D-Caves
      ACTLocationData('Barbed Hook (Expired Grove Village - Hidden Fishing Near Shopping Cart Mantis Block)', 'Expired Grove - Village', 483021971, "Expired Grove - Village"), #7a38fbf2-47a9-4bf6-85d1-f8d4f58b8d66-2_B-GroveForestHigh
@@ -582,19 +582,19 @@ locations_data: List[ACTLocationData] = [
      ACTLocationData('Small Battery (Trashbin Plateau - Mantis Block)', 'Trashbin Plateau', 483021901, "The Sands Between - Trashbin Plateau"), #0d86fe0e-ae41-4fb2-beb2-9bb5e558429a-2_A-OOGroveRadius
      ACTLocationData('Googly Eye (Trashbin Plateau - Pineapple)', 'Trashbin Plateau', 483021902, "The Sands Between - Trashbin Plateau"), #7935fe1e-318c-4f90-901b-fa001de6e4dc-2_A-OOGroveRadius
 
-     ACTLocationData('Barnacle (Expired Grove Main - On Top of Colander)', 'Expired Grove', 483021913, "Expired Grove - Main"), #09fbd30a-ce33-45a9-bffd-8b4f24c35559-2_A-GroveForestLow
-     ACTLocationData('Seastar (Expired Grove Main - East Circular Rock)', 'Expired Grove', 483021918, "Expired Grove - Main"), #f429fad9-bbb8-4eaf-a154-80164a6550c3-2_A-GroveForestLow
-     ACTLocationData('Puffer Quill (Expired Grove Main - Cross Sponge Islands)', 'Expired Grove', 483021920, "Expired Grove - Main"), #36499157-9a63-42c2-b3b2-644546520db0-2_A-GroveForestLow
-     ACTLocationData('Limpet (Expired Grove Main - Soda Can Stepping Stones)', 'Expired Grove', 483021936, "Expired Grove - Main"), #0eed5053e-c3f5-4c95-868b-86d92ba3d9a1-2_A-GroveForestLow
-     ACTLocationData('Lumpsucker (Expired Grove Main - Carton Canopy)', 'Expired Grove - Raised Platforms', 483021947, "Expired Grove - Raised Platforms"), #d1bd4b15-62ca-4363-94ec-59b9abbff10b-2_A-GroveForestLow
-     ACTLocationData('Another Crab (Expired Grove Main - Beginning of Sniper Path)', 'Expired Grove', 483022319, "Expired Grove - Main"), #8e4714bf-cc7f-4bde-9c88-7fcdbf8d0afe-2_A-GroveForestLow
-     ACTLocationData('Shark Tooth (Expired Grove Main - Under Pizza Box)', 'Expired Grove', 483021951, "Expired Grove - Main"), #8e34f6a5-5844-4767-ab15-4fbaf6c147dc-2_B-GroveForestHigh
-     ACTLocationData('Contact Lens (Expired Grove Main - Behind Shopping Cart Buildings)', 'Expired Grove', 483021962, "Expired Grove - Main"), #ac0843c0-17cd-4af2-a11c-d1d42bd0ccea-2_A-GroveForestLow
-     ACTLocationData('Cotton Ball (Expired Grove Main - Mantis Block on Oil Drum Path)', 'Expired Grove', 483021963, "Expired Grove - Main"), #fa3cfc64-4f87-452c-bf59-4f599cb3f6fa-2_A-GroveForestLow
-     ACTLocationData('Mussel (Expired Grove Main - Fishing by Entrance)', 'Expired Grove', 483021964, "Expired Grove - Main"), #96c16da5-97e3-44db-bca9-8a4990c2707b-2_A-GroveForestLow
-     ACTLocationData('Sponge (Expired Grove Main - Fishing by Crystal Parkour)', 'Expired Grove', 483021965, "Expired Grove - Main"), #a8310c1f-205c-42cf-bcbd-66b0636e8901-2_A-GroveForestLow
-     ACTLocationData('Oyster (Expired Grove Main - River Fishing Under Bridge)', 'Expired Grove', 483021966, "Expired Grove - Main"), #5480f8db-7801-4ca6-bbca-71dd0876785a-2_A-GroveForestLow
-     ACTLocationData('Limpet (Expired Grove Main - River Fishing Before Lichenthrope)', 'Expired Grove', 483021967, "Expired Grove - Main"), #622cbc21-fcd5-44d1-8e95-c6fcaacc2dcb-2_A-GroveForestLow
+     ACTLocationData('Barnacle (Expired Grove - On Top of Colander)', 'Expired Grove', 483021913, "Expired Grove"), #09fbd30a-ce33-45a9-bffd-8b4f24c35559-2_A-GroveForestLow
+     ACTLocationData('Seastar (Expired Grove - East Circular Rock)', 'Expired Grove', 483021918, "Expired Grove"), #f429fad9-bbb8-4eaf-a154-80164a6550c3-2_A-GroveForestLow
+     ACTLocationData('Puffer Quill (Expired Grove - Cross Sponge Islands)', 'Expired Grove', 483021920, "Expired Grove"), #36499157-9a63-42c2-b3b2-644546520db0-2_A-GroveForestLow
+     ACTLocationData('Limpet (Expired Grove - Soda Can Stepping Stones)', 'Expired Grove', 483021936, "Expired Grove"), #0eed5053e-c3f5-4c95-868b-86d92ba3d9a1-2_A-GroveForestLow
+     ACTLocationData('Lumpsucker (Expired Grove - Carton Canopy)', 'Expired Grove - Raised Platforms', 483021947, "Expired Grove - Raised Platforms"), #d1bd4b15-62ca-4363-94ec-59b9abbff10b-2_A-GroveForestLow
+     ACTLocationData('Another Crab (Expired Grove - Beginning of Sniper Path)', 'Expired Grove', 483022319, "Expired Grove"), #8e4714bf-cc7f-4bde-9c88-7fcdbf8d0afe-2_A-GroveForestLow
+     ACTLocationData('Shark Tooth (Expired Grove - Under Pizza Box)', 'Expired Grove', 483021951, "Expired Grove"), #8e34f6a5-5844-4767-ab15-4fbaf6c147dc-2_B-GroveForestHigh
+     ACTLocationData('Contact Lens (Expired Grove - Behind Shopping Cart Buildings)', 'Expired Grove', 483021962, "Expired Grove"), #ac0843c0-17cd-4af2-a11c-d1d42bd0ccea-2_A-GroveForestLow
+     ACTLocationData('Cotton Ball (Expired Grove - Mantis Block on Oil Drum Path)', 'Expired Grove', 483021963, "Expired Grove"), #fa3cfc64-4f87-452c-bf59-4f599cb3f6fa-2_A-GroveForestLow
+     ACTLocationData('Mussel (Expired Grove - Fishing by Entrance)', 'Expired Grove', 483021964, "Expired Grove"), #96c16da5-97e3-44db-bca9-8a4990c2707b-2_A-GroveForestLow
+     ACTLocationData('Sponge (Expired Grove - Fishing by Crystal Parkour)', 'Expired Grove', 483021965, "Expired Grove"), #a8310c1f-205c-42cf-bcbd-66b0636e8901-2_A-GroveForestLow
+     ACTLocationData('Oyster (Expired Grove - River Fishing Under Bridge)', 'Expired Grove', 483021966, "Expired Grove"), #5480f8db-7801-4ca6-bbca-71dd0876785a-2_A-GroveForestLow
+     ACTLocationData('Limpet (Expired Grove - River Fishing Before Lichenthrope)', 'Expired Grove', 483021967, "Expired Grove"), #622cbc21-fcd5-44d1-8e95-c6fcaacc2dcb-2_A-GroveForestLow
 
      ACTLocationData('Anemone (Expired Grove Village - River Fishing Near Cart Mantis Block)', 'Expired Grove - Village', 483021974, "Expired Grove - Village"), #5e81380f-3e8f-4d44-a0ef-ebbad0f23fdb-2_B-GroveForestHigh
      ACTLocationData('Phytoplankton+ (Expired Grove Village - Top of Upside Down village)', 'Expired Grove - Village', 483022000, "Expired Grove - Village"), #5e1cd261-5882-4737-a524-e27b267b61b0-2_C-Village
@@ -794,8 +794,8 @@ shell_locations_data: List[ACTLocationData] = [
     ACTLocationData("Dish Scrubber", "The Old Ocean", None, "Shells"),
     ACTLocationData("Snow Globe", "The Old Ocean", None, "Shells"),
     ACTLocationData("Knight's Helmet", "The Old Ocean", None, "Shells"),
-    ACTLocationData("Spirit Conch", "Spirit Conch", None, "Shells"),
     ACTLocationData("Plug Fuse", "Shell - Plug Fuse", None, "Shells")
+    #ACTLocationData("Spirit Conch", "Shell - Spirit Conch", None, "Shells"), #has its own location
     #ACTLocationData("Matryoshka Medium", None, None, "Shells"),
     #ACTLocationData("Matryoshka Small", None, None, "Shells"),
     #ACTLocationData("Home", None, None, "Shells"),
