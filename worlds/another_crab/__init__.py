@@ -6,11 +6,10 @@ from BaseClasses import Region, ItemClassification, CollectionState, Tutorial
 from Fill import fill_restrictive
 
 from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, shell_items,item_limited_group, ACTItem, ACTItemData
-from .locations import location_table, location_name_groups, location_name_to_id, location_total, shell_locations, ACTLocation, ACTLocationData
+from .locations import location_table, location_name_groups, location_total, shell_locations, ACTLocation
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules
 from .options import ACTGameOptions
-from .names import shell_names as sname
 
 
 class ACTWeb(WebWorld):
@@ -82,8 +81,8 @@ class ACTWorld(World):
                               
             self.random.shuffle(shell_items)
             randoVerified: bool = False
-            shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index(sname.soda_can)]]
-            plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
+            shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index("Soda Can")]]
+            plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
             prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
             prevented_plug_regions = ["Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             print(plug_region.entrances[0].parent_region.name)
@@ -94,24 +93,24 @@ class ACTWorld(World):
                 #Make sure soda can has something usable for combat if forkless enabled
                 if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda.name == element for element in prevented_shells_at_soda)):
                     self.random.shuffle(shell_items)
-                    shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
+                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
                     print(shell_at_soda.name)
                 #elif plug_region.entrances
                 elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions) and (self.options.randomfuse == True):
                     self.random.shuffle(shell_items)
-                    shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
+                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
                     plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
                     
                 elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != "Plug Fuse Pipes"):
                     #swap plug_fuse and shell in plug_fuse location
-                    plug_fuse_item_index = shell_items.index(sname.plug_fuse)
-                    plug_fuse_location_index = shell_locations.index(sname.plug_fuse)
+                    plug_fuse_item_index = shell_items.index("Plug Fuse")
+                    plug_fuse_location_index = shell_locations.index("Plug Fuse")
                     shell_items[plug_fuse_item_index], shell_items[plug_fuse_location_index] = shell_items[plug_fuse_location_index], shell_items[plug_fuse_item_index]
                 
-                    shell_at_soda = item_table[shell_items[shell_locations.index(sname.soda_can)]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index(sname.plug_fuse)]].region,self.player)
+                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
                     print("Returning fuse to vanilla location")
                 else:
                     randoVerified = True
@@ -123,7 +122,7 @@ class ACTWorld(World):
                     
                     #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
-                    shell_placed_loc = ACTLocation(self.player,shell_locations[i],None,region)
+                    shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
                     region.locations.append(shell_placed_loc)
         
@@ -132,7 +131,7 @@ class ACTWorld(World):
             for i in range(len(shell_items)):
                 if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name  not in regions_to_exclude:
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
-                    shell_placed_loc = ACTLocation(self.player,shell_locations[i],None,region)
+                    shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     
                     if location_table[shell_locations[i]].region not in regions_to_exclude:
                         shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
@@ -235,7 +234,7 @@ class ACTWorld(World):
         if not self.options.ngplus_bosses:
             individual_locations_to_exclude.append("Extremely Rude Snail")
 
-        for location_name in location_name_to_id:
+        for location_name in self.location_name_to_id:
             if location_table[location_name].region in regions_to_exclude:
                 self.location_total -= 1
             elif location_name in individual_locations_to_exclude:
@@ -328,7 +327,7 @@ class ACTWorld(World):
                 lambda state: state.can_reach_location(spot = "Magista, Tyrant of Slacktide", player = self.player)
             regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
-        for location_name, location_id in location_name_to_id.items():
+        for location_name in self.location_name_to_id.keys():
             individual_locations_to_exclude = []
             if not self.options.ngplus_bosses:
                 individual_locations_to_exclude.append("Extremely Rude Snail")
@@ -337,7 +336,7 @@ class ACTWorld(World):
             isLocationInExcludedRegion = (location_table[location_name].region in regions_to_exclude)
             if (not isLocationExcluded) and (not isLocationInExcludedRegion):
                 region = self.multiworld.get_region(location_table[location_name].region, self.player) 
-                location = ACTLocation(self.player, location_name, location_id, region)
+                location = ACTLocation(self.player, location_table[location_name], region)
                 region.locations.append(location)      
 
     def set_rules(self) -> None:

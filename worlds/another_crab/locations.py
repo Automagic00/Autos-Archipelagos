@@ -1,7 +1,5 @@
 from typing import Dict, List, NamedTuple, Set
-from BaseClasses import Location
-
-from .names import shell_names as sname
+from BaseClasses import Location, Region
 
 class ACTLocationData(NamedTuple):
     name: str 
@@ -17,19 +15,20 @@ class ACTLocation(Location):
             self,
             player: int,
             data: ACTLocationData,
+            region: Region = None
             ):
-        super().__init__(player, data.name, data.location_id),
+        super().__init__(player, data.name, data.location_id, region),
         self.data = data
 
 locations_data: List[ACTLocationData] = [
     # progression item locations
-    ACTLocationData('Fork Pickup', 'Tide Pools', 483021700), #73329d8e-7c96-4e82-9d3c-e57cc61b46b4-2_A-ShallowsTidePools
+    ACTLocationData('Fork Pickup', 'Tide Pool', 483021700), #73329d8e-7c96-4e82-9d3c-e57cc61b46b4-2_A-ShallowsTidePools
     ACTLocationData('Fishing Line', 'Fort Slacktide - Before Destruction', 483021702, "Fort Slacktide - Before Destruction"),
     ACTLocationData('Polluted Platoon Pathfinder', "Moon Snail's Cave", 483021746, "Moon Snail's Cave"), #default location for pristine pearl
     ACTLocationData('Map Piece - Heikea', 'Expired Grove', 483021952, "Expired Grove - Main"),
     ACTLocationData('Map Piece - Flotsam Vale', 'Flotsam Vale - Post Ceviche Sisters', 483022096, "Flotsam Vale - Post Ceviche Sisters"),
     ACTLocationData('Pagurus, The Ravenous', 'The Sands Between', 483021748, "Sands Between"), #default location for third map piece
-    #ACTLocationData("Heartkelp Pods Pickup", "Tide Pools", 483021701, "Starting Items"), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
+    #ACTLocationData("Heartkelp Pods Pickup", "Tide Pool", 483021701, "Starting Items"), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
 
     # boss locations
     ACTLocationData('Nephro, Captain of the Guard', 'Central Shallows', 483021703, "Central Shallows"),
@@ -730,77 +729,80 @@ locations_data: List[ACTLocationData] = [
 
 shell_locations_data: List[ACTLocationData] = [
         ##### shell locations
-    # not even sure if the regions will work like that
-    ACTLocationData(sname.soda_can, None, "Shells"),
-    ACTLocationData(sname.bottle_cap, None, "Shells"),
-    ACTLocationData(sname.tin_can, None, "Shells"),
-    ACTLocationData(sname.shot_glass, None, "Shells"),
-    ACTLocationData(sname.banana_peel, None, "Shells"),
-    ACTLocationData(sname.party_hat, None, "Shells"),
-    ACTLocationData(sname.coconut, None, "Shells"),
-    ACTLocationData(sname.teacup, None, "Shells"),
-    ACTLocationData(sname.sauce_nozzle, None, "Shells"),
-    ACTLocationData(sname.thimble, None, "Shells"),
-    ACTLocationData(sname.bebop_cup, None, "Shells"),
-    ACTLocationData(sname.tennis_ball, None, "Shells"),
-    ACTLocationData(sname.f_key, None, "Shells"),
-    ACTLocationData(sname.mason_jar, None, "Shells"),
-    ACTLocationData(sname.salt_shaker, None, "Shells"),
-    ACTLocationData(sname.conchiglie, None, "Shells"),
-    ACTLocationData(sname.bartholomew, None, "Shells"),
-    ACTLocationData(sname.disco_ball, None, "Shells"),
-    ACTLocationData(sname.baby_shoe, None, "Shells"),
-    ACTLocationData(sname.lil_bro, None, "Shells"),
-    ACTLocationData(sname.matryoshka_large, None, "Shells"),
-    ACTLocationData(sname.shuttlecock, None, "Shells"),
-    ACTLocationData(sname.felix_cube, None, "Shells"),
-    ACTLocationData(sname.piggy_bank, None, "Shells"),
-    ACTLocationData(sname.trophy, None, "Shells"),
-    ACTLocationData(sname.imposter, None, "Shells"),
-    ACTLocationData(sname.lil_red_cup, None, "Shells"),
-    ACTLocationData(sname.wafer_cone, None, "Shells"),
-    ACTLocationData(sname.yoccult, None, "Shells"),
-    ACTLocationData(sname.coffee_pod, None, "Shells"),
-    ACTLocationData(sname.egg_shell, None, "Shells"),
-    ACTLocationData(sname.coffee_mug, None, "Shells"),
-    ACTLocationData(sname.cascadia_roll, None, "Shells"),
-    ACTLocationData(sname.ham_tin, None, "Shells"),
-    ACTLocationData(sname.skull, None, "Shells"),
-    ACTLocationData(sname.crab_husk, None, "Shells"),
-    ACTLocationData(sname.legal_brick, None, "Shells"),
-    ACTLocationData(sname.spring, None, "Shells"),
-    ACTLocationData(sname.shotgun_shell, None, "Shells"),
-    ACTLocationData(sname.rubber_duck, None, "Shells"),
-    ACTLocationData(sname.boxing_glove, None, "Shells"),
-    ACTLocationData(sname.cardboard_box, None, "Shells"),
-    ACTLocationData(sname.tissue_box, None, "Shells"),
-    ACTLocationData(sname.valve, None, "Shells"),
-    ACTLocationData(sname.dumptruck, None, "Shells"),
-    ACTLocationData(sname.ink_cartridge, None, "Shells"),
-    ACTLocationData(sname.gacha_capsule, None, "Shells"),
-    ACTLocationData(sname.lightbulb, None, "Shells"),
-    ACTLocationData(sname.mouse, None, "Shells"),
-    ACTLocationData(sname.going_under_64, None, "Shells"),
-    ACTLocationData(sname.sock, None, "Shells"),
-    ACTLocationData(sname.doll_head, None, "Shells"),
-    ACTLocationData(sname.service_bell, None, "Shells"),
-    ACTLocationData(sname.party_popper, None, "Shells"),
-    ACTLocationData(sname.scrub_aggie, None, "Shells"),
-    ACTLocationData(sname.dentures, None, "Shells"),
-    ACTLocationData(sname.pill_bottle, None, "Shells"),
-    ACTLocationData(sname.detergent_cap, None, "Shells"),
-    ACTLocationData(sname.ultrasoft, None, "Shells"),
-    ACTLocationData(sname.champagne_flute, None, "Shells"),
-    ACTLocationData(sname.dish_scrubber, None, "Shells"),
-    ACTLocationData(sname.snow_globe, None, "Shells"),
-    ACTLocationData(sname.knights_helmet, None, "Shells"),
-    ACTLocationData(sname.spirit_conch, None, "Shells"),
-    ACTLocationData(sname.plug_fuse, None, "Shells")
-    #ACTLocationData(sname.matryoshka_medium, None, "Shells"),
-    #ACTLocationData(sname.matryoshka_small, None, "Shells"),
+    # shell region is the first possible place it could be acquired
+    # add a Shell region to the regions.py if a shell can be acquired in multiple regions first.
+    ACTLocationData("Soda Can", "Central Shallows", None, "Shells"),
+    ACTLocationData("Bottle Cap", "Moon Snail's Cave", None, "Shells"),
+    ACTLocationData("Tin Can", "Fort Slacktide - Before Destruction", None, "Shells"),
+    ACTLocationData("Shot Glass", "Moon Snail's Cave", None, "Shells"),
+    ACTLocationData("Banana Peel", "Fort Slacktide - Before Destruction", None, "Shells"),
+    ACTLocationData("Party Hat", "Moon Snail's Cave", None, "Shells"),
+    ACTLocationData("Coconut", "Fort Slacktide - Before Destruction", None, "Shells"),
+    ACTLocationData("Teacup", "Fort Slacktide - After Destruction", None, "Shells"),
+    ACTLocationData("Sauce Nozzle", "Reef's Edge", None, "Shells"),
+    ACTLocationData("Thimble", "Reef's Edge - Items Behind Grapple", None, "Shells"),
+    ACTLocationData("Bebop Cup", "The Sands Between", None, "Shells"),
+    ACTLocationData("Tennis Ball", "Reef's Edge - Items Behind Grapple", None, "Shells"),
+    ACTLocationData("F Key", "New Carcinia", None, "Shells"),
+    ACTLocationData("Mason Jar", "The Sands Between", None, "Shells"),
+    ACTLocationData("Salt Shaker", "Shell - Salt Shaker", None, "Shells"),
+    ACTLocationData("Conchiglie", "New Carcinia", None, "Shells"),
+    ACTLocationData("Bartholomew", "New Carcinia", None, "Shells"),
+    ACTLocationData("Disco Ball", "The Sands Between", None, "Shells"),
+    ACTLocationData("Baby Shoe", "New Carcinia", None, "Shells"),
+    ACTLocationData("Lil' Bro", "New Carcinia", None, "Shells"),
+    ACTLocationData("Matryoshka Large", "New Carcinia", None, "Shells"),
+    ACTLocationData("Shuttlecock", "New Carcinia", None, "Shells"),
+    ACTLocationData("Felix Cube", "New Carcinia", None, "Shells"),
+    ACTLocationData("Piggy Bank", "New Carcinia", None, "Shells"),
+    ACTLocationData("Trophy", "New Carcinia", None, "Shells"),
+    ACTLocationData("Imposter", "New Carcinia", None, "Shells"),
+    ACTLocationData("Lil' Red Cup", "The Sands Between", None, "Shells"),
+    ACTLocationData("Wafer Cone", "Expired Grove", None, "Shells"),
+    ACTLocationData("Yoccult", "The Sands Between", None, "Shells"),
+    ACTLocationData("Coffee Pod", "Shell - Coffee Pod", None, "Shells"),
+    ACTLocationData("Egg Shell", "Expired Grove", None, "Shells"),
+    ACTLocationData("Coffee Mug", "Expired Grove", None, "Shells"),
+    ACTLocationData("Cascadia Roll", "Expired Grove", None, "Shells"),
+    ACTLocationData("Ham Tin", "Expired Grove - Village", None, "Shells"),
+    ACTLocationData("Skull", "Expired Grove - Village", None, "Shells"),
+    ACTLocationData("Crab Husk", "Expired Grove - Village", None, "Shells"),
+    ACTLocationData("Legal Brick", "Shell - Legal Brick", None, "Shells"),
+    ACTLocationData("Spring", "Shell - Spring", None, "Shells"),
+    ACTLocationData("Shotgun Shell", "Shell - Shotgun Shell", None, "Shells"),
+    ACTLocationData("Rubber Duck", "Shell - Rubber Duck", None, "Shells"),
+    ACTLocationData("Boxing Glove", "Flotsam Vale", None, "Shells"),
+    ACTLocationData("Cardboard Box", "Flotsam Vale", None, "Shells"),
+    ACTLocationData("Tissue Box", "Flotsam Vale", None, "Shells"),
+    ACTLocationData("Valve", "The Sands Between", None, "Shells"),
+    ACTLocationData("Dumptruck", "Scuttleport", None, "Shells"),
+    ACTLocationData("Ink Cartridge", "Shell - Ink Cartridge", None, "Shells"),
+    ACTLocationData("Gacha Capsule", "Pinbarge", None, "Shells"),
+    ACTLocationData("Lightbulb", "The Unfathom", None, "Shells"),
+    ACTLocationData("Mouse", "The Unfathom", None, "Shells"),
+    ACTLocationData("Going Under 64", "The Unfathom", None, "Shells"),
+    ACTLocationData("Sock", "The Unfathom", None, "Shells"),
+    ACTLocationData("Doll Head", "The Unfathom", None, "Shells"),
+    ACTLocationData("Service Bell", "The Unfathom", None, "Shells"),
+    ACTLocationData("Party Popper", "The Unfathom", None, "Shells"),
+    ACTLocationData("Scrub Aggy", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Dentures", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Pill Bottle", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Detergent Cap", "The Old Ocean", None, "Shells"),
+    ACTLocationData("UltraSoft", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Champagne Flute", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Dish Scrubber", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Snow Globe", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Knight's Helmet", "The Old Ocean", None, "Shells"),
+    ACTLocationData("Spirit Conch", "Spirit Conch", None, "Shells"),
+    ACTLocationData("Plug Fuse", "Shell - Plug Fuse", None, "Shells")
+    #ACTLocationData("Matryoshka Medium", None, None, "Shells"),
+    #ACTLocationData("Matryoshka Small", None, None, "Shells"),
+    #ACTLocationData("Home", None, None, "Shells"),
+    #ACTLocationData("Gun", None, None, "Shells"),
 ]
 
-location_table = {location_data.name: location_data for location_data in locations_data + shell_locations_data}
+location_table: Dict[str, ACTLocationData] = {location_data.name: location_data for location_data in locations_data + shell_locations_data}
 
 def get_location_group(location_name: str) -> str:
     return location_table[location_name].location_group
@@ -810,7 +812,6 @@ shell_locations: List[str] = [name for name, data in location_table.items() if d
 temp_loc_total: int = 0
 
 location_name_groups: Dict[str, Set[str]] = {}
-
 
 for loc_name, loc_data in location_table.items():
     if loc_data.location_group != "Shells":

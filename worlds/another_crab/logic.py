@@ -1,9 +1,7 @@
 from typing import TYPE_CHECKING, Dict, List
 from worlds.generic.Rules import set_rule
 from BaseClasses import CollectionState
-
 from .options import ACTGameOptions
-from .names import shell_names as sname
 
 if TYPE_CHECKING:
     from . import ACTWorld
@@ -53,7 +51,7 @@ def is_secluded_ridge_eel_accessible(options: ACTGameOptions, state: CollectionS
     return state.has("Eelectrocute", player) or can_CAL(options, state, player)
     
 def can_access_scuttleport(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.has(sname.plug_fuse,player) 
+    return state.has("Plug Fuse", player)
     
 def has_all_maps(state: CollectionState, player: int) -> bool:
     return state.has_all({"Map Piece - Flotsam Vale", "Map Piece - Heikea", "Map Piece - Pagurus"}, player)
@@ -97,7 +95,7 @@ def can_razor_CAL(options: ACTGameOptions, state: CollectionState, player: int) 
 
 #Shell Clip (clip may be possible with other shells, need to check)
 def can_shell_clip(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.has(sname.soda_can, player) and are_glitches_allowed(options) 
+    return state.has("Soda Can", player) and are_glitches_allowed(options) 
     
 #Bombs Away or Decoy
 def can_boost_jump(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
@@ -105,7 +103,7 @@ def can_boost_jump(options: ACTGameOptions, state: CollectionState, player: int)
 
 #Bombs Away or Matrioshka
 def can_big_boost_jump(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return (can_bombs_away(state, player) or state.has(sname.matryoshka_large,player)) and are_skips_allowed(options)
+    return (can_bombs_away(state, player) or state.has("Matryoshka Large",player)) and are_skips_allowed(options)
 
 
 ### Check if glitch category is one of several 
@@ -159,7 +157,7 @@ def can_reach_msg_dmg_shells(state: CollectionState, player: int) -> bool:
     return can_fizzle(state,player) | can_party_time(state,player) | can_shards(state,player) | can_squash(state,player) | can_twinkle(state,player)
 
 def can_reach_rolling_shells(state: CollectionState, player: int) -> bool:
-    rolling_shells = [sname.soda_can,sname.bottle_cap,sname.lil_red_cup,sname.shuttlecock,sname.bebop_cup,sname.tin_can,sname.shot_glass,sname.party_hat,sname.coconut,sname.teacup,sname.sauce_nozzle,sname.thimble,sname.tennis_ball,sname.mason_jar,sname.salt_shaker,sname.conchiglie,sname.disco_ball,sname.lil_bro,sname.matryoshka_large,sname.wafer_cone,sname.yoccult,sname.coffee_pod,sname.egg_shell,sname.coffee_mug,sname.cascadia_roll,sname.skull,sname.spring,sname.shotgun_shell,sname.dumptruck,sname.gacha_capsule,sname.lightbulb,sname.doll_head,sname.service_bell,sname.party_popper,sname.scrub_aggie,sname.pill_bottle,sname.detergent_cap,sname.ultrasoft,sname.champagne_flute,sname.dish_scrubber,sname.snow_globe,sname.knights_helmet,"Snail Sanctum",sname.plug_fuse,sname.piggy_bank]
+    rolling_shells = ["Soda Can","Bottle Cap","Lil' Red Cup","Shuttlecock","Bebop Cup","Tin Can","Shot Glass","Party Hat","Coconut","Teacup","Sauce Nozzle","Thimble","Tennis Ball","Mason Jar","Salt Shaker","Conchiglie","Disco Ball","Lil Bro","Matryoshka Large","Wafer Cone","Yoccult","Coffee Pod","Egg Shell","Coffee Mug","Cascadia Roll","Skull","Spring","Shotgun Shell","Dumptruck","Gacha Capsule","Lightbulb","Doll Head","Service Bell","Party Popper","Scrub Aggie","Pill Bottle","Detergent Cap","Ultrasoft","Champagne Flute","Dish Scrubber","Snow Globe","Knights Helmet","Snail Sanctum","Plug Fuse","Piggy Bank"]
     return state.has_any(rolling_shells,player)
 
 def can_atk_damage_shell(state: CollectionState, player: int) -> bool:
@@ -173,50 +171,50 @@ def can_atk_damage_shell(state: CollectionState, player: int) -> bool:
 
 #Twist Top
 def can_twist_top(state: CollectionState, player: int) -> bool:
-    twist_top_shells = [sname.sauce_nozzle, sname.shuttlecock,sname.felix_cube,sname.dish_scrubber]
+    twist_top_shells = ["Sauce Nozzle", "Shuttlecock","Felix Cube","Dish Scrubber"]
     return state.has_any(twist_top_shells,player)
 
 #Pop Off
 def can_pop_off(state: CollectionState, player: int) -> bool:
-    pop_off_shells = [sname.bottle_cap,sname.f_key,sname.ham_tin,sname.legal_brick,sname.spring,sname.detergent_cap]
+    pop_off_shells = ["Bottle Cap","F Key","Ham Tin","Legal Brick","Spring","Detergent Cap"]
     return state.has_any(pop_off_shells,player)
 
 #Rollout
 def can_rollout(state: CollectionState, player: int) -> bool:
-    rollout_shells = [sname.coconut,sname.tennis_ball, sname.dumptruck, sname.gacha_capsule, sname.ultrasoft]
+    rollout_shells = ["Coconut","Tennis Ball", "Dumptruck", "Gacha Capsule", "Ultrasoft"]
     return state.has_any(rollout_shells,player)
 
 #Bombs Away
 def can_bombs_away(state: CollectionState, player: int) -> bool:
-    bombs_away_shells = [sname.bartholomew,sname.shotgun_shell]
+    bombs_away_shells = ["Bartholomew","Shotgun Shell"]
     return state.has_any(bombs_away_shells,player)
 
 #Decoy
 def can_decoy(state: CollectionState, player: int) -> bool:
-    decoy_shells = [sname.matryoshka_large,sname.piggy_bank,sname.crab_husk,sname.rubber_duck]
+    decoy_shells = ["Matryoshka Large","Piggy Bank","Crab Husk","Rubber Duck"]
     return state.has_any(decoy_shells,player)
 
 #Fizzle
 def can_fizzle(state: CollectionState, player: int) -> bool:
-    fizzle_shells = [sname.soda_can,sname.valve,sname.going_under_64]
+    fizzle_shells = ["Soda Can","Valve","Going Under 64"]
     return state.has_any(fizzle_shells,player)
 
 #Party Time
 def can_party_time(state: CollectionState, player: int) -> bool:
-    party_time_shells = [sname.party_hat,sname.trophy,sname.party_popper]
+    party_time_shells = ["Party Hat","Trophy","Party Popper"]
     return state.has_any(party_time_shells,player)
 
 #Shards
 def can_shards(state: CollectionState, player: int) -> bool:
-    shards_shells = [sname.shot_glass,sname.mason_jar,sname.salt_shaker]
+    shards_shells = ["Shot Glass","Mason Jar","Salt Shaker"]
     return state.has_any(shards_shells,player)
 
 #Squash
 def can_squash(state: CollectionState, player: int) -> bool:
-    squash_shells = [sname.boxing_glove,sname.sock]
+    squash_shells = ["Boxing Glove","Sock"]
     return state.has_any(squash_shells,player)
 
 #Twinkle
 def can_twinkle(state: CollectionState, player: int) -> bool:
-    twinkle_shells = [sname.disco_ball,sname.spirit_conch]
+    twinkle_shells = ["Disco Ball","Spirit Conch"]
     return state.has_any(twinkle_shells,player)
