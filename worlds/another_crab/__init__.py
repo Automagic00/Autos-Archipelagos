@@ -3,7 +3,8 @@ from typing import Dict, List, Any, Union
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, ItemClassification, CollectionState, Tutorial
 
-from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, shell_items, item_limited_group, ACTItem, ACTItemData
+from .items import item_table, item_name_groups, filler_items, costume_items, trap_items, item_limited_group, ACTItem, ACTItemData
+from .items import shell_items as unshuffled_shell_items
 from .locations import location_table, location_name_groups, location_total, shell_locations, ACTLocation
 from .regions import ACT_regions
 from .rules import set_location_rules, set_region_rules
@@ -31,6 +32,10 @@ class ACTWorld(World):
     """
     game: str = "Another Crabs Treasure"
     web = ACTWeb()
+
+    def __init__(self, multiworld, player: int):
+        super().__init__(multiworld, player)
+        self.shell_items = unshuffled_shell_items
 
     options_dataclass = ACTGameOptions
     options: ACTGameOptions
@@ -77,10 +82,10 @@ class ACTWorld(World):
         #Shuffle Shell Event Locations
         if self.options.randomshells == True:
                               
-            self.random.shuffle(shell_items)
+            self.random.shuffle(self.shell_items)
             randoVerified: bool = False
-            shell_at_soda: ACTItemData = item_table[shell_items[shell_locations.index("Soda Can")]]
-            plug_region: Region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
+            shell_at_soda: ACTItemData = item_table[self.shell_items[shell_locations.index("Soda Can")]]
+            plug_region: Region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
             prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
             prevented_plug_regions = ["Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             print(plug_region.entrances[0].parent_region.name)
@@ -90,48 +95,48 @@ class ACTWorld(World):
             while randoVerified == False:
                 #Make sure soda can has something usable for combat if forkless enabled
                 if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda.name == element for element in prevented_shells_at_soda)):
-                    self.random.shuffle(shell_items)
-                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
+                    self.random.shuffle(self.shell_items)
+                    shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
                     print(shell_at_soda.name)
                 #elif plug_region.entrances
                 elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions) and (self.options.randomfuse == True):
-                    self.random.shuffle(shell_items)
-                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
+                    self.random.shuffle(self.shell_items)
+                    shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
                     print(plug_region.entrances[0].parent_region.name)
                     
                 elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != "Plug Fuse Pipes"):
                     #swap plug_fuse and shell in plug_fuse location
-                    plug_fuse_item_index = shell_items.index("Plug Fuse")
+                    plug_fuse_item_index = self.shell_items.index("Plug Fuse")
                     plug_fuse_location_index = shell_locations.index("Plug Fuse")
-                    shell_items[plug_fuse_item_index], shell_items[plug_fuse_location_index] = shell_items[plug_fuse_location_index], shell_items[plug_fuse_item_index]
-                
-                    shell_at_soda = item_table[shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[shell_items.index("Plug Fuse")]].region,self.player)
+                    self.shell_items[plug_fuse_item_index], self.shell_items[plug_fuse_location_index] = self.shell_items[plug_fuse_location_index], self.shell_items[plug_fuse_item_index]
+
+                    shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
+                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
                     print("Returning fuse to vanilla location")
                 else:
                     randoVerified = True
 
             #print (regions_to_exclude)
-            for i in range(len(shell_items)):
+            for i in range(len(self.shell_items)):
                 if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name not in regions_to_exclude:
                     
                     #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
-                    shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
+                    shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], ItemClassification.progression))
                     region.locations.append(shell_placed_loc)
         
         #If shells not randoed
         else:
-            for i in range(len(shell_items)):
+            for i in range(len(self.shell_items)):
                 if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name  not in regions_to_exclude:
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     
                     if location_table[shell_locations[i]].region not in regions_to_exclude:
-                        shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[shell_items[i]], ItemClassification.progression))
+                        shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], ItemClassification.progression))
                         region.locations.append(shell_placed_loc)
 
         return super().pre_fill()
@@ -147,7 +152,7 @@ class ACTWorld(World):
 
         # removing shells from the total item pool because we only want them shuffled within their own pool
         
-        for shells in shell_items: 
+        for shells in self.shell_items: 
             items_to_create[shells] = 0
 
         # yaml options
@@ -286,7 +291,7 @@ class ACTWorld(World):
             print("Creating " + str(quantity) + " " + item)
             for i in range(quantity):
                 ACT_item: ACTItem = self.create_item(item)
-                if item in shell_items:
+                if item in self.shell_items:
                     self.slot_data_items.append(ACT_item)
                 else:
                     ACT_items.append(ACT_item)
@@ -343,8 +348,8 @@ class ACTWorld(World):
     def fill_slot_data(self) -> Dict[str, Any]:
 
         shell_rando: Dict[str,str] = {}
-        for i in range(len(shell_items)):
-            shell_rando.update({shell_locations[i]:shell_items[i]})
+        for i in range(len(self.shell_items)):
+            shell_rando.update({shell_locations[i]:self.shell_items[i]})
 
         slot_data: Dict[str, Any] = {
             "microplastic_multiplier": float(self.options.microplasticMultiplier.value),
