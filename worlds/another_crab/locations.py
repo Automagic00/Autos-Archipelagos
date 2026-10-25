@@ -25,16 +25,16 @@ locations_data: List[ACTLocationData] = [
     # progression item locations
     ACTLocationData('Fork Pickup', 'Tide Pools', 483021700), #73329d8e-7c96-4e82-9d3c-e57cc61b46b4-2_A-ShallowsTidePools
     ACTLocationData('Fishing Line', 'Fort Slacktide - Before Destruction', 483021702, "Fort Slacktide - Before Destruction"),
+    ACTLocationData('Polluted Platoon Pathfinder', "Moon Snail's Cave", 483021746, "Moon Snail's Cave"), #default location for pristine pearl
     ACTLocationData('Map Piece - Heikea', 'Expired Grove', 483021952, "Expired Grove - Main"),
     ACTLocationData('Map Piece - Flotsam Vale', 'Flotsam Vale - Post Ceviche Sisters', 483022096, "Flotsam Vale - Post Ceviche Sisters"),
+    ACTLocationData('Pagurus, The Ravenous', 'The Sands Between', 483021748, "Sands Between"), #default location for third map piece
     #ACTLocationData("Heartkelp Pods Pickup", "Tide Pools", 483021701, "Starting Items"), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
 
     # boss locations
     ACTLocationData('Nephro, Captain of the Guard', 'Central Shallows', 483021703, "Central Shallows"),
-    ACTLocationData('Polluted Platoon Pathfinder', "Moon Snail's Cave", 483021746, "Moon Snail's Cave"), #default location for pristine pearl
     ACTLocationData('Magista, Tyrant of Slacktide', 'Fort Slacktide - After Destruction', 483021744, "Fort Slacktide - After Destruction"),
     ACTLocationData('Royal Shellsplitter', 'Central Shallows', 483021747, "Central Shallows"),
-    ACTLocationData('Pagurus, The Ravenous', 'The Sands Between', 483021748, "Sands Between"),
     ACTLocationData('Diseased Lichenthrope', 'Expired Grove', 483021749, "Expired Grove - Main"),
     ACTLocationData('Curdled Carbonara Connoisseur', 'Expired Grove', 483021750, "Expired Grove - Main"),
     ACTLocationData('Heikea, Intimidation Crab', 'Expired Grove', 483021751, "Expired Grove - Main"),
@@ -752,8 +752,6 @@ shell_locations_data: List[ACTLocationData] = [
     ACTLocationData(sname.baby_shoe, None, "Shells"),
     ACTLocationData(sname.lil_bro, None, "Shells"),
     ACTLocationData(sname.matryoshka_large, None, "Shells"),
-    ACTLocationData(sname.matryoshka_medium, None, "Shells"),
-    ACTLocationData(sname.matryoshka_small, None, "Shells"),
     ACTLocationData(sname.shuttlecock, None, "Shells"),
     ACTLocationData(sname.felix_cube, None, "Shells"),
     ACTLocationData(sname.piggy_bank, None, "Shells"),
@@ -798,6 +796,8 @@ shell_locations_data: List[ACTLocationData] = [
     ACTLocationData(sname.knights_helmet, None, "Shells"),
     ACTLocationData(sname.spirit_conch, None, "Shells"),
     ACTLocationData(sname.plug_fuse, None, "Shells")
+    #ACTLocationData(sname.matryoshka_medium, None, "Shells"),
+    #ACTLocationData(sname.matryoshka_small, None, "Shells"),
 ]
 
 location_table = {location_data.name: location_data for location_data in locations_data + shell_locations_data}
