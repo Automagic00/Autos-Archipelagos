@@ -29,6 +29,7 @@ item_table: Dict[str, REPOItemData] = {
     iname.headman_lvl: REPOItemData(ItemClassification.progression,1,1,"Level"),
     iname.mcjannek_lvl: REPOItemData(ItemClassification.progression,1,2,"Level"),
     iname.museum_lvl: REPOItemData(ItemClassification.progression,1,3,"Level"),
+    iname.sunstone_lvl: REPOItemData(ItemClassification.progression,1,4,"Level"),
 
     # ---- AP Function Items ----
     iname.shop_stock: REPOItemData(ItemClassification.progression,0,base_shop_offset,"Progressive Shop"),
@@ -105,6 +106,10 @@ item_table: Dict[str, REPOItemData] = {
     iname.defibro: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
     iname.semibot_walkies: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
 
+    # ---- Sunstone Update ----
+    iname.human_adventure_cable: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Melee Shop Unlock"),
+    iname.human_gun: REPOItemData(ItemClassification.progression_skip_balancing,1,(base_shop_offset:=base_shop_offset+1),"Ranged Shop Unlock"),
+    iname.recharge_orb: REPOItemData(ItemClassification.useful,1,(base_shop_offset:=base_shop_offset+1),"Shop Unlock"),
 
     # ---- Event Items ----
     "Victory": REPOItemData(ItemClassification.progression,0,None,"Event"),

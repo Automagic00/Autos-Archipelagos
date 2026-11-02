@@ -15,7 +15,7 @@ class PellyHunt(Range):
     """Choose how many Pellys will be required for victory."""
     display_name: str = "Pellys Required"
     range_start = 0
-    range_end = 12
+    range_end = 15
     default = 12
 
 class LevelQuota(Range):
@@ -74,6 +74,7 @@ class StartingLevelType(TextChoice):
     option_headman_manor = 1
     option_mcjannek_station = 2
     option_museum_of_human_art = 3
+    option_sunstone_valley_resort = 4
     default = "random"
 
 class FillerItemWeights(OptionCounter):

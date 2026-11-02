@@ -87,6 +87,10 @@ class REPOWorld(World):
         if self.options.starting_level_type == self.options.starting_level_type.option_museum_of_human_art:
             self.multiworld.push_precollected(self.create_item(iname.museum_lvl))
             items_to_create[iname.museum_lvl] = 0
+
+        if self.options.starting_level_type == self.options.starting_level_type.option_sunstone_valley_resort:
+            self.multiworld.push_precollected(self.create_item(iname.sunstone_lvl))
+            items_to_create[iname.sunstone_lvl] = 0
         # -- Shop Stock --
         items_to_create[iname.shop_stock] = math.ceil((self.options.shop_upgrade_total / self.options.shop_stock) - 1)
 
@@ -201,7 +205,7 @@ class REPOWorld(World):
         #Sleep for if im trying to read the output log
         #time.sleep(3)
         slot_data: Dict[str, Any] = {
-            "world_version": World.world_version.as_simple_string(),
+            "world_version": self.world_version.as_simple_string(),
             #"goal": int(self.options.goal.value)
             "level_quota": int(self.options.level_quota.value),
             "pellys_required": int(self.options.pellys_required.value),

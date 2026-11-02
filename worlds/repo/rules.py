@@ -43,6 +43,9 @@ lambda state: state.has(iname.swiftbroom_lvl, player)
     multiworld.get_entrance(f"{rname.menu} -> {rname.museum}", player).access_rule = \
 lambda state: state.has(iname.museum_lvl, player)  
 
+    multiworld.get_entrance(f"{rname.menu} -> {rname.sunstone}", player).access_rule = \
+lambda state: state.has(iname.sunstone_lvl, player)  
+
 def set_location_rules(world: "REPOWorld") -> None:
     multiworld = world.multiworld
     player = world.player
@@ -84,6 +87,10 @@ def set_location_rules(world: "REPOWorld") -> None:
                 print("Museum Pelly added")
                 set_rule(multiworld.get_location(pelly,player),
                     lambda state: state.can_reach(multiworld.get_region(rname.museum,player),player=player)) 
+            if (pelly.__contains__("Sunstone Valley Resort")):
+                print("Sunstone Pelly added")
+                set_rule(multiworld.get_location(pelly,player),
+                    lambda state: state.can_reach(multiworld.get_region(rname.sunstone,player),player=player)) 
             #Rules for Pelly by Type
             if pelly.__contains__("Gold"):
                 add_rule(multiworld.get_location(pelly,player),
@@ -118,34 +125,36 @@ def set_location_rules(world: "REPOWorld") -> None:
 
     # left is the strength required normally, right is the strength required while the enemy is stunned
     # -1 = can't be picked up in that state
+    # todo: calculate the actual strength required to pick up when stunned. the old wiki numbers were inaccurate
     strength_req_map = {
-        lname.animal_soul   	    : [4,   3],
+        lname.animal_soul   	    : [4,   4],
         lname.apex_predator_soul    : [-1,  0],
-        lname.bella_soul    	    : [9,   0],
-        lname.birthday_boy_soul	    : [4,   0],
-        lname.bowtie_soul   	    : [7,   5],
-        lname.chef_soul     	    : [9,   2],
-        lname.cleanup_crew_soul	    : [13,  5],
-        lname.clown_soul    	    : [13,  3],
+        lname.bella_soul    	    : [9,   9],
+        lname.birthday_boy_soul	    : [4,   4],
+        lname.bowtie_soul   	    : [7,   7],
+        lname.chef_soul     	    : [9,   9],
+        lname.cleanup_crew_soul	    : [13, 13],
+        lname.clown_soul    	    : [13, 13],
         lname.elsa_soul     	    : [-1,  0],
-        lname.gambit_soul   	    : [9,   3],
-        lname.headgrab_soul 	    : [4,   0],
-        lname.headman_soul  	    : [13,  3],
-        lname.heart_hugger_soul	    : [9,   0],
-        lname.hidden_soul   	    : [4,   1],
-        lname.huntsman_soul 	    : [9,   1],
-        lname.loom_soul     	    : [13,  5],
-        lname.mentalist_soul	    : [4,   0],
-        lname.oogly_soul    	    : [9,   0],
+        lname.gambit_soul   	    : [9,   9],
+        lname.headgrab_soul 	    : [4,   4],
+        lname.headman_soul  	    : [13, 13],
+        lname.heart_hugger_soul	    : [9,   9],
+        lname.hidden_soul   	    : [4,   4],
+        lname.huntsman_soul 	    : [9,   9],
+        lname.loom_soul     	    : [13, 13],
+        lname.mentalist_soul	    : [4,   4],
+        lname.oogly_soul    	    : [9,   9],
         lname.peeper_soul    	    : [-1, -1],
-        lname.reaper_soul   	    : [9,   1],
-        lname.robe_soul     	    : [13,  6],
-        lname.rugrat_soul   	    : [4,   0],
-        lname.shadow_child_soul	    : [9,   1],
-        lname.spewer_soul   	    : [4,   0],
+        lname.reaper_soul   	    : [9,   9],
+        lname.robe_soul     	    : [13, 13],
+        lname.rugrat_soul   	    : [4,   4],
+        lname.shadow_child_soul	    : [9,   9],
+        lname.spewer_soul   	    : [4,   4],
         lname.tick_soul    	        : [0,   0],
-        lname.trudge_soul   	    : [13,  5],
-        lname.upscream_soul	        : [4,   0]
+        lname.trudge_soul   	    : [13, 13],
+        lname.upscream_soul	        : [4,   4],
+        lname.pony_soul	            : [9,   9]
     }
 
     for soul in monster_souls:        
