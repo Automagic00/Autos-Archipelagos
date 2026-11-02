@@ -35,7 +35,7 @@ class ACTWorld(World):
 
     def __init__(self, multiworld, player: int):
         super().__init__(multiworld, player)
-        self.shell_items = unshuffled_shell_items
+        self.shell_items = list(unshuffled_shell_items)
 
     options_dataclass = ACTGameOptions
     options: ACTGameOptions
