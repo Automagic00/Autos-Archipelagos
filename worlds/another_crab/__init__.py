@@ -125,7 +125,7 @@ class ACTWorld(World):
                     #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
-                    shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], ItemClassification.progression))
+                    shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], item_table[self.shell_items[i]].classification))
                     region.locations.append(shell_placed_loc)
         
         #If shells not randoed
@@ -136,7 +136,7 @@ class ACTWorld(World):
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     
                     if location_table[shell_locations[i]].region not in regions_to_exclude:
-                        shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], ItemClassification.progression))
+                        shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], item_table[self.shell_items[i]].classification))
                         region.locations.append(shell_placed_loc)
 
         return super().pre_fill()
