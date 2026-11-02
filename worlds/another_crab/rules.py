@@ -21,7 +21,10 @@ def set_region_rules(world: "ACTWorld") -> None:
 
   multiworld.get_entrance("Fort Slacktide - Before Destruction -> Moon Snail's Cave", player).access_rule = \
     lambda state: logic.is_moonsnail_accessible(options, state, player)
-   
+
+  multiworld.get_entrance("Moon Snail's Cave -> Moon Snail Skills", player).access_rule = \
+    lambda state: logic.is_reefs_edge_accessible_vanilla(state, player) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
+
   multiworld.get_entrance("Fort Slacktide - Before Destruction -> Fort Slacktide - After Destruction", player).access_rule = \
     lambda state: state.has("Pristine Pearl", player)
     
@@ -71,7 +74,7 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
-    lambda state: logic.has_all_maps(state,player) and state.has("Eelectrocute", player)
+    lambda state: (options.goal == "magista") or ((logic.has_all_maps(state,player) and state.has("Eelectrocute", player)))
   
 def set_location_rules(world: "ACTWorld") -> None:
   multiworld = world.multiworld

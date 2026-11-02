@@ -17,7 +17,10 @@ ACT_regions: Dict[str, Set[str]] = {
         "Moon Snail's Cave",
         "Reef's Edge"
     },
-    "Moon Snail's Cave": set(),
+    "Moon Snail's Cave": {
+        "Moon Snail Skills"
+    },
+    "Moon Snail Skills": set(),
     "Fort Slacktide - After Destruction": {
         "Reef's Edge"
     },

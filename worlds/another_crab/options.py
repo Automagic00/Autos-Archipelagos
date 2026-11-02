@@ -93,9 +93,9 @@ class RemoveCostumes(Toggle):
 class MicroplasticMultiplier(Range):
     """Multiplies the amount of microplastics received from all sources. Only supports integer values."""
     display_name: str = "Microplastic Multiplier"
-    range_start: float = 1
-    range_end: float = 100
-    default: float = 1
+    range_start: int = 1
+    range_end: int = 100
+    default: int = 1
 
 class TrapAmount(Range):
     """Defines a percentage of the filler items to be replaced with trap items
@@ -112,7 +112,7 @@ class DeathLink(Toggle):
 
 class NGPlusBosses(Toggle):
     """Replaces all bosses with their NG+ variants.
-    This can make runs signifigantly more difficult, especially early on."""
+    This can make runs significantly more difficult, especially early on."""
     display_name: str = "NG+ Bosses"
     default: bool = False
 

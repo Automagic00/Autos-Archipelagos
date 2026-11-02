@@ -126,7 +126,7 @@ collectable_items_data: ACTItemData = [
     ACTItemData("Mussel+++", ItemClassification.progression, 1, 483021861, ["StowawaysNGPlus"]),
     ACTItemData("Oyster+", ItemClassification.progression, 1, 483021862, ["StowawaysNGPlus"]),
     ACTItemData("Oyster++", ItemClassification.progression, 1, 483021863, ["StowawaysNGPlus"]),
-    ACTItemData("Puffer Quil+", ItemClassification.progression, 1, 483021864, ["StowawaysNGPlus"]),
+    ACTItemData("Puffer Quill+", ItemClassification.progression, 1, 483021864, ["StowawaysNGPlus"]),
     ACTItemData("Rusty Nail++", ItemClassification.progression, 1, 483021865, ["StowawaysNGPlus"]),
     ACTItemData("Rusty Nail+++", ItemClassification.progression, 1, 483021866, ["StowawaysNGPlus"]),
     ACTItemData("Sea Cucumber+", ItemClassification.progression, 1, 483021867, ["StowawaysNGPlus"]),
@@ -172,14 +172,14 @@ collectable_items_data: ACTItemData = [
     #ACTItemData("Plastic Poncho", ItemClassification.filler, 1, 483021788, ["Costume"]), # Given when picking up fork
 
     # Adaptations
-    ACTItemData("Royal Wave", ItemClassification.progression, 1, 483021805, ["Adapations"]), # Magista
-    ACTItemData("Bobbit Trap", ItemClassification.useful, 1, 483021806, ["Adapations"]), # Bobbit Mound in Shallows
-    ACTItemData("Bubble Bullet", ItemClassification.progression, 1, 483021807, ["Adapations"]), # Ceviche Sisters
-    ACTItemData("Eelectrocute", ItemClassification.progression, 1, 483021808, ["Adapations"]), # Voltai
-    ACTItemData("Mantis Punch", ItemClassification.progression, 1, 483021809, ["Adapations"]), # Topoda
-    ACTItemData("Snail Sanctum", ItemClassification.useful, 1, 483021810, ["Adapations"]), # Petroch
-    ACTItemData("Spectral Tentacle", ItemClassification.useful, 1, 483021811, ["Adapations"]), # Consortium
-    ACTItemData("Urchin Toss", ItemClassification.progression, 1, 483021812, ["Adapations"]), # Urchin in New Carcinia
+    ACTItemData("Royal Wave", ItemClassification.progression, 1, 483021805, ["Adaptations"]), # Magista
+    ACTItemData("Bobbit Trap", ItemClassification.useful, 1, 483021806, ["Adaptations"]), # Bobbit Mound in Shallows
+    ACTItemData("Bubble Bullet", ItemClassification.progression, 1, 483021807, ["Adaptations"]), # Ceviche Sisters
+    ACTItemData("Eelectrocute", ItemClassification.progression, 1, 483021808, ["Adaptations"]), # Voltai
+    ACTItemData("Mantis Punch", ItemClassification.progression, 1, 483021809, ["Adaptations"]), # Topoda
+    ACTItemData("Snail Sanctum", ItemClassification.useful, 1, 483021810, ["Adaptations"]), # Petroch
+    ACTItemData("Spectral Tentacle", ItemClassification.useful, 1, 483021811, ["Adaptations"]), # Consortium
+    ACTItemData("Urchin Toss", ItemClassification.progression, 1, 483021812, ["Adaptations"]), # Urchin in New Carcinia
 
     # Skills
     ACTItemData("Shelleport", ItemClassification.progression, 1, 483021833, ["Skills"]),
@@ -199,7 +199,7 @@ collectable_items_data: ACTItemData = [
     ACTItemData("Housewarming", ItemClassification.useful, 1, 483021826, ["Skills"]),
     ACTItemData("Circle of Life", ItemClassification.useful, 1, 483021827, ["Skills"]),
     ACTItemData("Elusive Prey", ItemClassification.useful, 1, 483021828, ["Skills"]),
-    ACTItemData("Skeddadle", ItemClassification.useful, 1, 483021834, ["Skills"]),
+    ACTItemData("Skedaddle", ItemClassification.useful, 1, 483021834, ["Skills"]),
     ACTItemData("Ebb and Flow", ItemClassification.useful, 1, 483021829, ["Skills"]),
     ACTItemData("Umami Training 1", ItemClassification.useful, 1, 483021830, ["Skills"]),
     ACTItemData("Umami Training 2", ItemClassification.useful, 1, 483021831, ["Skills"]),
@@ -211,7 +211,7 @@ collectable_items_data: ACTItemData = [
     ACTItemData("Bleached Trap", ItemClassification.trap, 0, 483021840, ["Traps"]),
     ACTItemData("Fear Trap", ItemClassification.trap, 0, 483021841, ["Traps"]),
     ACTItemData("Clutz Trap", ItemClassification.trap, 0, 483021842, ["Traps"]),
-    ACTItemData("Test Trap", ItemClassification.trap, 0, 483021843, ["Traps"]),
+    ACTItemData("Text Trap", ItemClassification.trap, 0, 483021843, ["Traps"]),
     ACTItemData("Shell Shatter Trap", ItemClassification.trap, 0, 483021844, ["Traps"]),
     ACTItemData("Poison Cocktail Trap", ItemClassification.trap, 0, 483021845, ["Traps"]),
     ACTItemData("Taser Trap", ItemClassification.trap, 0, 483021846, ["Traps"])
