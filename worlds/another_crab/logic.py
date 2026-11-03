@@ -147,7 +147,7 @@ def can_magic_damage(state: CollectionState, player: int) -> bool:
     return (can_reach_magic_shells(state,player) ) and can_regen_umami(state,player) #| has_adaptation(state,player)
 
 def can_regen_umami(state: CollectionState, player: int) -> bool:
-    return state.has_any_count({"Phytoplankton+":1,"Zooplankton":2,"Zooplankton+":1,"Phytoplankton+":2},player)
+    return state.has_any_count({"Phytoplankton+":1,"Zooplankton":2,"Zooplankton+":1,"Phytoplankton":2},player)
 
 def can_reach_magic_shells(state: CollectionState, player: int) -> bool:
     return can_twist_top(state,player) | can_pop_off(state,player) | can_rollout(state,player) | can_fizzle(state,player) | can_party_time(state,player) | can_shards(state,player) | can_squash(state,player) | can_twinkle(state,player)

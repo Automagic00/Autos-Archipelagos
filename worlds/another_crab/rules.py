@@ -445,7 +445,7 @@ def set_location_rules(world: "ACTWorld") -> None:
         set_rule(multiworld.get_location("Hairclaw (The Sands Between - South Eelectrocute Path Second Jump)", player),
                 lambda state: state.has("Eelectrocute", player))
         
-        set_rule(multiworld.get_location("Hearkelp Sprout (The Sands Between - South Eelectrocute Path, Green Coral Side Path)", player),
+        set_rule(multiworld.get_location("Heartkelp Sprout (The Sands Between - South Eelectrocute Path, Green Coral Side Path)", player),
                 lambda state: state.has("Eelectrocute", player))
         
         set_rule(multiworld.get_location("Barbed Hook (The Sands Between - South Eelectrocute Path Large Island)", player),
