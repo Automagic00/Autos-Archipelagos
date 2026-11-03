@@ -347,7 +347,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Old World Whorl (Flotsam Vale - Cave Path to Upper Flotsam Vale Clam)', 'Flotsam Vale', 483022054), #53cea11a-cfb6-4894-8e18-375ea895caed-2_A-HighSwamp
     ACTLocationData('Old World Whorl (Flotsam Vale - Upper Flotsam Vale Past Snail Shell)', 'Flotsam Vale', 483022057), #32f43e6e-a382-4938-b068-f1eab35a0269-2_A-HighSwamp
     ACTLocationData('Bloodstar Limb (Flotsam Vale - Clam on Crane Platform Near Mailbox)', 'Flotsam Vale - Post Ceviche Sisters', 483022097), #bb7a792d-9933-49ce-93d0-6bf2762cdb69-2_A-HighSwamp
-    ACTLocationData('Tacklepouch (Flotsam Vale - Behind Waterfall)', 'Flotsam Vale', 483022103), #b6c01d3a-31e3-457d-b53f-ecf0ff3b7e9f-2_B-LowSwamp
+    ACTLocationData('Tackle Pouch (Flotsam Vale - Behind Waterfall)', 'Flotsam Vale', 483022103), #b6c01d3a-31e3-457d-b53f-ecf0ff3b7e9f-2_B-LowSwamp
 
     ACTLocationData('Stainless Relic (Scuttleport - Clam on Left Path After First Magnet)', 'Scuttleport', 483022138), #5b38d7db-b409-4b96-98aa-e1a861365453-2_C-Facilities
     ACTLocationData('Bloodstar Limb (Scuttleport - Clam on Mag-Rail Platform Building Rooftop)', 'Scuttleport', 483022169), #fc60178b-0659-4d17-8360-4e51d468355e-2_C-Facilities
@@ -555,7 +555,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Salp (The Sands Between - Sinkhole near Rocks Northeast of Central Vista)', 'The Sands Between', 483021814), #2dc13e33-724d-41a7-983b-5f3bf010ce89-2_A-OOGroveRadius
     ACTLocationData('Rusty Nail+ (The Sands Between - Mantis Block near Central Vista)', 'The Sands Between', 483021816), #fc6e8558-9515-40a7-9857-9584a196a1ec-2_A-OOGroveRadius
     ACTLocationData('Sea Star+ (The Sands Between - Mantis Block near Flotsam Vale Entrance)', 'The Sands Between', 483021817), #d19ac393-ea1d-4237-9d31-b620c3a2617d-2_A-OOGroveRadius
-    ACTLocationData('Sea Slug (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021818), #bceed85e-5560-4a77-a498-749af9f76780-2_A-OOGroveRadius
+    ACTLocationData('Whelk (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021818), #bceed85e-5560-4a77-a498-749af9f76780-2_A-OOGroveRadius
     ACTLocationData('Sea Slug (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021819), #63b93466-f406-492e-ac12-f243fe6a8165-2_A-OOGroveRadius
     ACTLocationData('Sinker+ (The Sands Between - Mantis Block North of Secluded Ridge)', 'The Sands Between', 483021841), #a8e01dfb-5dd9-4da0-92b1-39a7b18e8d83-2_A-OOGroveRadius
     ACTLocationData('Limpet+ (The Sands Between - Mantis Block at Grove Entrance)', 'The Sands Between', 483021842), #56e45097-4ffa-41b0-ac56-cdd6c93b5e88-2_A-OOGroveRadius

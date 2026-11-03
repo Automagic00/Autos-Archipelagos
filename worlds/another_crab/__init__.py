@@ -85,11 +85,14 @@ class ACTWorld(World):
             self.random.shuffle(self.shell_items)
             randoVerified: bool = False
             shell_at_soda: ACTItemData = item_table[self.shell_items[shell_locations.index("Soda Can")]]
-            plug_region: Region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
+            plug_fuse_location: str = shell_locations[self.shell_items.index("Plug Fuse")]
             prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
             prevented_plug_regions = ["Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
-            print(plug_region.entrances[0].parent_region.name)
 
+            def plug_fuse_location_is_prevented() -> bool:
+                plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
+                plug_fuse_region_name = location_table[plug_fuse_location].region
+                return plug_fuse_region_name in prevented_plug_regions
             
             #Make sure shell rando will work
             while randoVerified == False:
@@ -97,24 +100,24 @@ class ACTWorld(World):
                 if self.options.allow_forkless != "disabled" and (shell_at_soda.classification != ItemClassification.progression or any(shell_at_soda.name == element for element in prevented_shells_at_soda)):
                     self.random.shuffle(self.shell_items)
                     shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
-                    print(shell_at_soda.name)
-                #elif plug_region.entrances
-                elif any(plug_region.entrances[0].parent_region.name == element for element in prevented_plug_regions) and (self.options.randomfuse == True):
+                    plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
+                    print("Reshuffling: shell at soda can must do damage. New shell at soda can: " + shell_at_soda.name + ". New plug fuse location: " + plug_fuse_location)
+                #Plug is currently in a prevented region, shuffle until it is not
+                elif self.options.randomfuse == True and plug_fuse_location_is_prevented():
                     self.random.shuffle(self.shell_items)
                     shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
-                    print(plug_region.entrances[0].parent_region.name)
-                    
-                elif (self.options.randomfuse == False) and (plug_region.entrances[0].parent_region.name != "Plug Fuse Pipes"):
-                    #swap plug_fuse and shell in plug_fuse location
+                    plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
+                    print("Reshuffling: plug fuse must not be in a prevented region. New shell at soda can: " + shell_at_soda.name + ". New plug fuse location: " + plug_fuse_location)
+                #Make sure plug fuse is in vanilla location if randomfuse is disabled    
+                elif self.options.randomfuse == False:
                     plug_fuse_item_index = self.shell_items.index("Plug Fuse")
                     plug_fuse_location_index = shell_locations.index("Plug Fuse")
-                    self.shell_items[plug_fuse_item_index], self.shell_items[plug_fuse_location_index] = self.shell_items[plug_fuse_location_index], self.shell_items[plug_fuse_item_index]
-
-                    shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
-                    plug_region = self.multiworld.get_region(location_table[shell_locations[self.shell_items.index("Plug Fuse")]].region,self.player)
-                    print("Returning fuse to vanilla location")
+                    if plug_fuse_item_index != plug_fuse_location_index:
+                        self.shell_items[plug_fuse_item_index], self.shell_items[plug_fuse_location_index] = self.shell_items[plug_fuse_location_index], self.shell_items[plug_fuse_item_index]
+                        shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
+                        print("Returning fuse to vanilla location. New shell at soda can: " + shell_at_soda.name + ". New plug fuse location: " + plug_fuse_location)
+                    else:
+                        randoVerified = True
                 else:
                     randoVerified = True
 

@@ -120,7 +120,7 @@ def can_deal_damage_easy(state: CollectionState,player:int) -> bool:
     return can_magic_damage(state,player) | can_atk_damage_shell(state,player) | state.has("Fork",player)
 
 def can_rolling_attack(state: CollectionState, player: int) -> bool:
-    return can_reach_rolling_shells(state,player) and (state.count("Lil Isopod",player) >= 2)
+    return can_reach_rolling_shells(state,player) and (state.count("Lil' Isopod",player) >= 2)
 
 ### Checks if the player has any of the summonable fish stowaways
 def has_summon(state: CollectionState, player: int) -> bool:
@@ -155,9 +155,10 @@ def can_reach_magic_shells(state: CollectionState, player: int) -> bool:
 def can_reach_msg_dmg_shells(state: CollectionState, player: int) -> bool:
     return can_fizzle(state,player) | can_party_time(state,player) | can_shards(state,player) | can_squash(state,player) | can_twinkle(state,player)
 
+#Currently skips Snail Sanctum since it needs lvl 2 to deal damage and this function is only used for can_rolling_attack right now.
 def can_reach_rolling_shells(state: CollectionState, player: int) -> bool:
-    rolling_shells = ["Soda Can","Bottle Cap","Lil' Red Cup","Shuttlecock","Bebop Cup","Tin Can","Shot Glass","Party Hat","Coconut","Teacup","Sauce Nozzle","Thimble","Tennis Ball","Mason Jar","Salt Shaker","Conchiglie","Disco Ball","Lil' Bro","Matryoshka Large","Wafer Cone","Yoccult","Coffee Pod","Egg Shell","Coffee Mug","Cascadia Roll","Skull","Spring","Shotgun Shell","Dumptruck","Gacha Capsule","Lightbulb","Doll Head","Service Bell","Party Popper","Scrub Aggie","Pill Bottle","Detergent Cap","UltraSoft","Champagne Flute","Dish Scrubber","Snow Globe","Knight's Helmet","Snail Sanctum","Plug Fuse","Piggy Bank"]
-    return state.has_any(rolling_shells,player)
+    rolling_shells = ["Soda Can","Bottle Cap","Lil' Red Cup","Shuttlecock","Bebop Cup","Tin Can","Shot Glass","Party Hat","Coconut","Teacup","Sauce Nozzle","Thimble","Tennis Ball","Mason Jar","Salt Shaker","Conchiglie","Disco Ball","Lil' Bro","Matryoshka Large","Wafer Cone","Yoccult","Coffee Pod","Egg Shell","Coffee Mug","Cascadia Roll","Skull","Spring","Shotgun Shell","Dumptruck","Gacha Capsule","Lightbulb","Doll Head","Service Bell","Party Popper","Scrub Aggy","Pill Bottle","Detergent Cap","UltraSoft","Champagne Flute","Dish Scrubber","Snow Globe","Knight's Helmet","Plug Fuse","Piggy Bank"]
+    return state.has_any(rolling_shells,player) #| state.has("Snail Sanctum",player)
 
 def can_atk_damage_shell(state: CollectionState, player: int) -> bool:
     sponge_val: int = 0
@@ -213,8 +214,7 @@ def can_squash(state: CollectionState, player: int) -> bool:
     squash_shells = ["Boxing Glove","Sock"]
     return state.has_any(squash_shells,player)
 
-#Twinkle
+#Twinkle (technically the adaptation Snail Sanctum creates a twinkle shell, commented out for now as needs lvl 2 to deal damage)
 def can_twinkle(state: CollectionState, player: int) -> bool:
     twinkle_shells = ["Disco Ball"]
-                      #,"Spirit Conch"]
-    return state.has_any(twinkle_shells,player)
+    return state.has_any(twinkle_shells,player) #| state.has("Snail Sanctum",player)

@@ -411,7 +411,7 @@ def set_location_rules(world: "ACTWorld") -> None:
         set_rule(multiworld.get_location("Sea Slug (The Sands Between - Mantis Block below Crab Rave)", player),
                 lambda state: state.has("Mantis Punch", player))
         
-        set_rule(multiworld.get_location("Sea Slug (The Sands Between - Mantis Block below Crab Rave)", player),
+        set_rule(multiworld.get_location("Whelk (The Sands Between - Mantis Block below Crab Rave)", player),
                 lambda state: state.has("Mantis Punch", player))
         
         set_rule(multiworld.get_location("Sinker+ (The Sands Between - Mantis Block North of Secluded Ridge)", player),
