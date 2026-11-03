@@ -203,7 +203,7 @@ class ACTWorld(World):
             regions_to_exclude = ["Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         if self.options.goal == "magista":
-            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
+            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Southern Town Ridge","Secluded Ridge - Past Eelectrocute","Secluded Ridge","Trashbin Plateau","Expired Grove","Expired Grove - Village","Expired Grove - Raised Platforms","Flotsam Vale","Flotsam Vale - Post Ceviche Sisters","Flotsam Vale - Consortium Arena","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
             for item_name in item_table:
                 if "Currency" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
@@ -327,7 +327,7 @@ class ACTWorld(World):
         if self.options.goal == "magista":
             self.multiworld.completion_condition[self.player] = \
                 lambda state: state.can_reach_location(spot = "Magista, Tyrant of Slacktide", player = self.player)
-            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Secluded Ridge","Secluded Ridge - Past Eelectrocute","Expired Grove","Expired Grove - Village","Flotsam Vale","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
+            regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Southern Town Ridge","Secluded Ridge - Past Eelectrocute","Secluded Ridge","Trashbin Plateau","Expired Grove","Expired Grove - Village","Expired Grove - Raised Platforms","Flotsam Vale","Flotsam Vale - Post Ceviche Sisters","Flotsam Vale - Consortium Arena","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
         for location_name in self.location_name_to_id.keys():
             individual_locations_to_exclude = []
