@@ -173,7 +173,7 @@ def set_location_rules(world: "ACTWorld") -> None:
 
     if options.ngplus_bosses:
         set_rule(multiworld.get_location("Extremely Rude Snail", player),
-                lambda state: logic.can_deal_damage_easy(state.player))
+                lambda state: logic.can_deal_damage_easy(state,player))
     
     if options.goal != "magista":
         set_rule(multiworld.get_location("Pagurus, The Ravenous", player),
@@ -241,11 +241,11 @@ def set_location_rules(world: "ACTWorld") -> None:
 
     if options.ngplus_bosses:
         set_rule(multiworld.get_location("Extremely Rude Snail", player),
-                lambda state: logic.can_deal_damage_easy(state.player))
+                lambda state: logic.can_deal_damage_easy(state,player))
     
     if options.goal != "magista":
         set_rule(multiworld.get_location("Pagurus, The Ravenous", player),
-                lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_pagurus_quick_kill(options)))
+                lambda state: (logic.can_deal_damage_hard(state,player) or logic.can_pagurus_quick_kill(options,state,player)))
         
         set_rule(multiworld.get_location("Diseased Lichenthrope", player),
                 lambda state: logic.can_deal_damage_hard(state,player))
