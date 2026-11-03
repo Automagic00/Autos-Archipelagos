@@ -9,7 +9,7 @@ class ACTItemData(NamedTuple):
     item_group: List[str] = []
 
 class ACTItem(Item):
-    game: str = "Another Crabs Treasure"
+    game: str = "Another Crab's Treasure"
     data: ACTItemData
 
     def __init__(

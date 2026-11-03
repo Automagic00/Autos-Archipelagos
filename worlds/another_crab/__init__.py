@@ -30,7 +30,7 @@ class ACTWorld(World):
     """
     Another Crab's Treasure is an underwater souls-like with a charming art style and a quirky sense of humor.
     """
-    game: str = "Another Crabs Treasure"
+    game: str = "Another Crab's Treasure"
     web = ACTWeb()
 
     def __init__(self, multiworld, player: int):
@@ -229,7 +229,7 @@ class ACTWorld(World):
                     items_to_create[item_name] = 0
                 if item_name in item_limited_group:
                     items_to_create[item_name] = 0
-                if "Adapations" in item_table[item_name].item_group:
+                if "Adaptations" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
 
         individual_locations_to_exclude = []

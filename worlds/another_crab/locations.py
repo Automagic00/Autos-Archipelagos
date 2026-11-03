@@ -8,7 +8,7 @@ class ACTLocationData(NamedTuple):
     location_group: List[str] = []
 
 class ACTLocation(Location):
-    game: str = "Another Crabs Treasure"
+    game: str = "Another Crab's Treasure"
     data: ACTLocationData
 
     def __init__(
@@ -325,7 +325,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Old World Whorl (The Sands Between - Mantis Block Pitfall North of Central Vista)', 'The Sands Between', 483021843), #8c7fdc4d-423b-4456-8869-56387a4d7665-2_A-OOGroveRadius
     ACTLocationData('Stainless Relic (The Sands Between - On Electric Crab Platform)', 'Southern Town Ridge', 483021845), #83daf909-77d3-4302-858b-6e92fe54fe74-2_A-OOGroveRadius
     ACTLocationData('Tackle Pouch (The Sands Between - Eelectrocute Crab North of Chains)', 'The Sands Between', 483021846), #699b7323-fe71-4bfe-864f-cdd0c9186bbd-2_A-OOGroveRadius
-    ACTLocationData('Hearkelp Sprout (The Sands Between - South Eelectrocute Path, Green Coral Side Path)', 'Southern Town Ridge', 483021851), #a7c60b04-8f1b-4833-a6f4-d472e79748c5-2_A-OOGroveRadius
+    ACTLocationData('Heartkelp Sprout (The Sands Between - South Eelectrocute Path, Green Coral Side Path)', 'Southern Town Ridge', 483021851), #a7c60b04-8f1b-4833-a6f4-d472e79748c5-2_A-OOGroveRadius
 
     ACTLocationData('Bloodstar Limb (Post Pagurus - Crab Swarm Near Anchor)', 'The Sands Between - Post Pagurus', 483021869), #29e54e45-4248-4a3d-96bf-ddf5cf6046c7-2_A-OOGroveRadius
 
@@ -362,14 +362,14 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Stainless Relic (Abyssal Plains - Between Giant Sniper Crabs)', 'Abyssal Plains', 483022220), #f6f1900f-540b-4068-8c1a-7ca8e3f820d9-2_D-SilentFlats
     ACTLocationData('Old World Whorl (Abyssal Plains - Southeast of Shortcut)', 'Abyssal Plains', 483022232), #163cdd5b-be02-42e9-852c-0b657db299d8-2_D-SilentFlats
     ACTLocationData('Bloodstar Limb (Abyssal Plains - Clam in Cave East of Shortcut)', 'Abyssal Plains', 483022234), #214419e5-f322-4971-adaa-6f68e62ea0a9-2_D-SilentFlats
-    ACTLocationData('Hearkelp Sprout (Abyssal Plains - Clam East of Petroch)', 'Abyssal Plains', 483022235), #2cb43e11-10dd-49af-8c42-f43ae2742bce-2_C-HermitCave
+    ACTLocationData('Heartkelp Sprout (Abyssal Plains - Clam East of Petroch)', 'Abyssal Plains', 483022235), #2cb43e11-10dd-49af-8c42-f43ae2742bce-2_C-HermitCave
     ACTLocationData('Tackle Pouch (Abyssal Plains - Across Grapple Hooks by Snail Shell)', 'Abyssal Plains', 483022236), #dac6390a-11b4-411e-9c6e-a406ef5ae503-2_D-SilentFlats
 
     ACTLocationData('Old World Whorl (The Old Ocean - Clam on Ledge North of Snail Shell)', 'The Old Ocean', 483022241), #66709053-4a7a-4501-9473-f99bc9a250c0-2_A-BleachedCopse
     ACTLocationData('Bloodstar Limb (The Old Ocean - Under Broken Bridge to City)', 'The Old Ocean', 483022256), #d1befb56-8d22-4088-8eb2-a75fb79d112d-2_A-BleachedCopse
     ACTLocationData('Bloodstar Limb (The Old Ocean - Drop Down Southeast of City Gates Snail Shell)', 'The Old Ocean', 483022268), #76bb55d0-f301-42d2-8933-28613fa84d2f-2_B-GrandCourtyard
     ACTLocationData('Stainless Relic (The Old Ocean - Inside City Walls)', 'The Old Ocean', 483022272), #081787e6-513e-4428-847d-618a5a4323dc-2_B-GrandCourtyard
-    ACTLocationData('Hearkelp Sprout (The Old Ocean - Clam Past Seafoam Parkour)', 'The Old Ocean', 483022276), #1705f88a-fcd1-4229-928f-61f0e4aca852-2_B-GrandCourtyard
+    ACTLocationData('Heartkelp Sprout (The Old Ocean - Clam Past Seafoam Parkour)', 'The Old Ocean', 483022276), #1705f88a-fcd1-4229-928f-61f0e4aca852-2_B-GrandCourtyard
     ACTLocationData('Stainless Relic (The Old Ocean - Clam on Top of Styrofoam Building)', 'The Old Ocean', 483022281), #e8ce25b8-c39a-4892-8573-e390fffc68d9-2_B-GrandCourtyard
     ACTLocationData('Bloodstar Limb (The Old Ocean - Inside Eastern Building)', 'The Old Ocean', 483022293), #c0807176-a8e5-4d89-bded-872bfb4660aa-2_B-GrandCourtyard
     ACTLocationData('Old World Whorl (The Old Ocean - Clam in Eastern Building)', 'The Old Ocean', 483022302), #b373a831-6880-4823-9ba4-c69a72c6e01f-2_B-GrandCourtyard
