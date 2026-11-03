@@ -78,6 +78,21 @@ class ACTWorld(World):
         if self.options.goal == "magista":
             regions_to_exclude = ["Reef's Edge","Reef's Edge - Items Behind Grapple","New Carcinia","The Sands Between","The Sands Between - Post Pagurus","Southern Town Ridge","Secluded Ridge - Past Eelectrocute","Secluded Ridge","Trashbin Plateau","Expired Grove","Expired Grove - Village","Expired Grove - Raised Platforms","Flotsam Vale","Flotsam Vale - Post Ceviche Sisters","Flotsam Vale - Consortium Arena","Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
 
+        def shell_location_is_in_regions(location_name: str, regions: List[str]) -> bool:
+            region_name = location_table[location_name].region
+            if region_name in regions:
+                return True
+
+            region = self.multiworld.get_region(region_name, self.player)
+            return any(
+                entrance.parent_region is not None
+                and entrance.parent_region.name in regions
+                for entrance in region.entrances
+            )
+
+        def shell_location_is_available(location_name: str) -> bool:
+            return not shell_location_is_in_regions(location_name, regions_to_exclude)
+
         
         #Shuffle Shell Event Locations
         if self.options.randomshells == True:
@@ -88,11 +103,6 @@ class ACTWorld(World):
             plug_fuse_location: str = shell_locations[self.shell_items.index("Plug Fuse")]
             prevented_shells_at_soda = ["Piggy Bank", "Crab Husk", "Rubber Duck", "Baby Shoe", "Dentures"]
             prevented_plug_regions = ["Scuttleport","Pinbarge","The Unfathom","Abyssal Plains","The Old Ocean","Bottom of The Drain","Trash Island","New Carcinia Ruins"]
-
-            def plug_fuse_location_is_prevented() -> bool:
-                plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
-                plug_fuse_region_name = location_table[plug_fuse_location].region
-                return plug_fuse_region_name in prevented_plug_regions
             
             #Make sure shell rando will work
             while randoVerified == False:
@@ -103,7 +113,10 @@ class ACTWorld(World):
                     plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
                     print("Reshuffling: shell at soda can must do damage. New shell at soda can: " + shell_at_soda.name + ". New plug fuse location: " + plug_fuse_location)
                 #Plug is currently in a prevented region, shuffle until it is not
-                elif self.options.randomfuse == True and plug_fuse_location_is_prevented():
+                elif self.options.randomfuse == True and shell_location_is_in_regions(
+                    shell_locations[self.shell_items.index("Plug Fuse")],
+                    prevented_plug_regions
+                ):
                     self.random.shuffle(self.shell_items)
                     shell_at_soda = item_table[self.shell_items[shell_locations.index("Soda Can")]]
                     plug_fuse_location = shell_locations[self.shell_items.index("Plug Fuse")]
@@ -123,9 +136,7 @@ class ACTWorld(World):
 
             #print (regions_to_exclude)
             for i in range(len(self.shell_items)):
-                if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name not in regions_to_exclude:
-                    
-                    #print (self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name + shell_locations[i] + " : " + shell_items[i])
+                if shell_location_is_available(shell_locations[i]):
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], item_table[self.shell_items[i]].classification))
@@ -134,7 +145,7 @@ class ACTWorld(World):
         #If shells not randoed
         else:
             for i in range(len(self.shell_items)):
-                if self.multiworld.get_region(location_table[shell_locations[i]].region,self.player).entrances[0].parent_region.name  not in regions_to_exclude:
+                if shell_location_is_available(shell_locations[i]):
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
                     shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     
