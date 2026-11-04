@@ -25,6 +25,11 @@ def set_region_rules(world: "ACTWorld") -> None:
   multiworld.get_entrance("Moon Snail's Cave -> Moon Snail Skills", player).access_rule = \
     lambda state: logic.is_reefs_edge_accessible_vanilla(state, player) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
 
+  multiworld.register_indirect_condition(
+    multiworld.get_region("Fort Slacktide - After Destruction", player),
+    multiworld.get_entrance("Moon Snail's Cave -> Moon Snail Skills", player)
+  )
+
   multiworld.get_entrance("Fort Slacktide - Before Destruction -> Fort Slacktide - After Destruction", player).access_rule = \
     lambda state: state.has("Pristine Pearl", player)
     
