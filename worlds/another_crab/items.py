@@ -5,7 +5,7 @@ class ACTItemData(NamedTuple):
     name: str
     classification: ItemClassification = ItemClassification.filler
     quantity_in_item_pool: int = 0
-    item_id: int = None # first id: 483021700, last used: 483021881, available: 483021882 
+    item_id: int = None # first id: 483021700, last used: 483021883, available: 483021884 
     item_group: List[str] = []
 
 class ACTItem(Item):
