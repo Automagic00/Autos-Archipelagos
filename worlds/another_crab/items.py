@@ -217,7 +217,7 @@ collectable_items_data: ACTItemData = [
     ACTItemData("Taser Trap", ItemClassification.trap, 0, 483021846, ["Traps"]),
 
     # macguffins
-    ACTItemData("Crown of a Bleached King", ItemClassification.progression, 0, 483021882), # Lock for Camtsha
+    ACTItemData("Crown of a Bleached King", ItemClassification.progression, 0, 483021882), # Lock for Camtscha
     ACTItemData("Conch's Shell", ItemClassification.progression, 0, 483021883), # Lock for Old Ocean
 
     # Other
