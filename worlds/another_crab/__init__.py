@@ -172,6 +172,10 @@ class ACTWorld(World):
     def create_item(self, item: Union[str, ACTItemData]) -> ACTItem:
         return ACTItem(self.player, item if isinstance(item, ACTItemData) else item_table[item])
 
+    # Return list of every shell item in shuffled order for get_all_state() to use before locations are populated in pre-fill.
+    def get_pre_fill_items(self):
+        return [self.create_item(item_name) for item_name in self.shell_items]
+
     def create_items(self) -> None:
         ACT_items: List[ACTItem] = []
         self.slot_data_items = []
