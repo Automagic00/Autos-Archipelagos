@@ -80,12 +80,16 @@ phase_bridge = "Phase Bridge Unlock"
 leaf_blower = "Leaf Blower Unlock"
 defibro = "Defibro Unlock"
 semibot_walkies = "Semibot Walkies Unlock"
+human_adventure_cable = "Human Adventure Cable Unlock"
+human_gun = "Human Gun Unlock"
+recharge_orb = "Recharge Orb Unlock"
 
 # ---- Level Type Items ----
 swiftbroom_lvl = "Swiftbroom Academy Level"
 headman_lvl = "Headman Manor Level"
 mcjannek_lvl = "McJannek Station Level"
 museum_lvl = "Museum of Human Art Level"
+sunstone_lvl = "Sunstone Valley Resort"
 
 # ---- AP Function Items ----
 shop_stock = "Progressive Shop Stock"

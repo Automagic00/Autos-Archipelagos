@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionDict, DefaultOnToggle, DeathLink
+from Options import OptionSet, Toggle, Range, Choice, PerGameCommonOptions, TextChoice,random,ItemDict,OptionCounter, DefaultOnToggle, DeathLink
 from .names import item_names as iname
 
 # class Goal(Choice):
@@ -15,7 +15,7 @@ class PellyHunt(Range):
     """Choose how many Pellys will be required for victory."""
     display_name: str = "Pellys Required"
     range_start = 0
-    range_end = 12
+    range_end = 15
     default = 12
 
 class LevelQuota(Range):
@@ -74,9 +74,10 @@ class StartingLevelType(TextChoice):
     option_headman_manor = 1
     option_mcjannek_station = 2
     option_museum_of_human_art = 3
+    option_sunstone_valley_resort = 4
     default = "random"
 
-class FillerItemWeights(OptionDict):
+class FillerItemWeights(OptionCounter):
     """Choose the weights for adding filler and traps to the item pool.
     Each upgrade item will spawn one upgrade of that type in the truck.
     Each small health pack spawns one small health pack (25hp) in the truck.
@@ -86,6 +87,27 @@ class FillerItemWeights(OptionDict):
         Monster Lure Trap - Lures monsters to your location for two minutes.
         Progressive Moon Phase Trap - Increases the moon phase by one stage FOR THE REST OF THE MULTIWORLD."""
     display_name: str = "Filler Item Weights"
+    min = 0
+    max = 1000
+    valid_keys = {
+        iname.health_up,
+        iname.strength_up,
+        iname.range_up,
+        iname.sprint_up,
+        iname.stamina_up, 
+        iname.player_count_up,      # does nothing in singleplayer and you only need one in multiplayer
+        iname.double_jump_up, 
+        iname.tumble_up,
+        iname.tumble_wings,
+        iname.crouch_rest,
+        iname.tumble_climb,
+        iname.death_head_battery,    # does nothing in singleplayer
+        iname.small_health,
+        iname.monster_trap,
+        iname.audit_trap,
+        iname.lure_trap,
+        iname.moon_phase_trap    # there will never be more than 4
+    }
     default = {
         iname.health_up : 40,
         iname.strength_up : 30,
@@ -98,13 +120,20 @@ class FillerItemWeights(OptionDict):
         iname.tumble_wings : 20,
         iname.crouch_rest : 40,
         iname.tumble_climb : 20,
-        iname.death_head_battery : 10,    # does nothing in singleplayer
+        #iname.death_head_battery : 10,    # does nothing in singleplayer
         iname.small_health: 20,
         iname.monster_trap: 8,
         iname.audit_trap: 6,
         iname.lure_trap: 15,
-        iname.moon_phase_trap: 3    # there will never be more than 4
+        iname.moon_phase_trap: 2    # there will never be more than 4
     }
+
+class AuditTrapMoneyLost(Range):
+    """The percentage of the player's money that an Audit Trap will take when triggered."""
+    display_name: str = "Audit Trap Money Lost"
+    range_start = 5
+    range_end = 100
+    default = 33
     
 
 
@@ -121,6 +150,7 @@ class REPOGameOptions(PerGameCommonOptions):
     shop_upgrade_logical: ShopUpgradeLocationsInLogic
     starting_level_type: StartingLevelType
     filler_item_weights: FillerItemWeights
+    audit_trap_money_lost: AuditTrapMoneyLost
     death_link: DeathLink
 
     

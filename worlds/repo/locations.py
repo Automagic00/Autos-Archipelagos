@@ -15,7 +15,7 @@ class REPOLocationData(NamedTuple):
     location_group: Optional[str] = None
 
 
-level_types = ["Swiftbroom Academy ","Headman Manor ","McJannek Station ","Museum of Human Art "]
+level_types = ["Swiftbroom Academy ","Headman Manor ","McJannek Station ","Museum of Human Art ","Sunstone Valley Resort "]
 pelly_types = [lname.standard_pelly,lname.glass_pelly,lname.gold_pelly]
 
 v = 200 # Valuable Base ID
@@ -64,6 +64,11 @@ location_table: Dict[str, REPOLocationData] = {
     level_types[3] + lname.standard_pelly: REPOLocationData(rname.museum,110,"Standard Pelly"),
     level_types[3] + lname.glass_pelly:    REPOLocationData(rname.museum,111,"Glass Pelly"),
     level_types[3] + lname.gold_pelly:     REPOLocationData(rname.museum,112,"Gold Pelly"),
+
+    # -- Sunstone --
+    level_types[4] + lname.standard_pelly: REPOLocationData(rname.sunstone,113,"Standard Pelly"),
+    level_types[4] + lname.glass_pelly:    REPOLocationData(rname.sunstone,114,"Glass Pelly"),
+    level_types[4] + lname.gold_pelly:     REPOLocationData(rname.sunstone,115,"Gold Pelly"),
 
     # ---- Valuables ----
     # -- Headman Manor --
@@ -231,6 +236,44 @@ location_table: Dict[str, REPOLocationData] = {
     lname.blender:	            REPOLocationData(rname.museum,(v:=v+1),"Medium+++ Valuable"),
     lname.traffic_light:	    REPOLocationData(rname.museum,(v:=v+1),"Heavy+ Valuable"),
 
+    # Sunstone Valley Resort
+    lname.golden_coin:          REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.golden_horse_shoe:    REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.golden_lock:          REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.lighter:              REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.magnet:               REPOLocationData(rname.sunstone,(v:=v+1),"Light++ Valuable"),
+    lname.snow_globe:           REPOLocationData(rname.sunstone,(v:=v+1),"Light++ Valuable"),
+    lname.mouth_harp:           REPOLocationData(rname.sunstone,(v:=v+1),"Light Valuable"),
+    lname.fossil:               REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.gold_bar:             REPOLocationData(rname.sunstone,(v:=v+1),"Medium++ Valuable"),
+    lname.horse_on_wheels:      REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.lunch_box:            REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.post_card:            REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.sippy_cup:            REPOLocationData(rname.sunstone,(v:=v+1),"Light++ Valuable"),
+    lname.snake_in_a_can:       REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.harmonica:            REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.pan_flute:            REPOLocationData(rname.sunstone,(v:=v+1),"Medium Valuable"),
+    lname.backpack:             REPOLocationData(rname.sunstone,(v:=v+1),"Light++ Valuable"),
+    lname.cowboy_action_figure: REPOLocationData(rname.sunstone,(v:=v+1),"Medium+ Valuable"),
+    lname.cowboy_boot_trophy:   REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.fluffy_buddy:         REPOLocationData(rname.sunstone,(v:=v+1),"Light++ Valuable"),
+    lname.mineral_case:         REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.rattlesnake:          REPOLocationData(rname.sunstone,(v:=v+1),"Light+ Valuable"),
+    lname.suitcase:             REPOLocationData(rname.sunstone,(v:=v+1),"Medium++ Valuable"),
+    lname.banjo:                REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.golden_shovel:        REPOLocationData(rname.sunstone,(v:=v+1),"Medium++ Valuable"),
+    lname.golden_wheel:         REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.energy_crystal_chunk: REPOLocationData(rname.sunstone,(v:=v+1),"Heavy+ Valuable"),
+    lname.rocking_chair:        REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.distillery:           REPOLocationData(rname.sunstone,(v:=v+1),"Heavy++ Valuable"),
+    lname.popcorn_stand:        REPOLocationData(rname.sunstone,(v:=v+1),"Heavy++ Valuable"),
+    lname.golfcart:             REPOLocationData(rname.sunstone,(v:=v+1),"Heavy++ Valuable"),
+    lname.shooting_cowboy:      REPOLocationData(rname.sunstone,(v:=v+1),"Medium+++ Valuable"),
+    lname.bird_cage:            REPOLocationData(rname.sunstone,(v:=v+1),"Heavy Valuable"),
+    lname.explosive_tower:      REPOLocationData(rname.sunstone,(v:=v+1),"Heavy+ Valuable"),
+    lname.zero_grav_crystal:    REPOLocationData(rname.sunstone,(v:=v+1),"Heavy+ Valuable"),
+
+
     # ---- Enemy Souls ----
     lname.animal_soul   	    : REPOLocationData(rname.menu,e,       "Monster Soul"),
     lname.apex_predator_soul    : REPOLocationData(rname.menu,(e:=e+1),"Monster Soul"),
@@ -259,6 +302,7 @@ location_table: Dict[str, REPOLocationData] = {
     lname.tick_soul    	        : REPOLocationData(rname.menu,(e:=e+1),"Monster Soul"),      # only drops if the tick absorbs enough health from the player to reach 100hp
     lname.trudge_soul   	    : REPOLocationData(rname.menu,(e:=e+1),"Monster Soul"),
     lname.upscream_soul	        : REPOLocationData(rname.menu,(e:=e+1),"Monster Soul"),
+    lname.pony_soul	            : REPOLocationData(rname.menu,(e:=e+1),"Monster Soul"),
 
     # ---- Event Locations ----
     "Victory": REPOLocationData(rname.menu,None,"Event")
