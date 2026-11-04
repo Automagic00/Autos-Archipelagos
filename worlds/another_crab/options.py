@@ -104,13 +104,6 @@ class RandomFuse(Toggle):
     display_name: str = "Random Fuse"
     default: bool = True
 
-class ShellDispenserSwitch(Toggle):
-    """Choose whether to lock access to the Shell Dispensers in Flotsam Vale/Scuttleport behind an itemn requirement.
-    If enabled, the Shell Dispensers will require the Shell Dispenser Switch to be obtained before they can be used. 
-    The required item is randomized and can be any item in the item pool."""
-    display_name: str = "Shell Dispenser Switch"
-    default: bool = False
-
 class ConchShell(Toggle):
     """Choose whether to lock access to The Old Ocean region behind an item requirement.
     If enabled, The Old Ocean will require the Conch's Shell item to be obtained before the lift to access it can be used.
@@ -179,7 +172,6 @@ class ACTGameOptions(PerGameCommonOptions):
     pristine_pearl_location: PristinePearlLocation
     randomshells: RandomShells
     randomfuse: RandomFuse
-    shell_dispenser_switch: ShellDispenserSwitch
     conch_shell: ConchShell
     crown_of_a_bleached_king: CrownOfABleachedKing
     remove_costumes: RemoveCostumes

@@ -68,16 +68,16 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
     
   multiworld.get_entrance("Flotsam Vale -> Shell - Plug Fuse",player).access_rule = \
-    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) # maybe replace with dispensers call
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) 
     
   multiworld.get_entrance("Scuttleport -> Shell - Plug Fuse",player).access_rule = \
-    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) # maybe replace with dispensers call
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) 
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
     lambda state: (options.goal == "magista") or ((logic.has_all_maps(state,player) and state.has("Eelectrocute", player)))
 
   multiworld.get_entrance("Abyssal Plains -> The Old Ocean", player).access_rule = \
-    lambda state: (options.goal != "home") or (options.conch_shell.value == False) or state.has("Conch's Shell", player)
+    lambda state: (options.goal != "home") or (options.conch_shell == False) or state.has("Conch's Shell", player)
 
   multiworld.get_entrance("The Old Ocean -> Bottom of The Drain", player).access_rule = \
     lambda state: (options.goal != "home") or state.can_reach_location("Camtscha, The Bleached King", player)

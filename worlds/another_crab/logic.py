@@ -55,9 +55,6 @@ def can_access_scuttleport(options: ACTGameOptions, state: CollectionState, play
 def has_all_maps(state: CollectionState, player: int) -> bool:
     return state.has_all({"Map Piece - Flotsam Vale", "Map Piece - Heikea", "Map Piece - Pagurus"}, player)
 
-def can_access_shell_dispensers(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return state.has("Shell Dispenser Switch", player) or options.shell_dispenser_switch.value == False
-
 #Check if specific skips are executable
 #Magista skip
 def can_magista_skip(options: ACTGameOptions, state: CollectionState, player: int) -> bool:

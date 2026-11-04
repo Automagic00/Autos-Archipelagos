@@ -96,10 +96,14 @@ class ACTWorld(World):
                 return True
 
             region = self.multiworld.get_region(region_name, self.player)
-            return any(
-                entrance.parent_region is not None
-                and entrance.parent_region.name in regions
+            parent_regions = [
+                entrance.parent_region
                 for entrance in region.entrances
+                if entrance.parent_region is not None
+            ]
+            return bool(parent_regions) and all(
+                parent_region.name in regions
+                for parent_region in parent_regions
             )
 
         def shell_location_is_available(location_name: str) -> bool:
@@ -232,9 +236,6 @@ class ACTWorld(World):
                     items_to_create[item_name] = 0
 
         #Remove macguffins based on options
-        if self.options.shell_dispenser_switch.value == False or self.options.goal == "magista":
-            items_to_create["Shell Dispenser Switch"] = 0
-
         if self.options.conch_shell.value == False or self.options.goal != "home":
             items_to_create["Conch's Shell"] = 0
 

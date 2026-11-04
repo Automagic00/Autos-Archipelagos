@@ -219,7 +219,6 @@ collectable_items_data: ACTItemData = [
     # macguffins
     ACTItemData("Crown of the Bleached King", ItemClassification.progression, 0, 483021882), # Lock for Camtsha
     ACTItemData("Conch's Shell", ItemClassification.progression, 0, 483021883), # Lock for Old Ocean
-    ACTItemData("Shell Dispenser Switch", ItemClassification.progression, 0, 483021884), # Lock for Shell Dispensers
 
     # Other
     #ACTItemData("Acquire Any Shell", ItemClassification.progression, 0, 483021879, ["Event"]),
