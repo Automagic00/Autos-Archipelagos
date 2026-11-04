@@ -235,12 +235,14 @@ class ACTWorld(World):
                 if "StowawaysNGPlus" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
 
-        #Remove macguffins based on options
-        if self.options.conch_shell.value == False or self.options.goal != "home":
-            items_to_create["Conch's Shell"] = 0
+        # Add macguffins required by the selected Home goal options.
+        items_to_create["Conch's Shell"] = (
+            1 if self.options.conch_shell.value and self.options.goal == "home" else 0
+        )
 
-        if self.options.crown_of_a_bleached_king.value == False or self.options.goal != "home":
-            items_to_create["Crown of a Bleached King"] = 0
+        items_to_create["Crown of a Bleached King"] = (
+            1 if self.options.crown_of_a_bleached_king.value and self.options.goal == "home" else 0
+        )
 
         #Exclude regions and items based on goal
         regions_to_exclude = []
