@@ -61,6 +61,18 @@ class ACTWorld(World):
         if self.options.shelleport_location == "shuffled_early_global":
             self.multiworld.early_items[self.player]["Shelleport"] = 1
 
+        # early fishing line shuffling
+        if self.options.fishing_line_location == "shuffled_early_local":
+            self.multiworld.local_early_items[self.player]["Fishing Line"] = 1
+        if self.options.fishing_line_location == "shuffled_early_global":
+            self.multiworld.early_items[self.player]["Fishing Line"] = 1
+
+        # early pristine pearl shuffling
+        if self.options.pristine_pearl_location == "shuffled_early_local":
+            self.multiworld.local_early_items[self.player]["Pristine Pearl"] = 1
+        if self.options.pristine_pearl_location == "shuffled_early_global":
+            self.multiworld.early_items[self.player]["Pristine Pearl"] = 1  
+
     def get_locations(self):
         return self.multiworld.get_locations(self.player)
 
@@ -192,11 +204,23 @@ class ACTWorld(World):
 
         if self.options.fishing_line_location:
             fishing_line = self.create_item("Fishing Line")
-            if self.options.fishing_line_location == "vanilla_location":
+            if self.options.fishing_line_location == "starting_items":
+                print("fishing line starting item")
+                self.multiworld.push_precollected(fishing_line)
+                items_to_create["Fishing Line"] = 0
+            elif self.options.fishing_line_location == "vanilla_location":
                 print("vanilla fishing line")
                 self.get_location("Fishing Line").place_locked_item(fishing_line)
                 self.location_total -= 1
                 items_to_create["Fishing Line"] = 0
+
+        if self.options.pristine_pearl_location:
+            pristine_pearl = self.create_item("Pristine Pearl")
+            if self.options.pristine_pearl_location == "vanilla_location":
+                print("vanilla pristine pearl")
+                self.get_location("Pristine Pearl").place_locked_item(pristine_pearl)
+                self.location_total -= 1
+                items_to_create["Pristine Pearl"] = 0
 
         if self.options.remove_costumes:
             for costumes in costume_items: items_to_create[costumes] = 0
@@ -206,6 +230,16 @@ class ACTWorld(World):
             for item_name in item_table:
                 if "StowawaysNGPlus" in item_table[item_name].item_group:
                     items_to_create[item_name] = 0
+
+        #Remove macguffins based on options
+        if self.options.shell_dispenser_switch.value == False or self.options.goal == "magista":
+            items_to_create["Shell Dispenser Switch"] = 0
+
+        if self.options.conch_shell.value == False or self.options.goal != "home":
+            items_to_create["Conch's Shell"] = 0
+
+        if self.options.crown_of_a_bleached_king.value == False or self.options.goal != "home":
+            items_to_create["Crown of a Bleached King"] = 0
 
         #Exclude regions and items based on goal
         regions_to_exclude = []

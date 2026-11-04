@@ -214,7 +214,12 @@ collectable_items_data: ACTItemData = [
     ACTItemData("Text Trap", ItemClassification.trap, 0, 483021843, ["Traps"]),
     ACTItemData("Shell Shatter Trap", ItemClassification.trap, 0, 483021844, ["Traps"]),
     ACTItemData("Poison Cocktail Trap", ItemClassification.trap, 0, 483021845, ["Traps"]),
-    ACTItemData("Taser Trap", ItemClassification.trap, 0, 483021846, ["Traps"])
+    ACTItemData("Taser Trap", ItemClassification.trap, 0, 483021846, ["Traps"]),
+
+    # macguffins
+    ACTItemData("Crown of the Bleached King", ItemClassification.progression, 0, 483021882), # Lock for Camtsha
+    ACTItemData("Conch's Shell", ItemClassification.progression, 0, 483021883), # Lock for Old Ocean
+    ACTItemData("Shell Dispenser Switch", ItemClassification.progression, 0, 483021884), # Lock for Shell Dispensers
 
     # Other
     #ACTItemData("Acquire Any Shell", ItemClassification.progression, 0, 483021879, ["Event"]),

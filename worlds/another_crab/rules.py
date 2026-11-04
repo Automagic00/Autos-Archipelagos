@@ -68,18 +68,30 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
     
   multiworld.get_entrance("Flotsam Vale -> Shell - Plug Fuse",player).access_rule = \
-    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) # maybe replace with dispensers call
     
   multiworld.get_entrance("Scuttleport -> Shell - Plug Fuse",player).access_rule = \
-    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player)
+    lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) # maybe replace with dispensers call
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
     lambda state: (options.goal == "magista") or ((logic.has_all_maps(state,player) and state.has("Eelectrocute", player)))
-  
+
+  multiworld.get_entrance("Abyssal Plains -> The Old Ocean", player).access_rule = \
+    lambda state: (options.goal != "home") or (options.conch_shell.value == False) or state.has("Conch's Shell", player)
+
+  multiworld.get_entrance("The Old Ocean -> Bottom of The Drain", player).access_rule = \
+    lambda state: (options.goal != "home") or state.can_reach_location("Camtscha, The Bleached King", player)
+
 def set_location_rules(world: "ACTWorld") -> None:
   multiworld = world.multiworld
   player = world.player
   options = world.options
+
+# ---- Camtscha Crown
+
+  if options.crown_of_a_bleached_king == True:
+    add_rule(multiworld.get_location("Camtscha, The Bleached King", player),
+           lambda state: state.has("Crown of a Bleached King", player))
 
 # ---- Forkless Logic ----
 
@@ -143,7 +155,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                         set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: state.has("Fork",player))
                         
-                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
+                        add_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: state.has("Fork",player))
                         
                         set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
@@ -214,7 +226,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                         set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: logic.can_deal_damage_easy(state,player)) 
                         
-                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
+                        add_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: logic.can_deal_damage_easy(state,player))
                         
                         set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
@@ -282,7 +294,7 @@ def set_location_rules(world: "ACTWorld") -> None:
                         set_rule(multiworld.get_location("Inkerton, Crab Hunter", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
-                        set_rule(multiworld.get_location("Camtscha, The Bleached King", player),
+                        add_rule(multiworld.get_location("Camtscha, The Bleached King", player),
                                 lambda state: logic.can_deal_damage_hard(state,player))
                         
                         set_rule(multiworld.get_location("Praya Dubia, The Ocean's Agony", player),
@@ -321,9 +333,6 @@ def set_location_rules(world: "ACTWorld") -> None:
 
   set_rule(multiworld.get_location("Clothesclaw (Central Shallows - Small Tower Outside Southwest Fort)", player),
             lambda state: (state.has("Fishing Line", player) and state.can_reach_location("Nephro, Captain of the Guard", player)) or logic.are_skips_allowed(options))
-
-  set_rule(multiworld.get_location("Clothesclaw (Central Shallows - Small Tower Outside Southwest Fort)", player), 
-            lambda state: state.has("Fishing Line", player) and state.can_reach_location("Nephro, Captain of the Guard", player))
  
  # spearfishing
   set_rule(multiworld.get_location("Mussel (Central Shallows - Dig Spot Near Southwest Sandcastle)", player),

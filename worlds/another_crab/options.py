@@ -69,10 +69,29 @@ class ShelleportLocation(Choice):
 class FishingLineLocation(Choice):
     """Choose where the Fishing Line (grapple) location is set
     - Shuffled: Fishing Line is placed into item pool.
+    - Shuffled Early Local: Forces Fishing Line location to be somewhere early in your own game.
+    - Shuffled Early Global: Forces Fishing Line location to somewhere early in any game.
+    - Starting Items: Places Fishing Line in your starting inventory.
     - Vanilla Location: Forces Fishing Line to be placed at its intended location"""
     display_name: str = "Fishing Line Location"
     option_shuffled = 0
-    option_vanilla_location = 1
+    option_shuffled_early_local = 1
+    option_shuffled_early_global = 2
+    option_starting_items = 3
+    option_vanilla_location = 4
+    default = 0
+
+class PristinePearlLocation(Choice):
+    """Choose where the Pristine Pearl (Fallen Slacktide Trigger) location is set
+    - Shuffled: Pristine Pearl is placed into item pool.
+    - Shuffled Early Local: Forces Pristine Pearl location to be somewhere early in your own game.
+    - Shuffled Early Global: Forces Pristine Pearl location to somewhere early in any game.
+    - Vanilla Location: Forces Pristine Pearl to be placed at its intended location"""
+    display_name: str = "Pristine Pearl Location"
+    option_shuffled = 0
+    option_shuffled_early_local = 1
+    option_shuffled_early_global = 2
+    option_vanilla_location = 3
     default = 0
 
 class RandomShells(Toggle):
@@ -85,8 +104,29 @@ class RandomFuse(Toggle):
     display_name: str = "Random Fuse"
     default: bool = True
 
+class ShellDispenserSwitch(Toggle):
+    """Choose whether to lock access to the Shell Dispensers in Flotsam Vale/Scuttleport behind an itemn requirement.
+    If enabled, the Shell Dispensers will require the Shell Dispenser Switch to be obtained before they can be used. 
+    The required item is randomized and can be any item in the item pool."""
+    display_name: str = "Shell Dispenser Switch"
+    default: bool = False
+
+class ConchShell(Toggle):
+    """Choose whether to lock access to The Old Ocean region behind an item requirement.
+    If enabled, The Old Ocean will require the Conch's Shell item to be obtained before the lift to access it can be used.
+    The required item is randomized and can be any item in the item pool."""
+    display_name: str = "Conch's Shell"
+    default: bool = False
+
+class CrownOfABleachedKing(Toggle):
+    """Choose whether to lock access to the Camtscha boss fight at the end of The Old Ocean behind an item requirement.
+    If enabled, the Camtscha boss fight will require the Crown of a Bleached King item to be obtained before it can be accessed.
+    The required item is randomized and can be any item in the item pool."""
+    display_name: str = "Crown of a Bleached King"
+    default: bool = False
+
 class RemoveCostumes(Toggle):
-    """Choose whether or not to include Costumes in the item pool. Set to true to remove them."""
+    """Choose whether to include Costumes in the item pool. Set to true to remove them."""
     display_name: str = "Remove Costumes"
     default: bool = False
 
@@ -136,8 +176,12 @@ class ACTGameOptions(PerGameCommonOptions):
     logic_rules: LogicRules
     shelleport_location: ShelleportLocation
     fishing_line_location: FishingLineLocation
+    pristine_pearl_location: PristinePearlLocation
     randomshells: RandomShells
     randomfuse: RandomFuse
+    shell_dispenser_switch: ShellDispenserSwitch
+    conch_shell: ConchShell
+    crown_of_a_bleached_king: CrownOfABleachedKing
     remove_costumes: RemoveCostumes
     microplasticMultiplier: MicroplasticMultiplier
     trapamount: TrapAmount
