@@ -5,7 +5,7 @@ class ACTItemData(NamedTuple):
     name: str
     classification: ItemClassification = ItemClassification.filler
     quantity_in_item_pool: int = 0
-    item_id: int = None # first id: 483021700, last used: 483021883, available: 483021884 
+    item_id: int = None # first id: 483021700, last used: 483021884, available: 483021885
     item_group: List[str] = []
 
 class ACTItem(Item):
@@ -219,6 +219,7 @@ collectable_items_data: ACTItemData = [
     # macguffins
     ACTItemData("Crown of a Bleached King", ItemClassification.progression, 0, 483021882), # Lock for Camtscha
     ACTItemData("Conch's Shell", ItemClassification.progression, 0, 483021883), # Lock for Old Ocean
+    ACTItemData("Shell Dispenser Switch", ItemClassification.progression, 0, 483021884), # Lock plug fuse dispensers
 
     # Other
     #ACTItemData("Acquire Any Shell", ItemClassification.progression, 0, 483021879, ["Event"]),
