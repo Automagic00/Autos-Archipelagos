@@ -817,6 +817,7 @@ for loc_name, loc_data in location_table.items():
         temp_loc_total += 1
 
     for location_group in loc_data.location_group:
-        location_name_groups.setdefault(location_group, set()).add(loc_name)
+        if loc_data.location_id is not None:
+            location_name_groups.setdefault(location_group, set()).add(loc_name)
 
 location_total: int = temp_loc_total

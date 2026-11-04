@@ -312,7 +312,7 @@ costume_items: List[str] = [name for name in filler_items if "Costume" in get_it
 shell_items: List[str] = [name for name, data in item_table.items() if "Shells" in get_item_groups(name)] #TODO: remove these list generations
 
 item_name_groups: Dict[str, Set[str]] = {
-    group: {name for name, data in item_table.items() if group in data.item_group}
+    group: {name for name, data in item_table.items() if data.item_id is not None and group in data.item_group}
     for group in sorted({group for data in item_table.values() for group in data.item_group if group})
 }
 
