@@ -154,20 +154,18 @@ class ACTWorld(World):
             for i in range(len(self.shell_items)):
                 if shell_location_is_available(shell_locations[i]):
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
-                    shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
+                    shell_placed_loc = self.multiworld.get_location(shell_locations[i], self.player)
                     shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], item_table[self.shell_items[i]].classification))
-                    region.locations.append(shell_placed_loc)
         
         #If shells not randoed
         else:
             for i in range(len(self.shell_items)):
                 if shell_location_is_available(shell_locations[i]):
                     region = self.multiworld.get_region(location_table[shell_locations[i]].region,self.player)
-                    shell_placed_loc = ACTLocation(self.player,location_table[shell_locations[i]],region)
                     
                     if location_table[shell_locations[i]].region not in regions_to_exclude:
+                        shell_placed_loc = self.multiworld.get_location(shell_locations[i], self.player)
                         shell_placed_loc.place_locked_item(ACTItem(self.player, item_table[self.shell_items[i]], item_table[self.shell_items[i]].classification))
-                        region.locations.append(shell_placed_loc)
 
         return super().pre_fill()
 
@@ -391,6 +389,13 @@ class ACTWorld(World):
                 region = self.multiworld.get_region(location_table[location_name].region, self.player) 
                 location = ACTLocation(self.player, location_table[location_name], region)
                 region.locations.append(location)      
+
+        for location_name in shell_locations:
+            location_data = location_table[location_name]
+            if location_data.region not in regions_to_exclude:
+                region = self.multiworld.get_region(location_data.region, self.player)
+                location = ACTLocation(self.player, location_data, region)
+                region.locations.append(location)
 
     def set_rules(self) -> None:
         set_region_rules(self)
