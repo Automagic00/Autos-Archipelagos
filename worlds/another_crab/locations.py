@@ -555,8 +555,8 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Salp (The Sands Between - Sinkhole near Rocks Northeast of Central Vista)', 'The Sands Between', 483021814), #2dc13e33-724d-41a7-983b-5f3bf010ce89-2_A-OOGroveRadius
     ACTLocationData('Rusty Nail+ (The Sands Between - Mantis Block near Central Vista)', 'The Sands Between', 483021816), #fc6e8558-9515-40a7-9857-9584a196a1ec-2_A-OOGroveRadius
     ACTLocationData('Sea Star+ (The Sands Between - Mantis Block near Flotsam Vale Entrance)', 'The Sands Between', 483021817), #d19ac393-ea1d-4237-9d31-b620c3a2617d-2_A-OOGroveRadius
-    ACTLocationData('Whelk (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021818), #bceed85e-5560-4a77-a498-749af9f76780-2_A-OOGroveRadius
-    ACTLocationData('Sea Slug (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021819), #63b93466-f406-492e-ac12-f243fe6a8165-2_A-OOGroveRadius
+    ACTLocationData('Sea Slug (The Sands Between - Mantis Block below Crab Rave)', 'The Sands Between', 483021818), #bceed85e-5560-4a77-a498-749af9f76780-2_A-OOGroveRadius
+    ACTLocationData('Whelk (The Sands Between - Mantis Block East of Crab Rave)', 'The Sands Between', 483021819), #63b93466-f406-492e-ac12-f243fe6a8165-2_A-OOGroveRadius
     ACTLocationData('Sinker+ (The Sands Between - Mantis Block North of Secluded Ridge)', 'The Sands Between', 483021841), #a8e01dfb-5dd9-4da0-92b1-39a7b18e8d83-2_A-OOGroveRadius
     ACTLocationData('Limpet+ (The Sands Between - Mantis Block at Grove Entrance)', 'The Sands Between', 483021842), #56e45097-4ffa-41b0-ac56-cdd6c93b5e88-2_A-OOGroveRadius
     ACTLocationData('Lumpsucker+ (The Sands Between - On the anchor, after the electric crab)', 'The Sands Between', 483021844), #859c746b-c52f-4887-aa96-bb19bd7e25dd-2_A-OOGroveRadius
