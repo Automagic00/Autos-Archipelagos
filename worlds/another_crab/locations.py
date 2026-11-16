@@ -28,7 +28,7 @@ class ACTLocation(Location):
         super().__init__(player, data.name, data.location_id, region),
         self.data = data
 
-## Note: offset 288 currently unused.
+## Note: offset 288, 355 currently unused.
 locations_data: List[ACTLocationData] = [
     # Commented out in client
     #ACTLocationData("Heartkelp Pods Pickup", "Cave of Respite", 1), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
@@ -200,7 +200,6 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Clothesclaw (Flotsam Vale - Small Alcove Northeast of Main Entrance)', 'Flotsam Vale', 351), #6aa68025-641d-4fd7-a43b-7c0f3ccf4da4-2_B-LowSwamp
     ACTLocationData('Chipclaw (Flotsam Vale - Cave Path to Upper Flotsam Vale)', 'Flotsam Vale', 352), #06b1bae1-7bf1-4b78-97f7-82ac6d6de47f-2_A-HighSwamp
     ACTLocationData('Clothesclaw (Flotsam Vale - Cave Path to Upper Flotsam Vale)', 'Flotsam Vale', 353), #282e7092-dc21-45f0-805d-78ea29dfb0bd-2_A-HighSwamp
-    ACTLocationData('Paperclaw (Flotsam Vale - Upper Flotsam Vale Near Snail Shell)', 'Flotsam Vale', 355), #99e59ba9-3c41-4133-bf7e-d09bc1957f04-2_A-HighSwamp
     ACTLocationData('Breadclaw (Flotsam Vale - Wooden Platform Above Sludge Steamroller)', 'Flotsam Vale', 359), #36d0180d-dfa2-49be-b5f0-9b65c5f05d7a-2_A-HighSwamp
     ACTLocationData('Clothesclaw (Flotsam Vale - Wooden Platform Above Sludge Steamroller)', 'Flotsam Vale', 361), #2546c006-fb9c-412e-99da-e1533b6c388e-2_A-HighSwamp
     ACTLocationData('Hairclaw (Flotsam Vale - Wooden Platform Above Sludge Steamroller)', 'Flotsam Vale', 365), #19644b3e-d9b8-4cae-be53-7c2cae5a5ac8-2_A-HighSwamp
