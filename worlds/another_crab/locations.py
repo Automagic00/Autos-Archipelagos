@@ -30,7 +30,7 @@ class ACTLocation(Location):
 
 locations_data: List[ACTLocationData] = [
     # progression item locations
-    ACTLocationData('Fork Pickup', 'Cave of Respite', 0), #73329d8e-7c96-4e82-9d3c-e57cc61b46b4-2_A-ShallowsTidePools
+    ACTLocationData('Fork Pickup', 'Cave of Respite', 0), 
     ACTLocationData('Fishing Line', 'Fort Slacktide - Before Destruction', 2),
     ACTLocationData('Polluted Platoon Pathfinder', "Moon Snail's Cave", 46), #default location for pristine pearl
     ACTLocationData('Map Piece - Heikea', 'Expired Grove', 252),
