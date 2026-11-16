@@ -28,7 +28,12 @@ class ACTLocation(Location):
         super().__init__(player, data.name, data.location_id, region),
         self.data = data
 
+## Note: offset 288 currently unused.
 locations_data: List[ACTLocationData] = [
+    # Commented out in client
+    #ACTLocationData("Heartkelp Pods Pickup", "Cave of Respite", 1), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
+    #ACTLocationData('Clothesclaw (Central Shallows - Defeat Royal Shellsplitter)', 'Central Shallows', 17), 
+
     # progression item locations
     ACTLocationData('Fork Pickup', 'Cave of Respite', 0), 
     ACTLocationData('Fishing Line', 'Fort Slacktide - Before Destruction', 2),
@@ -36,7 +41,6 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Map Piece - Heikea', 'Expired Grove', 252),
     ACTLocationData('Map Piece - Flotsam Vale', 'Flotsam Vale - Post Ceviche Sisters', 396),
     ACTLocationData('Pagurus, The Ravenous', 'The Sands Between', 48), #default location for third map piece
-    #ACTLocationData("Heartkelp Pods Pickup", "Cave of Respite", 1), #950e628c-f657-48d4-b93b-f8717627f6b3-2_A-ShallowsTidePools
 
     # boss locations
     ACTLocationData('Nephro, Captain of the Guard', 'Central Shallows', 3),
@@ -80,7 +84,6 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Clothesclaw (Central Shallows - Small Tower Outside Southwest Fort)', 'Central Shallows', 45), #e13e2c76-a638-4023-aa84-f6f29fd7bf65-2_B-ShallowsBigSand
     ACTLocationData('Breadclaw (Central Shallows - Sunken Tower near Flip-Flop Bridge)', 'Central Shallows', 124), #1e33dfd0-6445-47f9-b1bf-3e8be7897a79-2_B-ShallowsBigSand
     ACTLocationData('Breadclaw (Central Shallows - Fishing South of Slacktide Entrance)', 'Central Shallows', 126), #0f64d031-4163-4979-9497-116cac06e234-2_B-ShallowsBigSand
-    #ACTLocationData('Clothesclaw (Central Shallows - Defeat Royal Shellsplitter)', 'Central Shallows', 17), # TODO: custom boss script? No UUID given...
 
     ACTLocationData('Breadclaw (Fort Slacktide - Sand Crates and Barrels', 'Fort Slacktide - Before Destruction', 18), #8c1e68dc-eb15-41f4-9a5d-c1b20dd76f52-2_B-ShallowsBigSand
     ACTLocationData('Breadclaw (Fort Slacktide - On South Training Area Wall)', 'Fort Slacktide - Before Destruction', 130), #0ad90b46-ca8b-46ed-9cc6-f72ffcdb9d33-2_B-ShallowsBigSand
@@ -315,7 +318,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Carclaw (The Old Ocean - Clam in Middle Building)', 'The Old Ocean', 603), #d2452d82-3625-483d-a93e-401ce4745bbb-2_B-GrandCourtyard
 
     ##### upgrade item locations
-    ACTLocationData('Bloodstar Limb (Central Shallows - Help a Crab)', 'Central Shallows', 24), #AUTO NEEDS TO DO QUEST SCRIPT
+    ACTLocationData('Bloodstar Limb (Central Shallows - Help a Crab)', 'Central Shallows', 24), 
     ACTLocationData('Bloodstar Limb (Central Shallows - Parkour on Small Islands)', 'Central Shallows', 25),#ff9d47b6-7f55-4ad2-a110-e7c4492d87c1-2_B-ShallowsBigSand
     ACTLocationData('Bloodstar Limb (Central Shallows - Ledge Near Red Flip-Flop Bridge)', 'Central Shallows', 26),#32fb25ee-9262-4e87-98f9-2e64d369e7ae-2_B-ShallowsBigSand
     ACTLocationData('Bloodstar Limb (Central Shallow - Southwest Sandcastle Clam)', 'Central Shallows', 27), #0474f3a7-0eb7-4d3c-b61e-cbb782ceab03-2_B-ShallowsBigSand
@@ -707,7 +710,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Dr. Kril Costume (The Old Ocean - Between Pill Bottles)', 'The Old Ocean', 551), #ecc223b8-902c-4d66-b01b-24728ccb7d4e-2_A-BleachedCopse
 
     ##### non-boss adaptation locations
-    ACTLocationData('Urchin Toss Adaptation (New Carcinia - Hug Erich Too Much)', 'New Carcinia', 85), #AUTO NEEDS TO MAKE A CUSTOM SCRIPT
+    ACTLocationData('Urchin Toss Adaptation (New Carcinia - Hug Erich Too Much)', 'New Carcinia', 85), 
     ACTLocationData('Bobbit Trap (The Sands Between - Top of the Bobbit Den)', 'The Sands Between', 109), #3bb06349-c151-4333-8305-ba0eb7512bc3-2_A-OOGroveRadius
 
     ##### skill locations
