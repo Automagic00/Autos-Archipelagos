@@ -71,7 +71,7 @@ ACT_regions: Dict[str, Set[str]] = {
         "Pinbarge",
         "Flotsam Vale - Post Ceviche Sisters",
         "Flotsam Vale - Consortium Arena",
-        "Scuttleport",
+        "Scuttleport - Entrance",
         "Shell - Plug Fuse",
         "Shell - Spring",
         "Shell - Shotgun Shell",
@@ -80,13 +80,23 @@ ACT_regions: Dict[str, Set[str]] = {
     },
     "Flotsam Vale - Post Ceviche Sisters": set(),
     "Flotsam Vale - Consortium Arena": {
+        "Scuttleport - Voltai Arena",
+        "Scuttleport - Towers 1 and 2",
         "Shell - Salt Shaker",
         "Shell - Spring",
         "Shell - Rubber Duck"
     },
-    "Scuttleport": {
+    "Scuttleport - Entrance": {
+        "Scuttleport - Towers 1 and 2",
         "Shell - Plug Fuse",
         "Shell - Rubber Duck"
+    },
+    "Scuttleport - Towers 1 and 2": {
+        "Scuttleport - Entrance",
+        "Scuttleport - Towers 3 and 4"
+    },
+    "Scuttleport - Towers 3 and 4": {
+        "Scuttleport - Voltai Arena"
     },
     "Pinbarge": {
         "The Unfathom",

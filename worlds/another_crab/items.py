@@ -327,4 +327,4 @@ item_name_groups: Dict[str, Set[str]] = {
                   if data.item_id is not None and group in data.item_group})
 }
 
-item_limited_group = ["Umami Training 1", "Umami Training 2", "Umami Training 3", "Googly Eye", "Used Bandage"]  #TODO: what is this for?
+item_limited_group = ["Umami Training 1", "Umami Training 2", "Umami Training 3", "Googly Eye", "Used Bandage"]

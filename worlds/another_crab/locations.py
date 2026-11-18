@@ -53,7 +53,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('The Consortium', 'Flotsam Vale - Consortium Arena', 53),
     ACTLocationData('Scuttling Sludge Steamroller', 'Flotsam Vale', 54),
     ACTLocationData('Ceviche Sisters', 'Flotsam Vale', 55),
-    ACTLocationData('Voltai, The Accumulator', 'Scuttleport', 56),
+    ACTLocationData('Voltai, The Accumulator', 'Scuttleport - Voltai Arena', 56),
     ACTLocationData('Roland, Venture Crabitalist', 'Pinbarge', 57),
     ACTLocationData('Petroch, The False Moon', 'The Unfathom', 58),
     ACTLocationData('Inkerton, Crab Hunter', 'Abyssal Plains', 59),
@@ -231,30 +231,30 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Breadclaw (Flotsam Vale - Gunk Fishing on Docks)', 'Flotsam Vale', 608), #669e8494-68f1-4de8-8814-6b41a0a69d18-2_A-HighSwamp
     ACTLocationData('Clothesclaw (Flotsam Vale - Gunk Fishing on Docks)', 'Flotsam Vale', 610), #b4a9c83a-b0c6-4606-a785-16f4ff33d66e-2_A-HighSwamp
     ACTLocationData('Hairclaw (Flotsam Vale - Gunk Fishing Near Bridge)', 'Flotsam Vale', 614), #6db7743b-1b30-49c4-983a-bb8256959022-2_A-HighSwamp
-    ACTLocationData('Chipclaw (Scuttleport - Gunk Fishing Under Middle Tower)', 'Scuttleport', 615), #adbf6e36-d142-458d-a2a4-3406168e3a12-2_C-Facilities
+    ACTLocationData('Chipclaw (Scuttleport - Gunk Fishing Under Middle Tower)', 'Scuttleport - Towers 1 and 2', 615), #adbf6e36-d142-458d-a2a4-3406168e3a12-2_C-Facilities
 
-    ACTLocationData('Breadclaw (Scuttleport - Cubby in First Room)', 'Scuttleport', 424), #b5875ab1-4e89-4ba5-a9ea-6eca950d51f0-2_A-HighSwamp
-    ACTLocationData('Clothesclaw (Scuttleport - Cubby in First Room)', 'Scuttleport', 425), #8f06cd49-3b2b-4883-b7a5-a421b38870ba-2_A-HighSwamp
-    ACTLocationData('Hairclaw (Scuttleport - Between Cubbies in First Room)', 'Scuttleport', 426), #5c795be7-e38a-4986-bcfb-b72ea7e98787-2_A-HighSwamp
-    ACTLocationData('Breadclaw (Scuttleport - On Grate Left of Firt Room)', 'Scuttleport', 431), #e5906936-1a8c-4f6e-8280-1be9d7f6f403-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - After First Magnet)', 'Scuttleport', 435), #a48d9cb9-3d16-4000-942c-3cd94a124f7e-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - Next to Electric Long-Legged Crab)', 'Scuttleport', 436), #a852dd53-a482-4858-a503-6d6c691c5b7b-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport', 446), #28baa847-9008-40e5-89b7-566612ca75f5-2_C-Facilities
-    ACTLocationData('Paperclaw (Scuttleport - Elevator Under Second Magnet Dropoff)', 'Scuttleport', 447), #c2d88bae-4763-4c16-b79e-802f00a519a7-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - Near Edge of First Rooftop)', 'Scuttleport', 449), #7b5d1b34-3a32-45a5-9c39-77f389e19658-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - Between Trash Blocks on First Rooftop)', 'Scuttleport', 450), #3491a71f-e680-4455-b86c-16c4b46fd9e4-2_C-Facilities
-    ACTLocationData("Hairclaw (Scuttleport - Edge of Survivor's Camp Rooftop)", 'Scuttleport', 452), #5ef755f7-50bb-423c-92b2-03455f92fd13-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - On Balcony Next to NPC Crab)', 'Scuttleport', 454), #f94ca676-2e0f-4ca1-acbf-06c327b51480-2_C-Facilities
-    ACTLocationData("Chipclaw (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport', 457), #acec02a3-4585-4671-bab2-787caa9cf456-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - Mag-Rail Platform Building 1)', 'Scuttleport', 461), #12ff423d-092a-4b8f-a25e-c25ba1b6c1b1-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - Mag-Rail Platform Building 2)', 'Scuttleport', 462), #f6a613bf-a9e8-4561-86e6-7cb491a5796e-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building Rooftop 1)', 'Scuttleport', 463), #fdf786b1-912d-4d21-94a2-4b537df8a3a8-2_C-Facilities
-    ACTLocationData('Paperclaw (Scuttleport - Trashblocks on Mag-Rail Building Platform Builing Rooftop)', 'Scuttleport', 466), #35fbece2-5d6b-40c1-b971-ede62272a563-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building Rooftop 2)', 'Scuttleport', 467), #7b3d0a88-815a-453b-95bb-ba41d5c06e46-2_C-Facilities
-    ACTLocationData('Chipclaw (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport', 468), #f8892e4f-5b3e-4d02-9408-d061c129361e-2_C-Facilities
-    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building)', 'Scuttleport', 472), #13b3ad68-84d2-408e-89ee-925827c3fca5-2_C-Facilities
-    ACTLocationData('Chipclaw (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport', 473), #173d1895-0c4d-479c-9c1f-0b4e28ce8c76-2_C-Facilities
-    ACTLocationData('Clothesclaw (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport', 475), #07d78994-2181-4def-b0ee-6a2c5a018757-2_C-Facilities
+    ACTLocationData('Breadclaw (Scuttleport - Cubby in First Room)', 'Scuttleport - Entrance', 424), #b5875ab1-4e89-4ba5-a9ea-6eca950d51f0-2_A-HighSwamp
+    ACTLocationData('Clothesclaw (Scuttleport - Cubby in First Room)', 'Scuttleport - Entrance', 425), #8f06cd49-3b2b-4883-b7a5-a421b38870ba-2_A-HighSwamp
+    ACTLocationData('Hairclaw (Scuttleport - Between Cubbies in First Room)', 'Scuttleport - Entrance', 426), #5c795be7-e38a-4986-bcfb-b72ea7e98787-2_A-HighSwamp
+    ACTLocationData('Breadclaw (Scuttleport - On Grate Left of First Room)', 'Scuttleport - Entrance', 431), #e5906936-1a8c-4f6e-8280-1be9d7f6f403-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - After First Magnet)', 'Scuttleport - Towers 1 and 2', 435), #a48d9cb9-3d16-4000-942c-3cd94a124f7e-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - Next to Electric Long-Legged Crab)', 'Scuttleport - Towers 1 and 2', 436), #a852dd53-a482-4858-a503-6d6c691c5b7b-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 446), #28baa847-9008-40e5-89b7-566612ca75f5-2_C-Facilities
+    ACTLocationData('Paperclaw (Scuttleport - Elevator Under Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 447), #c2d88bae-4763-4c16-b79e-802f00a519a7-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - Near Edge of First Rooftop)', 'Scuttleport - Towers 3 and 4', 449), #7b5d1b34-3a32-45a5-9c39-77f389e19658-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - Between Trash Blocks on First Rooftop)', 'Scuttleport - Towers 3 and 4', 450), #3491a71f-e680-4455-b86c-16c4b46fd9e4-2_C-Facilities
+    ACTLocationData("Hairclaw (Scuttleport - Edge of Survivor's Camp Rooftop)", 'Scuttleport - Towers 3 and 4', 452), #5ef755f7-50bb-423c-92b2-03455f92fd13-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - On Balcony Next to NPC Crab)', 'Scuttleport - Towers 3 and 4', 454), #f94ca676-2e0f-4ca1-acbf-06c327b51480-2_C-Facilities
+    ACTLocationData("Chipclaw (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport - Towers 3 and 4', 457), #acec02a3-4585-4671-bab2-787caa9cf456-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - Mag-Rail Platform Building 1)', 'Scuttleport - Towers 3 and 4', 461), #12ff423d-092a-4b8f-a25e-c25ba1b6c1b1-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - Mag-Rail Platform Building 2)', 'Scuttleport - Towers 3 and 4', 462), #f6a613bf-a9e8-4561-86e6-7cb491a5796e-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building Rooftop 1)', 'Scuttleport - Towers 3 and 4', 463), #fdf786b1-912d-4d21-94a2-4b537df8a3a8-2_C-Facilities
+    ACTLocationData('Paperclaw (Scuttleport - Trashblocks on Mag-Rail Building Platform Building Rooftop)', 'Scuttleport - Towers 3 and 4', 466), #35fbece2-5d6b-40c1-b971-ede62272a563-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building Rooftop 2)', 'Scuttleport - Towers 3 and 4', 467), #7b3d0a88-815a-453b-95bb-ba41d5c06e46-2_C-Facilities
+    ACTLocationData('Chipclaw (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport - Towers 3 and 4', 468), #f8892e4f-5b3e-4d02-9408-d061c129361e-2_C-Facilities
+    ACTLocationData('Hairclaw (Scuttleport - Mag-Rail Platform Building)', 'Scuttleport - Towers 3 and 4', 472), #13b3ad68-84d2-408e-89ee-925827c3fca5-2_C-Facilities
+    ACTLocationData('Chipclaw (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 473), #173d1895-0c4d-479c-9c1f-0b4e28ce8c76-2_C-Facilities
+    ACTLocationData('Clothesclaw (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 475), #07d78994-2181-4def-b0ee-6a2c5a018757-2_C-Facilities
 
     ACTLocationData('Paperclaw (Pinbarge)', 'Pinbarge', 486), #fef13a6e-bf0d-4814-a8f5-965fb9c2cd31-2_A-PinBargeRunup
     ACTLocationData('Stapleclaw (Pinbarge)', 'Pinbarge', 488), #cc630ad8-cb67-4a50-9e84-2c04c0cc3e16-1_A-PinBargeRunup
@@ -359,11 +359,11 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Bloodstar Limb (Flotsam Vale - Clam on Crane Platform Near Mailbox)', 'Flotsam Vale - Post Ceviche Sisters', 397), #bb7a792d-9933-49ce-93d0-6bf2762cdb69-2_A-HighSwamp
     ACTLocationData('Tackle Pouch (Flotsam Vale - Behind Waterfall)', 'Flotsam Vale', 403), #b6c01d3a-31e3-457d-b53f-ecf0ff3b7e9f-2_B-LowSwamp
 
-    ACTLocationData('Stainless Relic (Scuttleport - Clam on Left Path After First Magnet)', 'Scuttleport', 438), #5b38d7db-b409-4b96-98aa-e1a861365453-2_C-Facilities
-    ACTLocationData('Bloodstar Limb (Scuttleport - Clam on Mag-Rail Platform Building Rooftop)', 'Scuttleport', 469), #fc60178b-0659-4d17-8360-4e51d468355e-2_C-Facilities
-    ACTLocationData('Stainless Relic (Scuttleport - Mag-Rail Platform Building)', 'Scuttleport', 470), #7a52c7e5-0f02-4274-90b6-3bcc0b183d61-2_C-Facilities
-    ACTLocationData('Stainless Relic (Scuttleport - Building Past Propane Tank Bridge)', 'Scuttleport', 481), #77ad1389-a337-45d7-a5e5-d6aa57f6295d-2_C-Facilities
-    ACTLocationData("Old World Whorl (Scuttleport - Eelectrocute Room in Survivor's Camp Building)", 'Scuttleport', 483), #cb9dc74c-99b9-4a54-81b4-eb9997551ad2-2_C-Facilities
+    ACTLocationData('Stainless Relic (Scuttleport - Clam on Left Path After First Magnet)', 'Scuttleport - Towers 1 and 2', 438), #5b38d7db-b409-4b96-98aa-e1a861365453-2_C-Facilities
+    ACTLocationData('Bloodstar Limb (Scuttleport - Clam on Mag-Rail Platform Building Rooftop)', 'Scuttleport - Towers 3 and 4', 469), #fc60178b-0659-4d17-8360-4e51d468355e-2_C-Facilities
+    ACTLocationData('Stainless Relic (Scuttleport - Mag-Rail Platform Building)', 'Scuttleport - Towers 3 and 4', 470), #7a52c7e5-0f02-4274-90b6-3bcc0b183d61-2_C-Facilities
+    ACTLocationData('Stainless Relic (Scuttleport - Building Past Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 481), #77ad1389-a337-45d7-a5e5-d6aa57f6295d-2_C-Facilities
+    ACTLocationData("Old World Whorl (Scuttleport - Eelectrocute Room in Survivor's Camp Building)", 'Scuttleport - Towers 3 and 4', 483), #cb9dc74c-99b9-4a54-81b4-eb9997551ad2-2_C-Facilities
 
     ACTLocationData('Bloodstar Limb (The Unfathom - Path to The East)', 'The Unfathom', 494), #81a413d0-b588-49c7-9210-86d193c7eb6c-2_B-DarkCanyon
     ACTLocationData('Bloodstar Limb (The Unfathom - Past Second Shortcut)', 'The Unfathom', 505), #baba3ba3-395a-4547-b060-ddaf0e9fe966-2_B-DarkCanyon
@@ -483,22 +483,22 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Barbed Hook (Flotsam Vale - Gunk Fishing Near Dock)', 'Flotsam Vale', 611), #3b49cdc6-b609-49b0-a1c2-57307a398920-2_A-HighSwamp
     ACTLocationData('Barbed Hook (Flotsam Vale - Gunk Fishing Near Sludge Steamroller)', 'Flotsam Vale', 612), #a6a69a65-21fa-4bdd-8940-e1f1f6c226a0-2_A-HighSwamp
 
-    ACTLocationData('Barbed Hook (Flotsam Vale - Behind Cubby)', 'Scuttleport', 605), #5b786881-414b-41d4-97ea-b3a850d3633a-2_A-HighSwamp
-    ACTLocationData('Barbed Hook (Scuttleport - Cubby in First Room)', 'Scuttleport', 429), #a91e708c-89a8-4ef0-bf21-870cd56e652e-2_A-HighSwamp
-    ACTLocationData('Barbed Hook (Scuttleport - Platform Next to First Magnet)', 'Scuttleport', 434), #6b8cd4a1-7a84-4148-837a-75369a25511d-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - In Front of Sorting Chamber Snail Shell)', 'Scuttleport', 439), #944f517e-6c6b-40f2-88ec-a5490dd08ab0-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Platform Under Second Magnet Dropoff 1)', 'Scuttleport', 442), #cb37f39c-6d87-4151-bbc0-11029c60ebbc-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport', 445), #931eb344-1b24-4995-947b-4e56674151a5-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Platform Under Second Magnet Dropoff 2)', 'Scuttleport', 448), #e2b1726c-2622-4dbc-930b-72e296ec9ceb-2_C-Facilities
-    ACTLocationData("Barbed Hook (Scuttleport - Top of Trash Block on Survivor's Camp Rooftop)", 'Scuttleport', 453), #75fef681-50e5-4e53-a61e-d2014e9e44f2-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 1)', 'Scuttleport', 459), #b757dc2e-1d8b-4263-9718-93d78d86d98b-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 2)', 'Scuttleport', 460), #7ab018f0-a203-4746-8ef0-4452cc6b8cd0-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport', 465), #3ae12d7f-a589-4f70-8d1b-2d445ad8f34e-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 3)', 'Scuttleport', 471), #264db2a2-8767-40b3-a9e9-1b87669e7fc0-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport', 474), #ad1f2eed-11dc-4980-be85-139863b3f4e8-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Past Propane Tank Bridge)', 'Scuttleport', 476), #085e9638-f3e8-4fee-b725-7879ecbc8b04-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Rooftop Past Propane Tank Bridge 1)', 'Scuttleport', 477), #d18b2837-c335-4535-9ce7-e7b9b44af347-2_C-Facilities
-    ACTLocationData('Barbed Hook (Scuttleport - Rooftop Past Propane Tank Bridge 2)', 'Scuttleport', 478), #095af59b-ebcd-4dc6-87fc-71239d3e2c98-2_C-Facilities
+    ACTLocationData('Barbed Hook (Flotsam Vale - Behind Cubby)', 'Scuttleport - Entrance', 605), #5b786881-414b-41d4-97ea-b3a850d3633a-2_A-HighSwamp
+    ACTLocationData('Barbed Hook (Scuttleport - Cubby in First Room)', 'Scuttleport - Entrance', 429), #a91e708c-89a8-4ef0-bf21-870cd56e652e-2_A-HighSwamp
+    ACTLocationData('Barbed Hook (Scuttleport - Platform Next to First Magnet)', 'Scuttleport - Entrance', 434), #6b8cd4a1-7a84-4148-837a-75369a25511d-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - In Front of Sorting Chamber Snail Shell)', 'Scuttleport - Towers 1 and 2', 439), #944f517e-6c6b-40f2-88ec-a5490dd08ab0-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Platform Under Second Magnet Dropoff 1)', 'Scuttleport - Towers 1 and 2', 442), #cb37f39c-6d87-4151-bbc0-11029c60ebbc-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 445), #931eb344-1b24-4995-947b-4e56674151a5-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Platform Under Second Magnet Dropoff 2)', 'Scuttleport - Towers 1 and 2', 448), #e2b1726c-2622-4dbc-930b-72e296ec9ceb-2_C-Facilities
+    ACTLocationData("Barbed Hook (Scuttleport - Top of Trash Block on Survivor's Camp Rooftop)", 'Scuttleport - Towers 3 and 4', 453), #75fef681-50e5-4e53-a61e-d2014e9e44f2-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 1)', 'Scuttleport - Towers 3 and 4', 459), #b757dc2e-1d8b-4263-9718-93d78d86d98b-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 2)', 'Scuttleport - Towers 3 and 4', 460), #7ab018f0-a203-4746-8ef0-4452cc6b8cd0-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport - Towers 3 and 4', 465), #3ae12d7f-a589-4f70-8d1b-2d445ad8f34e-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Mag-Rail Platform Building 3)', 'Scuttleport - Towers 3 and 4', 471), #264db2a2-8767-40b3-a9e9-1b87669e7fc0-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Inside Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 474), #ad1f2eed-11dc-4980-be85-139863b3f4e8-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Past Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 476), #085e9638-f3e8-4fee-b725-7879ecbc8b04-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Rooftop Past Propane Tank Bridge 1)', 'Scuttleport - Towers 3 and 4', 477), #d18b2837-c335-4535-9ce7-e7b9b44af347-2_C-Facilities
+    ACTLocationData('Barbed Hook (Scuttleport - Rooftop Past Propane Tank Bridge 2)', 'Scuttleport - Towers 3 and 4', 478), #095af59b-ebcd-4dc6-87fc-71239d3e2c98-2_C-Facilities
     
     ACTLocationData('Barbed Hook (Pinbarge 1)', 'Pinbarge', 485), #8edddc0a-8caf-48a1-975e-4167e728a4c3-1_A-PinBargeRunup
     ACTLocationData('Barbed Hook (Pinbarge 2)', 'Pinbarge', 489), #898633d3-36c1-4f61-88b5-8cd4ca33ec2b-2_B-PinBargeArena
@@ -639,26 +639,26 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Anemone+ (Flotsam Vale - Gunk Lake Fishing Northwest of Sludge Steamroller)', 'Flotsam Vale', 421), #f29c22d3-4459-4d21-b76d-dbdd514fe09a-2_A-HighSwamp
     ACTLocationData('Turtle Shell Shard (Flotsam Vale - Gunk Fishing by Priest)', 'Flotsam Vale', 609), #584ec079-5ecc-409b-bcac-7197b1d04a1c-2_A-HighSwamp
     ACTLocationData("Lil' Isopod (Flotsam Vale - Gunk Fishing on Docks)", 'Flotsam Vale', 613), #6709552a-af26-4b87-a69e-97830fd645be-2_A-HighSwamp
-    ACTLocationData('Rusty Nail (Scuttleport - Gunk Fishing Near Blue Tower)', 'Scuttleport', 616), #dbcacde0-7803-42c7-8894-026826e23a67-2_C-Facilities
-    ACTLocationData('Barnacle (Scuttleport - Gunk Fishing Near Middle Tower)', 'Scuttleport', 617), #670ead0c-1985-4d91-a259-3ab2d5162376-2_C-Facilities
+    ACTLocationData('Rusty Nail (Scuttleport - Gunk Fishing Near Blue Tower)', 'Scuttleport - Entrance', 616), #dbcacde0-7803-42c7-8894-026826e23a67-2_C-Facilities
+    ACTLocationData('Barnacle (Scuttleport - Gunk Fishing Near Middle Tower)', 'Scuttleport - Towers 1 and 2', 617), #670ead0c-1985-4d91-a259-3ab2d5162376-2_C-Facilities
 
-    ACTLocationData('Googly Eye (Scuttleport - Top of Cubbies in First Room)', 'Scuttleport', 427), #5736e238-67d5-4215-823d-a0c3b3d60b2a-2_A-HighSwamp
-    ACTLocationData('Seastar (Scuttleport - Top of Cubbies in First Room)', 'Scuttleport', 428), #69c1d4c5-c467-4127-a12a-6277376c47f0-2_A-HighSwamp
-    ACTLocationData('Sand Dollar (Scuttleport - Path to First Magnet)', 'Scuttleport', 432), #bfa268ed-5df9-410b-a71e-fc8f0f711655-2_C-Facilities
-    ACTLocationData('Mussel (Scuttleport - Fishing Next to First Magnet)', 'Scuttleport', 433), #3d0db077-a9de-4725-92ac-8c4cd24d3b73-2_C-Facilities
-    ACTLocationData('Limpet (Scuttleport - Platform Next to Electrical Boxes)', 'Scuttleport', 437), #416129a7-73dc-49db-884e-dd39081c159f-2_C-Facilities
-    ACTLocationData('Rubber Band (Scuttleport - Ledge Before Second Magnet Dropoff)', 'Scuttleport', 440), #37f09b48-7c2f-447e-9c87-5c29f6d0685f-2_C-Facilities
-    ACTLocationData('Limpet (Scuttleport - Path to Left After First Magnet)', 'Scuttleport', 441), #09cdcb1f-cb62-4a7c-a9a1-04aba76325c4-2_C-Facilities
-    ACTLocationData('Anemone+ (Scuttleport - Platform Under Second Magnet Dropoff)', 'Scuttleport', 443), #89d87d3d-1e06-4fd4-8def-17aff3474b11-2_C-Facilities
-    ACTLocationData('Lumpsucker (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport', 444), #5c2d7cbb-1040-4e43-9aee-fac430ece31d-2_C-Facilities
-    ACTLocationData('Sinker++ (Scuttleport - Clam Next to Stationary Magnet)', 'Scuttleport', 451), #4f0723b9-506c-4bcd-a86a-817c5394c800-2_C-Facilities
-    ACTLocationData("Seastar (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport', 455), #a503e8bd-3fb8-4b51-840b-927469510cdf-2_C-Facilities
-    ACTLocationData("Puffer Quill (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport', 456), #060c2ec3-888a-42ad-afd2-e33f45c409a9-2_C-Facilities
-    ACTLocationData("Turtle Shell Shard (Scuttleport - Side Platform After Survivor's Camp Magnet)", 'Scuttleport', 458), #dc30d0d1-3ea2-4b93-9871-2169630e22ef-2_C-Facilities
-    ACTLocationData('Rusty Nail+ (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport', 464), #f8e6d62e-3276-4643-a0f4-f403be5c6fbb-2_C-Facilities
-    ACTLocationData('Barnacle+ (Scuttleport - Rooftop Past Propane Tank Bridge)', 'Scuttleport', 479), #30faa811-16e1-433a-977c-d18e5352e0f9-2_C-Facilities
-    ACTLocationData('Salp (Scuttleport - Rooftop Past Propane Tank Bridge)', 'Scuttleport', 480), #7fe50500-c6e8-4846-a313-b44f426fb6a3-2_C-Facilities
-    ACTLocationData('Mussel+ (Scuttleport - Outside Voltai Arena)', 'Scuttleport', 482), #5d4e293b-0bc2-489d-8965-f7caba1c762c-2_C-Facilities
+    ACTLocationData('Googly Eye (Scuttleport - Top of Cubbies in First Room)', 'Scuttleport - Entrance', 427), #5736e238-67d5-4215-823d-a0c3b3d60b2a-2_A-HighSwamp
+    ACTLocationData('Seastar (Scuttleport - Top of Cubbies in First Room)', 'Scuttleport - Entrance', 428), #69c1d4c5-c467-4127-a12a-6277376c47f0-2_A-HighSwamp
+    ACTLocationData('Sand Dollar (Scuttleport - Path to First Magnet)', 'Scuttleport - Entrance', 432), #bfa268ed-5df9-410b-a71e-fc8f0f711655-2_C-Facilities
+    ACTLocationData('Mussel (Scuttleport - Fishing Next to First Magnet)', 'Scuttleport - Entrance', 433), #3d0db077-a9de-4725-92ac-8c4cd24d3b73-2_C-Facilities
+    ACTLocationData('Limpet (Scuttleport - Platform Next to Electrical Boxes)', 'Scuttleport - Towers 1 and 2', 437), #416129a7-73dc-49db-884e-dd39081c159f-2_C-Facilities
+    ACTLocationData('Rubber Band (Scuttleport - Ledge Before Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 440), #37f09b48-7c2f-447e-9c87-5c29f6d0685f-2_C-Facilities
+    ACTLocationData('Limpet (Scuttleport - Path to Left After First Magnet)', 'Scuttleport - Towers 1 and 2', 441), #09cdcb1f-cb62-4a7c-a9a1-04aba76325c4-2_C-Facilities
+    ACTLocationData('Anemone+ (Scuttleport - Platform Under Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 443), #89d87d3d-1e06-4fd4-8def-17aff3474b11-2_C-Facilities
+    ACTLocationData('Lumpsucker (Scuttleport - Trash Island Under Second Magnet Dropoff)', 'Scuttleport - Towers 1 and 2', 444), #5c2d7cbb-1040-4e43-9aee-fac430ece31d-2_C-Facilities
+    ACTLocationData('Sinker++ (Scuttleport - Clam Next to Stationary Magnet)', 'Scuttleport - Towers 3 and 4', 451), #4f0723b9-506c-4bcd-a86a-817c5394c800-2_C-Facilities
+    ACTLocationData("Seastar (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport - Towers 3 and 4', 455), #a503e8bd-3fb8-4b51-840b-927469510cdf-2_C-Facilities
+    ACTLocationData("Puffer Quill (Scuttleport - Inside Survivor's Camp Building)", 'Scuttleport - Towers 3 and 4', 456), #060c2ec3-888a-42ad-afd2-e33f45c409a9-2_C-Facilities
+    ACTLocationData("Turtle Shell Shard (Scuttleport - Side Platform After Survivor's Camp Magnet)", 'Scuttleport - Towers 3 and 4', 458), #dc30d0d1-3ea2-4b93-9871-2169630e22ef-2_C-Facilities
+    ACTLocationData('Rusty Nail+ (Scuttleport - Mag-Rail Platform Building Rooftop)', 'Scuttleport - Towers 3 and 4', 464), #f8e6d62e-3276-4643-a0f4-f403be5c6fbb-2_C-Facilities
+    ACTLocationData('Barnacle+ (Scuttleport - Rooftop Past Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 479), #30faa811-16e1-433a-977c-d18e5352e0f9-2_C-Facilities
+    ACTLocationData('Salp (Scuttleport - Rooftop Past Propane Tank Bridge)', 'Scuttleport - Towers 3 and 4', 480), #7fe50500-c6e8-4846-a313-b44f426fb6a3-2_C-Facilities
+    ACTLocationData('Mussel+ (Scuttleport - Outside Voltai Arena)', 'Scuttleport - Voltai Arena', 482), #5d4e293b-0bc2-489d-8965-f7caba1c762c-2_C-Facilities
 
     ACTLocationData('Barnacle (Pinbarge)', 'Pinbarge', 484), #98b0e1e4-2548-4b28-948d-b3a05147286a-2_A-PinBargeRunup
     ACTLocationData('Mussel+ (Pinbarge)', 'Pinbarge', 487), #29dab0bb-a195-47d3-b553-ebc5a4f03154-2_A-PinBargeRunup
@@ -703,7 +703,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Sunlight Costume (Secluded Ridge - Southern Bonfire)', 'Secluded Ridge', 198), #35aa72f2-fa50-4efc-b600-b597382ed877-2_A-OOGroveRadius
     ACTLocationData('Intern Costume (Expired Grove Village - Intern Costume)', 'Expired Grove - Village', 296), #57a328a3-94f4-406c-90de-bdcd1be7d69b-2_C-Village
     ACTLocationData('CowFishBoy Costume (Flotsam Vale - Butane Tank Island East of Main Entrance)', 'Flotsam Vale', 348), #b1f8794b-d43d-41b9-827a-75bb4c7a57bf-NickGym
-    ACTLocationData('Blue-Collar Costume (Scuttleport - Cubby in First Room)', 'Scuttleport', 430), #f37cb96e-df05-4aed-b2b5-7d8d5af32483-NickGym
+    ACTLocationData('Blue-Collar Costume (Scuttleport - Cubby in First Room)', 'Scuttleport - Entrance', 430), #f37cb96e-df05-4aed-b2b5-7d8d5af32483-NickGym
     ACTLocationData('Krillionaire Costume (The Unfathom - Next to Nemma)', 'The Unfathom', 490), #c762c7f8-33b6-4701-9f4c-7ad7938a5d11-2_B-DarkCanyon
     ACTLocationData('Exiled Flame Costume (The Unfathom - Path North of Blue Glowstick)', 'The Unfathom', 507), #1b7cb531-3a0a-4957-ab59-da5c9f1da705-2_B-DarkCanyon
     ACTLocationData('Dr. Kril Costume (The Old Ocean - Between Pill Bottles)', 'The Old Ocean', 551), #ecc223b8-902c-4d66-b01b-24728ccb7d4e-2_A-BleachedCopse
@@ -784,7 +784,7 @@ shell_locations_data: List[ACTLocationData] = [
     ACTLocationData("Cardboard Box", "Flotsam Vale", None),
     ACTLocationData("Tissue Box", "Flotsam Vale", None),
     ACTLocationData("Valve", "The Sands Between", None),
-    ACTLocationData("Dumptruck", "Scuttleport", None),
+    ACTLocationData("Dumptruck", "Scuttleport - Towers 3 and 4", None),
     ACTLocationData("Ink Cartridge", "Shell - Ink Cartridge", None),
     ACTLocationData("Gacha Capsule", "Pinbarge", None),
     ACTLocationData("Lightbulb", "The Unfathom", None),

@@ -49,8 +49,14 @@ def is_secluded_ridge_accessible(options: ACTGameOptions, state: CollectionState
 def is_secluded_ridge_eel_accessible(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has("Eelectrocute", player) or can_CAL(options, state, player)
     
-def can_access_scuttleport(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+def can_access_scuttleport_vanilla(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
     return state.has("Plug Fuse", player)
+
+def can_traverse_scuttleport_vanilla(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return state.has_all({"Plug Fuse", "Fishing Line"}, player) and has_metal_shell(state, player)
+
+def can_access_scuttleport_glitches(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
+    return can_shell_clip(options, state, player) and can_razor_CAL(options, state, player)
     
 def has_all_maps(state: CollectionState, player: int) -> bool:
     return state.has_all({"Map Piece - Flotsam Vale", "Map Piece - Heikea", "Map Piece - Pagurus"}, player)
@@ -97,7 +103,7 @@ def can_shell_clip(options: ACTGameOptions, state: CollectionState, player: int)
     
 #Bombs Away or Decoy
 def can_boost_jump(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
-    return (can_bombs_away(state, player) or can_decoy(state, player)) and are_skips_allowed(options)
+    return (can_bombs_away(state, player) or can_decoy(state, player) or state.has("Matryoshka Large",player)) and are_skips_allowed(options)
 
 #Bombs Away or Matrioshka
 def can_big_boost_jump(options: ACTGameOptions, state: CollectionState, player: int) -> bool:
@@ -113,10 +119,10 @@ def are_glitches_allowed(options: ACTGameOptions) -> bool:
 
 ### Checks to see if the player can logically consistently deal damage
 def can_deal_damage_hard(state: CollectionState,player:int) -> bool:
-    return can_rolling_attack(state,player) | can_magic_damage(state,player) | can_atk_damage_shell(state,player) | has_summon(state,player)  | state.has("Fork",player)
+    return can_rolling_attack(state,player) or can_deal_damage_easy(state,player)
 
 def can_deal_damage_easy(state: CollectionState,player:int) -> bool:
-    return can_magic_damage(state,player) | can_atk_damage_shell(state,player) | state.has("Fork",player)
+    return can_magic_damage(state,player) or can_atk_damage_shell(state,player) or state.has("Fork",player)
 
 def can_rolling_attack(state: CollectionState, player: int) -> bool:
     return can_reach_rolling_shells(state,player) and (state.count("Lil' Isopod",player) >= 2)
@@ -217,3 +223,8 @@ def can_squash(state: CollectionState, player: int) -> bool:
 def can_twinkle(state: CollectionState, player: int) -> bool:
     twinkle_shells = ["Disco Ball"]
     return state.has_any(twinkle_shells,player) #| state.has("Snail Sanctum",player)
+
+#Metal shells for use in Scuttleport magnet lifts
+def has_metal_shell(state: CollectionState, player: int) -> bool:
+    metal_shells = ["Valve","Spring","Shotgun Shell","Service Bell","Soda Can","Plug Fuse","Knight's Helmet","Ham Tin","Thimble","Tin Can","Trophy"]
+    return state.has_any(metal_shells,player)

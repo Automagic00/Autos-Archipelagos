@@ -23,7 +23,7 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: logic.is_moonsnail_accessible(options, state, player)
 
   multiworld.get_entrance("Moon Snail's Cave -> Moon Snail Skills", player).access_rule = \
-    lambda state: logic.is_reefs_edge_accessible_vanilla(state, player) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
+    lambda state: (logic.is_reefs_edge_accessible_vanilla(state, player) and logic.has("Fork", player)) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
 
   multiworld.register_indirect_condition(
     multiworld.get_region("Fort Slacktide - After Destruction", player),
@@ -52,7 +52,7 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: (options.goal == "magista") or logic.is_secluded_ridge_eel_accessible(options, state, player)
     
   multiworld.get_entrance("The Sands Between -> Trashbin Plateau", player).access_rule = \
-    lambda state: (options.goal == "magista") or state.has("Mantis Punch", player)
+    lambda state: (options.goal == "magista") or (state.has("Mantis Punch", player) and logic.has_metal_shell(state, player))
     
   multiworld.get_entrance("The Sands Between -> Southern Town Ridge", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_southern_town_ridge_accessible(options, state, player)
@@ -69,13 +69,28 @@ def set_region_rules(world: "ACTWorld") -> None:
   multiworld.get_entrance("Flotsam Vale -> Flotsam Vale - Consortium Arena", player).access_rule = \
     lambda state: (options.goal == "magista") or logic.is_consortium_accessible_vale(options, state, player)
     
-  multiworld.get_entrance("Flotsam Vale -> Scuttleport",player).access_rule = \
-    lambda state: (options.goal == "magista") or logic.can_access_scuttleport(options, state, player)
-    
+  multiworld.get_entrance("Flotsam Vale -> Scuttleport - Entrance",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_access_scuttleport_vanilla(options, state, player)
+
+  multiworld.get_entrance("Scuttleport - Entrance -> Scuttleport - Towers 1 and 2",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_traverse_scuttleport_vanilla(options, state, player)
+
+  multiworld.get_entrance("Scuttleport - Towers 1 and 2 -> Scuttleport - Towers 3 and 4",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_traverse_scuttleport_vanilla(options, state, player) or logic.can_boost_jump(options, state, player)
+
+  multiworld.get_entrance("Scuttleport - Towers 3 and 4 -> Scuttleport - Voltai Arena",player).access_rule = \
+    lambda state: (options.goal == "magista") or (logic.can_access_scuttleport_vanilla(options,state,player) and logic.has_metal_shell(state,player))
+
+  multiworld.get_entrance("Flotsam Vale - Consortium Arena -> Scuttleport - Voltai Arena",player).access_rule = \
+    lambda state: (options.goal == "magista") or logic.can_access_scuttleport_glitches(options,state,player)
+
+  multiworld.get_entrance("Flotsam Vale - Consortium Arena -> Scuttleport - Towers 1 and 2",player).access_rule = \
+    lambda state: (options.goal == "magista") or (logic.can_access_scuttleport_glitches(options,state,player) and state.has("Fishing Line",player))
+
   multiworld.get_entrance("Flotsam Vale -> Shell - Plug Fuse",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) 
     
-  multiworld.get_entrance("Scuttleport -> Shell - Plug Fuse",player).access_rule = \
+  multiworld.get_entrance("Scuttleport - Entrance -> Shell - Plug Fuse",player).access_rule = \
     lambda state: (options.goal == "magista") or logic.has_all_maps(state,player) 
     
   multiworld.get_entrance("Flotsam Vale -> Pinbarge", player).access_rule = \
@@ -791,6 +806,9 @@ def set_location_rules(world: "ACTWorld") -> None:
                 lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
         
         # ---- Scuttleport ----
+
+        set_rule(multiworld.get_location('Barbed Hook (Scuttleport - Platform Next to First Magnet)', player),
+                lambda state: logic.can_CAL(options, state, player) or logic.has_metal_shell(state, player))
 
         # grapple + eelectrocute (will add metal shell later)
         set_rule(multiworld.get_location("Old World Whorl (Scuttleport - Eelectrocute Room in Survivor's Camp Building)", player),
