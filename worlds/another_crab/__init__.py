@@ -419,7 +419,7 @@ class ACTWorld(World):
             "shell_rando": shell_rando,
             "ngplus_bosses": bool(self.options.ngplus_bosses.value),
             "ngplus_slots": bool(self.options.ngplus_slots.value),
-            "version_number": "0.5.4"
+            "version_number": "0.6.0"
         }
 
         return slot_data
