@@ -23,7 +23,7 @@ def set_region_rules(world: "ACTWorld") -> None:
     lambda state: logic.is_moonsnail_accessible(options, state, player)
 
   multiworld.get_entrance("Moon Snail's Cave -> Moon Snail Skills", player).access_rule = \
-    lambda state: (logic.is_reefs_edge_accessible_vanilla(state, player) and logic.has("Fork", player)) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
+    lambda state: (logic.is_reefs_edge_accessible_vanilla(state, player) and state.has("Fork", player)) or (logic.can_magista_skip(options, state, player) and options.goal != "magista")
 
   multiworld.register_indirect_condition(
     multiworld.get_region("Fort Slacktide - After Destruction", player),
