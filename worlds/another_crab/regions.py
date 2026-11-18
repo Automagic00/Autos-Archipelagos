@@ -98,6 +98,7 @@ ACT_regions: Dict[str, Set[str]] = {
     "Scuttleport - Towers 3 and 4": {
         "Scuttleport - Voltai Arena"
     },
+    "Scuttleport - Voltai Arena": set(),
     "Pinbarge": {
         "The Unfathom",
         "Shell - Ink Cartridge",
