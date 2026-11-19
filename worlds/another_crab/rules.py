@@ -342,7 +342,7 @@ def set_location_rules(world: "ACTWorld") -> None:
   set_rule(multiworld.get_location("Chipclaw (Central Shallows - Southwest Sandcastle)", player),
             lambda state: state.has("Fishing Line", player))
     
-  set_rule(multiworld.get_location("Bloodstar Limb (Central Shallow - Southwest Sandcastle Clam)", player),
+  set_rule(multiworld.get_location("Bloodstar Limb (Central Shallows - Southwest Sandcastle Clam)", player),
             lambda state: state.has("Fishing Line", player))
     
   set_rule(multiworld.get_location("Another Crab (Central Shallows - Tall Pillar Near Royal Shellsplitter)", player),
@@ -367,7 +367,7 @@ def set_location_rules(world: "ACTWorld") -> None:
   set_rule(multiworld.get_location("Razor Blade (Central Shallows - Fishing South West of Slacktide Near Bottles)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
     
-  set_rule(multiworld.get_location("Anemone [Stowaway] (Central Shallow - Fishing West of Umbrella)", player),
+  set_rule(multiworld.get_location("Anemone (Central Shallows - Fishing West of Umbrella)", player),
             lambda state: state.has_all({"Spearfishing", "Fishing Line"}, player))
 
 # ---- Fort Slacktide ----
@@ -596,7 +596,7 @@ def set_location_rules(world: "ACTWorld") -> None:
         set_rule(multiworld.get_location("Clothesclaw (Secluded Ridge - Fishing on Ridge Overlook)", player),
                 lambda state: state.has("Spearfishing", player))
         
-        set_rule(multiworld.get_location("Chipclaw [Currency] (Fishing South of Ridge Overlook)", player),
+        set_rule(multiworld.get_location("Chipclaw (Fishing South of Ridge Overlook)", player),
                 lambda state: state.has("Spearfishing", player))
           
         set_rule(multiworld.get_location("Cockle (Secluded Ridge - Fishing on Eelectrocute Path)", player),

@@ -146,7 +146,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Clothesclaw (Secluded Ridge - Near Broom)', 'Secluded Ridge', 195), #3f8d4c85-202f-42dc-9105-434d601d1d75-2_A-OOGroveRadius
     ACTLocationData('Breadclaw (Secluded Ridge - Southern Path)', 'Secluded Ridge', 197), #d1883b57-b339-4c31-826a-e76a3de0ee4b-2_A-OOGroveRadius
     ACTLocationData('Clothesclaw (Secluded Ridge - Fishing on Ridge Overlook)', 'Secluded Ridge', 206), #4f737f9e-a952-490c-b54d-1f74735af9cc-2_A-OOGroveRadius
-    ACTLocationData('Chipclaw [Currency] (Fishing South of Ridge Overlook)', 'Secluded Ridge', 207), #82043889-30eb-45f4-8f87-45dd2f5d69ed-2_A-OOGroveRadius
+    ACTLocationData('Chipclaw (Fishing South of Ridge Overlook)', 'Secluded Ridge', 207), #82043889-30eb-45f4-8f87-45dd2f5d69ed-2_A-OOGroveRadius
 
     ACTLocationData('Stapleclaw (Trashbin Plateau - Eelectrocute Grapple Path Fishing)', 'Trashbin Plateau', 209), #190034bb-c13e-42ec-bac4-037cc828fde3-2_A-OOGroveRadius
 
@@ -320,7 +320,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Bloodstar Limb (Central Shallows - Help a Crab)', 'Central Shallows', 24), 
     ACTLocationData('Bloodstar Limb (Central Shallows - Parkour on Small Islands)', 'Central Shallows', 25),#ff9d47b6-7f55-4ad2-a110-e7c4492d87c1-2_B-ShallowsBigSand
     ACTLocationData('Bloodstar Limb (Central Shallows - Ledge Near Red Flip-Flop Bridge)', 'Central Shallows', 26),#32fb25ee-9262-4e87-98f9-2e64d369e7ae-2_B-ShallowsBigSand
-    ACTLocationData('Bloodstar Limb (Central Shallow - Southwest Sandcastle Clam)', 'Central Shallows', 27), #0474f3a7-0eb7-4d3c-b61e-cbb782ceab03-2_B-ShallowsBigSand
+    ACTLocationData('Bloodstar Limb (Central Shallows - Southwest Sandcastle Clam)', 'Central Shallows', 27), #0474f3a7-0eb7-4d3c-b61e-cbb782ceab03-2_B-ShallowsBigSand
 
     ACTLocationData("Heartkelp Sprout (Moon Snail's Cave - Moon Jelly Elevators)", "Moon Snail's Cave", 28), #15a2e4c0-4950-4de0-8b5c-e2b1400f76c1-2_D-MoonSnailShellCave
     ACTLocationData("Bloodstar Limb (Moon Snail's Cave - Just Before Platoon Pathfinder)", "Moon Snail's Cave", 29), #00fc94c3-320c-4d0a-a4e0-2b5eccd42d55-2_D-MoonSnailShellCave
@@ -528,7 +528,7 @@ locations_data: List[ACTLocationData] = [
     ACTLocationData('Mussel (Central Shallows - Dig Spot Near Southwest Sandcastle)', 'Central Shallows', 125), #41a6780e-55a2-4a0a-96a9-bb279a3b1ec3-2_B-ShallowsBigSand
     ACTLocationData('Anemone (Central Shallows - Hidden Fishing on South-Eastern Wall of Castle on South-Western Plateau)', 'Central Shallows', 127), #daaa6ab6-8aac-4713-942f-f322e918dd55-2_B-ShallowsBigSand
     ACTLocationData('Razor Blade (Central Shallows - Fishing South West of Slacktide Near Bottles)', 'Central Shallows', 128), #728b3da1-5b4b-4a7f-885c-b5ed9abfadbc-2_B-ShallowsBigSand
-    ACTLocationData('Anemone [Stowaway] (Central Shallow - Fishing West of Umbrella)', 'Central Shallows', 129), #b29c140a-08c2-44c6-81c3-5f91e5621e47-2_B-ShallowsBigSand
+    ACTLocationData('Anemone (Central Shallows - Fishing West of Umbrella)', 'Central Shallows', 129), #b29c140a-08c2-44c6-81c3-5f91e5621e47-2_B-ShallowsBigSand
 
     ACTLocationData('Seastar (Slacktide - Top of Fishing Line Room)', 'Fort Slacktide - Before Destruction', 37), #35603032-802e-4811-ae95-8e8eb11c1dfa-2_B-ShallowsBigSand
     ACTLocationData('Barnacle (Slacktide - After Big Urchin Spiral Staircase)', 'Fort Slacktide - Before Destruction', 38), #98329dde-9889-4cbb-a656-61f83dca2eca-2_B-ShallowsBigSand
